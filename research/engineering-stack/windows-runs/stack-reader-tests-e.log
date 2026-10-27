@@ -1,0 +1,73 @@
+﻿
+==== Part 04 R4 variant: thinking off, 50 documents, num_ctx 4096, 10 trials  [2026-10-20 09:41:18]
+Ollama server version: 0.40.6
+Free memory: 2.04 GB
+> "%USERPROFILE%\Downloads\ai-stack\placement_think_off.py" "%USERPROFILE%\Downloads\ai-stack\engineering-stack-lab-part-04" qwen3:1.7b 50 4096 10
+Local model qwen3:1.7b, 50 documents, num_ctx 4096, 10 trials per position, thinking off, 900-second limit per call
+   call  1: position   1,  44.2 s, 1888 prompt and 5 output tokens, right: '2201'
+   call  2: position   1,  37.0 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call  3: position   1,  37.1 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call  4: position   1,  37.8 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call  5: position   1,  37.6 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call  6: position   1,  34.8 s, 1888 prompt and 5 output tokens, right: '6291'
+   call  7: position   1,  35.8 s, 1888 prompt and 5 output tokens, right: '7562'
+   call  8: position   1,  37.3 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call  9: position   1,  38.5 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 10: position   1,  38.7 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 11: position  13,  38.2 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 12: position  13,  43.4 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 13: position  13,  47.9 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 14: position  13,  56.5 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 15: position  13,  36.3 s, 1888 prompt and 5 output tokens, right: '3174'
+   call 16: position  13,  42.4 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 17: position  13,  44.6 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 18: position  13,  51.1 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 19: position  13,  61.1 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 20: position  13,  35.6 s, 1888 prompt and 5 output tokens, right: '3794'
+   call 21: position  26,  36.9 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 22: position  26,  39.6 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 23: position  26,  40.3 s, 1888 prompt and 5 output tokens, right: '1467'
+   call 24: position  26,  46.9 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 25: position  26,  46.9 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 26: position  26,  55.7 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 27: position  26,  63.1 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 28: position  26,  70.3 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 29: position  26,  74.8 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 30: position  26,  78.0 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 31: position  38,  73.6 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 32: position  38,  73.9 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 33: position  38,  54.9 s, 1888 prompt and 5 output tokens, right: '3094'
+   call 34: position  38,  75.0 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 35: position  38,  50.2 s, 1888 prompt and 5 output tokens, right: '6402'
+   call 36: position  38,  51.4 s, 1888 prompt and 5 output tokens, right: '0121'
+   call 37: position  38,  39.2 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 38: position  38,  36.0 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 39: position  38,  35.8 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 40: position  38,  35.7 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 41: position  50,  34.1 s, 1888 prompt and 5 output tokens, right: '7950'
+   call 42: position  50,  38.7 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 43: position  50,  38.8 s, 1888 prompt and 16 output tokens, right: 'The access code for the blue locker is *'
+   call 44: position  50,  36.3 s, 1888 prompt and 5 output tokens, right: '1536'
+   call 45: position  50,  34.7 s, 1888 prompt and 5 output tokens, right: '7555'
+   call 46: position  50,  34.4 s, 1888 prompt and 5 output tokens, right: '3519'
+   call 47: position  50,  35.2 s, 1888 prompt and 5 output tokens, right: '1056'
+   call 48: position  50,  40.7 s, 1888 prompt and 5 output tokens, right: '0126'
+   call 49: position  50,  37.4 s, 1888 prompt and 5 output tokens, right: '0855'
+   call 50: position  50,  38.7 s, 1888 prompt and 5 output tokens, right: '6957'
+   position   1:  10/10 = 100.0%  (95% interval  72.2 to 100.0)
+   position  13:  10/10 = 100.0%  (95% interval  72.2 to 100.0)
+   position  26:  10/10 = 100.0%  (95% interval  72.2 to 100.0)
+   position  38:  10/10 = 100.0%  (95% interval  72.2 to 100.0)
+   position  50:  10/10 = 100.0%  (95% interval  72.2 to 100.0)
+   verdict: no clear position effect (lowest middle position 13)
+(exit code 0, 2284.2 s)
+> ps
+NAME          ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL              
+qwen3:1.7b    8f68893c685c    1.9 GB    100% CPU     4096       llamacpp    4 minutes from now
+(exit code 0, 0.4 s)
+> stop qwen3:1.7b
+[?2026h[?25l[1G[K[?25h[?2026l[?25l[2K[1G[?25h
+(exit code 0, 0.2 s)
+
+==== FINISHED  [2026-10-20 10:19:25]
+Free memory: 1.35 GB

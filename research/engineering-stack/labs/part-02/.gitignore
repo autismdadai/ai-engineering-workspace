@@ -1,0 +1,9 @@
+# Local environments and caches: recreate them instead of committing them
+.venv*/
+__pycache__/
+.pytest_cache/
+promptfoo/node_modules/
+promptfoo/results.json
+# Secrets, if you ever add any
+.env
+.env.*

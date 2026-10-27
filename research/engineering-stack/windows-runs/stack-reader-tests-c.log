@@ -1,0 +1,49 @@
+﻿
+==== Part 04: the tiktoken counts  [2026-10-20 08:57:58]
+> optional_tiktoken_check.py
+plain English     176 chars  o200k_base  32 tokens  (5.50 chars per token)  estimate  44
+Python code        92 chars  o200k_base  25 tokens  (3.68 chars per token)  estimate  23
+numbers and IDs    64 chars  o200k_base  30 tokens  (2.13 chars per token)  estimate  16
+PASS  tiktoken counted every sample
+(exit code 0, 2.3 s)
+
+==== Part 10: where spaCy put en_core_web_lg  [2026-10-20 08:58:00]
+> -m pip show en_core_web_lg
+Name: en_core_web_lg
+Version: 3.8.0
+Summary: English pipeline optimized for CPU. Components: tok2vec, tagger, parser, senter, ner, attribute_ruler, lemmatizer.
+Home-page: https://explosion.ai
+Author: Explosion
+Author-email: [email removed]
+License: MIT
+Location: %USERPROFILE%\Downloads\ai-stack\engineering-stack-lab-part-10\.venv\Lib\site-packages
+Requires: 
+Required-by:
+(exit code 0, 2.3 s)
+
+==== What the reader tests left outside the lab folders  [2026-10-20 08:58:03]
+%USERPROFILE%\.cache\huggingface\hub: 434.7 MB in all
+  .locks\  0 MB
+  blobs\  429.9 MB
+  models--cross-encoder--ms-marco-MiniLM-L6-v2\  0.9 MB
+  models--HuggingFaceTB--SmolLM2-135M-Instruct\  3.2 MB
+  models--sentence-transformers--all-MiniLM-L6-v2\  0.7 MB
+  CACHEDIR.TAG  0.2 KB
+%USERPROFILE%\.cache\huggingface: 434.8 MB in all
+  hub\  434.7 MB
+  xet\  0.1 MB
+%USERPROFILE%\.local\share\garak: 1.7 MB in all
+  garak_runs\  1.7 MB
+  garak.log  7 KB
+%USERPROFILE%\.config\garak: 0 MB in all
+%USERPROFILE%\.cache\garak: 0.3 MB in all
+  data\  0 MB
+  resources\  0.3 MB
+%USERPROFILE%\AppData\Local\garak: not there
+%USERPROFILE%\.tiktoken: not there
+TIKTOKEN_CACHE_DIR=; DATA_GYM_CACHE_DIR=; TEMP=%USERPROFILE%\AppData\Local\Temp
+%USERPROFILE%\AppData\Local\Temp\data-gym-cache: 3.4 MB in all
+  fb374d419588a4632f3f557e76b4b70aebbca790  3529.2 KB
+
+==== FINISHED  [2026-10-20 08:58:03]
+Free disk on C: 117.3 GB

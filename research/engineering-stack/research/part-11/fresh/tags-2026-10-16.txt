@@ -1,0 +1,42 @@
+== ollama/ollama
+v0.40.5
+v0.40.5-rc0
+v0.40.5-rc1
+v0.40.5-rc2
+== ggml-org/llama.cpp
+b11688
+b11690
+b11691
+v0.5.0
+v0.6.0
+v0.7.0
+== NVIDIA/TensorRT-LLM
+v1.3.0rc27
+v1.3.0rc28
+v1.3.0rc29
+v1.4.0rc0
+== vllm-project/vllm
+v0.31.1rc0
+v0.32.0rc0
+v0.32.0rc1
+v0.32.0rc2
+== sgl-project/sglang
+v0.5.19
+v0.5.20
+v0.5.21
+v0.5.22
+== ml-explore/mlx-lm
+v0.31.3
+v0.32.0
+v0.32.1
+v0.32.2
+== huggingface/text-generation-inference
+v3.3.4
+v3.3.5
+v3.3.6
+v3.3.7
+== InternLM/lmdeploy
+v0.15.0
+v0.16.0
+v0.17.0
+v0.18.0

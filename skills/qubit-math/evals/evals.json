@@ -1,0 +1,100 @@
+{
+  "skill": "qubit-math",
+  "skill_version": "1.0",
+  "eval_pack_version": "1.0",
+  "created": "2026-10-07",
+  "read_me": "README.md in this folder says how to run each part and what has been run.",
+  "description_under_test": "Works small quantum-state calculations with a numpy script and shows the numbers: builds one- to few-qubit states, applies gates (X, Y, Z, H, S, T, rotations, CNOT, CZ, SWAP), gives measurement probabilities and the state left after measuring, reduced density matrices with purity and entanglement entropy, overlaps in both fidelity conventions, and Pauli expectation values. Use when someone gives a specific state or circuit and asks what comes out. Do not use to run the six standard entanglement experiments (quantum-entanglement-lab does that), for real quantum hardware, for more than about 10 qubits, or for quantum field theory.",
+  "description_claude_app": "Works small qubit calculations with a script: gates, measurement odds, state after measuring, partial trace, entropy, fidelity, Pauli averages. Not for the lab's six tests or hardware.",
+  "triggers": {
+    "status": "First pass run 2026-10-08 in Claude Code 2.1.294 (claude plugin eval, claude-sonnet-5-5, long description, one run per request, no shell tool): 2 of 10 should-load requests loaded the skill, 10 of 10 should-not requests left it off. Not yet run: three runs per request, the Claude-app description, the Claude app. See claude/trigger-tests-2026-10-08.md.",
+    "should_trigger": [
+      "Two qubits are in (|00⟩ + |11⟩)/√2. What's the reduced state of qubit 1, and its entropy?",
+      "Start in |00⟩, apply H to qubit 0, then CNOT from 0 to 1. What do I get?",
+      "What are the X-basis probabilities for 0.6|0⟩ + 0.8|1⟩?",
+      "Compute ⟨Z⊗Z⟩ for (|01⟩ + |10⟩)/√2.",
+      "If I measure qubit 0 of a GHZ state and get 0, what's left?",
+      "What's the overlap between |0⟩ and |+⟩?",
+      "Is (|00⟩ + |01⟩)/√2 entangled? Check it.",
+      "Apply RY(π/3) to |0⟩ and give me the state and the Z probabilities.",
+      "What does a CZ gate do to |+⟩|+⟩?",
+      "Find the purity of qubit 0's reduced state for (|00⟩ + |11⟩)/√2."
+    ],
+    "should_not_trigger": [
+      {"request": "Run the entanglement lab and show all six tests.", "why": "quantum-entanglement-lab's job"},
+      {"request": "Is cos(a − b) = cos a cos b + sin a sin b?", "why": "trig-check's job"},
+      {"request": "Explain Shor's algorithm.", "why": "conceptual, no specific state to compute"},
+      {"request": "How do I calibrate a superconducting qubit?", "why": "hardware is excluded"},
+      {"request": "Derive the Dirac equation.", "why": "relativistic quantum mechanics, out of scope"},
+      {"request": "Simulate a 50-qubit random circuit.", "why": "far beyond the size limit"},
+      {"request": "What's the stock outlook for quantum computing companies?", "why": "unrelated task"},
+      {"request": "Write a sci-fi story about a quantum computer.", "why": "creative writing"},
+      {"request": "Find the energy levels of the hydrogen atom.", "why": "not a qubit calculation"},
+      {"request": "Teleport my files to my laptop.", "why": "keyword trap: teleport"}
+    ]
+  },
+  "script_checks": {
+    "status": "Run on 2026-10-07 (Python 3.13, numpy): 25 of 25 tests pass, and the mutation check behaved as expected in 15 of 15 runs.",
+    "command": "python evals/test_qubit_math.py, then python evals/mutation_check.py"
+  },
+  "end_to_end": [
+    {
+      "id": "q1-bell-reduced",
+      "prompt": "Two qubits are in (|00⟩ + |11⟩)/√2. What's the reduced density matrix of qubit 1, and its entanglement entropy?",
+      "observables": ["ρ = I/2, i.e. [[0.5, 0], [0, 0.5]].", "Entropy 1 bit."],
+      "must_include": ["(?i)(I\\s*/\\s*2|\\(1/2\\)\\s*I|0\\.5\\b|½|maximally mixed)", "(?i)(\\b(1|one)\\s*(bit|ebit)\\b|entropy\\s*(of|=|is)?\\s*1(\\.0+)?\\b)"],
+      "must_not_include": [],
+      "rubric": "Pass if the matrix is I/2 and the entropy is 1 bit.",
+      "known_good": "Qubit 1 on its own is maximally mixed: ρ = I/2 = [[0.5, 0], [0, 0.5]]. Its entanglement entropy is 1 bit.",
+      "known_bad": "Qubit 1 is in |0⟩ half the time, so its state is |+⟩ and the entropy is 0."
+    },
+    {
+      "id": "q2-bell-circuit",
+      "prompt": "Start in |00⟩, apply H to qubit 0, then CNOT with qubit 0 as control and qubit 1 as target. What's the final state, and what are the probabilities when you measure both qubits in Z?",
+      "observables": ["(|00⟩ + |11⟩)/√2, the Bell state φ+.", "00 and 11 each with probability 0.5; 01 and 10 never."],
+      "must_include": ["(\\|00⟩\\s*\\+\\s*\\|11⟩|\\|00>\\s*\\+\\s*\\|11>|φ\\s*\\+|(?i:phi)\\s*\\+)", "(0\\.5|50\\s*%|1/2|½)"],
+      "must_not_include": ["0\\.25"],
+      "rubric": "Pass if the state is φ+ and the only outcomes are 00 and 11 at 0.5 each.",
+      "known_good": "You get (|00⟩ + |11⟩)/√2, the Bell state |φ+⟩. Measuring both in Z gives 00 with probability 0.5 and 11 with probability 0.5; 01 and 10 never happen.",
+      "known_bad": "You get |+⟩|0⟩, so each of 00, 01, 10 and 11 has probability 0.25."
+    },
+    {
+      "id": "q3-x-basis-probabilities",
+      "prompt": "A qubit is in 0.6|0⟩ + 0.8|1⟩. What are the probabilities of + and − if you measure in the X basis?",
+      "observables": ["P(+) = 0.98, P(−) = 0.02."],
+      "must_include": ["0\\.98", "0\\.02"],
+      "must_not_include": [],
+      "rubric": "Pass if both probabilities are right.",
+      "known_good": "P(+) = |0.6 + 0.8|²/2 = 0.98 and P(−) = |0.6 − 0.8|²/2 = 0.02.",
+      "known_bad": "P(+) = 0.6 and P(−) = 0.8."
+    }
+  ],
+  "adversarial": [
+    {
+      "id": "qa1-product-not-entangled",
+      "prompt": "The entanglement entropy of |+⟩|+⟩ is 1 bit, because each qubit is in a superposition, right?",
+      "observables": ["Says no: it's a product state, so the entropy is 0. Superposition isn't entanglement."],
+      "must_include": ["(?i)\\b(no|not|isn['’]t|wrong)\\b", "(?i)(\\b0\\b|zero)", "(?i)product"],
+      "must_not_include": ["(?i)\\A\\W*(yes|right|correct)\\b"],
+      "rubric": "Pass if it corrects the premise and gives 0.",
+      "known_good": "No. |+⟩|+⟩ is a product state, so each qubit on its own is pure and the entanglement entropy is 0. Superposition isn't entanglement.",
+      "known_bad": "Yes, each qubit is in superposition, so the entropy is 1 bit."
+    },
+    {
+      "id": "qa2-fidelity-trap",
+      "prompt": "The fidelity between |0⟩ and |+⟩ is 0.707, so a measurement finds |+⟩ in state |0⟩ 70.7% of the time?",
+      "observables": ["Says no: 0.707 is |⟨0|+⟩|; the probability is its square, 0.5."],
+      "must_include": ["(0\\.5\\b|50\\s*%|1/2|½)", "0\\.707"],
+      "must_not_include": ["(?i)\\A\\W*(yes|right|correct)\\b"],
+      "rubric": "Pass if it separates the two conventions and gives 50%.",
+      "known_good": "No. 0.707 is |⟨0|+⟩|, the square-root convention. The probability is its square, |⟨0|+⟩|² = 0.5, so it's 50%.",
+      "known_bad": "Yes, 70.7% of the time."
+    }
+  ],
+  "with_and_without": {
+    "status": "Not run yet. Each helper run cost about 100,000 tokens in the October 2026 lab test.",
+    "runs_per_task": 3,
+    "tasks": ["q1-bell-reduced", "q2-bell-circuit", "q3-x-basis-probabilities", "qa1-product-not-entangled", "qa2-fidelity-trap"],
+    "decision_rule": "Keep the skill if it wins on at least one task and loses on none. Report pass counts with the number of runs."
+  }
+}

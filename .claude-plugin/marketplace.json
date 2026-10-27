@@ -1,0 +1,14 @@
+{
+  "name": "ai-workspace",
+  "description": "Aaron's plugins, kept in this workspace",
+  "owner": {
+    "name": "Aaron"
+  },
+  "plugins": [
+    {
+      "name": "planetary-council-system",
+      "source": "./plugins/planetary-council",
+      "description": "The Planetary Council: the Sun (orchestrator), nine planet specialists and Planet X, an independent fact-checker"
+    }
+  ]
+}

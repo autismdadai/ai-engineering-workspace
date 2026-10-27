@@ -1,0 +1,12 @@
+# Secrets: never commit these
+.env
+.env.*
+!.env.example
+
+# Virtual environments (.venv, and test ones such as .venv-break)
+.venv*/
+venv/
+
+# Python caches
+__pycache__/
+*.pyc

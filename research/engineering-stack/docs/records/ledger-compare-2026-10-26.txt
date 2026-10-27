@@ -1,0 +1,86 @@
+Ledger Section 2 rows: 40; PyPI rows: 40
+In the ledger only: none
+In the PyPI output only: none
+
+version: 19 differ
+released: 19 differ
+licence: 1 differ
+python: 3 differ
+packages with any difference: 19 of 40
+
+vllm
+    version: '0.31.0' -> '0.32.0'
+    released: '2026-10-05' -> '2026-10-18'
+    python: '<3.15,>=3.10' -> '<3.15,>=3.11'
+dspy
+    version: '3.4.0' -> '3.4.1'
+    released: '2026-09-25' -> '2026-10-12'
+    python: '<3.15,>=3.10' -> '<3.16,>=3.10'
+langchain
+    version: '1.4.5' -> '1.4.7'
+    released: '2026-10-12' -> '2026-10-21'
+langgraph
+    version: '1.2.14' -> '1.2.17'
+    released: '2026-10-06' -> '2026-10-24'
+crewai
+    version: '1.15.27' -> '1.15.30'
+    released: '2026-10-09' -> '2026-10-24'
+agent-framework
+    version: '1.21.0' -> '1.23.0'
+    released: '2026-10-08' -> '2026-10-22'
+openai-agents
+    version: '0.23.1' -> '0.24.0'
+    released: '2026-10-02' -> '2026-10-15'
+deepeval
+    version: '4.2.8' -> '4.3.1'
+    released: '2026-10-02' -> '2026-10-16'
+arize-phoenix
+    version: '20.23.0' -> '20.26.1'
+    released: '2026-10-20' -> '2026-10-25'
+qdrant-client
+    version: '1.19.1' -> '1.20.0'
+    released: '2026-09-16' -> '2026-10-22'
+pinecone
+    version: '10.0.0' -> '10.2.0'
+    released: '2026-09-03' -> '2026-10-23'
+garak
+    version: '0.17.0' -> '0.17.1'
+    released: '2026-09-09' -> '2026-10-16'
+presidio-analyzer
+    version: '2.2.364' -> '2.2.365'
+    released: '2026-07-22' -> '2026-10-25'
+fastapi
+    version: '0.156.1' -> '0.162.0'
+    released: '2026-10-20' -> '2026-10-23'
+sse-starlette
+    version: '3.5.0' -> '3.6.0'
+    released: '2026-09-28' -> '2026-10-25'
+    python: '>=3.10' -> '>=3.11'
+openai
+    version: '3.29.0' -> '3.37.0'
+    released: '2026-10-11' -> '2026-10-22'
+anthropic
+    version: '1.14.0' -> '2.3.0'
+    released: '2026-10-14' -> '2026-10-23'
+    licence: 'MIT' -> 'Apache-2.0'
+sentence-transformers
+    version: '6.1.0' -> '6.2.0'
+    released: '2026-09-18' -> '2026-10-21'
+transformers
+    version: '5.20.0' -> '5.20.2'
+    released: '2026-10-15' -> '2026-10-19'
+
+Python versions accepted by all packages (ledger):
+    3.10: excluded by sglang, arize-phoenix, graphrag, garak
+    3.11: all accept
+    3.12: all accept
+    3.13: all accept
+    3.14: excluded by crewai, graphrag, nemoguardrails
+    3.15: excluded by vllm, dspy, crewai, arize-phoenix, neo4j-graphrag, graphrag, nemoguardrails, presidio-analyzer, apache-airflow
+Python versions accepted by all packages (PyPI Oct 26):
+    3.10: excluded by vllm, sglang, arize-phoenix, graphrag, garak, sse-starlette
+    3.11: all accept
+    3.12: all accept
+    3.13: all accept
+    3.14: excluded by crewai, graphrag, nemoguardrails
+    3.15: excluded by vllm, crewai, arize-phoenix, neo4j-graphrag, graphrag, nemoguardrails, presidio-analyzer, apache-airflow

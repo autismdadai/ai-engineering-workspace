@@ -1,0 +1,17 @@
+flowchart TD
+    A[Load the thread's checkpoint] --> B{Status}
+    B -->|done| Z[Return it]
+    B -->|paused| C{Answer given?}
+    C -->|no| X[Refuse: pass resume=]
+    C -->|yes| D[Add the answer to the step's answers]
+    B -->|running| E
+    D --> E{Step limit reached?}
+    E -->|yes| Y[Stop with an error]
+    E -->|no| F[Run the current step from its start]
+    F -->|asks a person| P[Save: paused, with what to decide] --> Q[Return; wait hours or days]
+    F -->|transient error| R[Wait with full jitter; retry or give up]
+    R --> F
+    F -->|done| S[Save a checkpoint: new state, next step]
+    S --> G{Next step is END?}
+    G -->|yes| H[Save: done]
+    G -->|no| E

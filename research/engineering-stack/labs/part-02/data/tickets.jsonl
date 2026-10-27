@@ -1,0 +1,60 @@
+{"id": "t01", "text": "I was charged twice for my March subscription. Please refund one of the payments.", "label": "billing"}
+{"id": "t02", "text": "The editor crashes every time I paste a table.", "label": "technical"}
+{"id": "t03", "text": "I forgot my password and the reset email never arrived.", "label": "account"}
+{"id": "t04", "text": "Do you have an office in Lisbon?", "label": "other"}
+{"id": "t05", "text": "Why does my bank statement show you twice this month?", "label": "billing"}
+{"id": "t06", "text": "I get error 502 when I open a shared notebook.", "label": "technical"}
+{"id": "t07", "text": "How do I change the email address on my profile?", "label": "account"}
+{"id": "t08", "text": "I love the new handwriting feature, great work!", "label": "other"}
+{"id": "t09", "text": "The app shows a blank white screen after the logo.", "label": "technical"}
+{"id": "t10", "text": "Can I get an invoice with my company's tax number on it?", "label": "billing"}
+{"id": "t11", "text": "I'm locked out after too many attempts.", "label": "account"}
+{"id": "t12", "text": "Your card design on the home page is lovely.", "label": "other"}
+{"id": "t13", "text": "Sync between my phone and laptop stopped yesterday.", "label": "technical"}
+{"id": "t14", "text": "My card was declined but I still see a pending payment.", "label": "billing"}
+{"id": "t15", "text": "Please delete my account and all my notes.", "label": "account"}
+{"id": "t16", "text": "How do I cancel my subscription before it renews?", "label": "billing"}
+{"id": "t17", "text": "Search is very slow since the last update.", "label": "technical"}
+{"id": "t18", "text": "Can I change my username?", "label": "account"}
+{"id": "t19", "text": "Please add a way to color-code notebooks.", "label": "other"}
+{"id": "t20", "text": "The receipt you emailed shows the wrong amount.", "label": "billing"}
+{"id": "t21", "text": "Images fail to upload and the progress bar never finishes.", "label": "technical"}
+{"id": "t22", "text": "I lost my phone and can't get my two-factor codes.", "label": "account"}
+{"id": "t23", "text": "Are you hiring designers?", "label": "other"}
+{"id": "t24", "text": "Why did the price go up on my annual plan?", "label": "billing"}
+{"id": "t25", "text": "Found a bug: dates show in the wrong time zone.", "label": "technical"}
+{"id": "t26", "text": "I can't log in to the app on my new phone.", "label": "account"}
+{"id": "t27", "text": "Can I use my notes in a school project?", "label": "other"}
+{"id": "t28", "text": "I need a refund for the plan I bought by mistake yesterday.", "label": "billing"}
+{"id": "t29", "text": "The desktop version freezes when I open large files.", "label": "technical"}
+{"id": "t30", "text": "The sign in page keeps sending me back to the start.", "label": "account"}
+{"id": "t31", "text": "What does the roadmap look like for next year?", "label": "other"}
+{"id": "t32", "text": "Please update the billing address on file for my company.", "label": "billing"}
+{"id": "t33", "text": "Attachments are not loading on the shared link.", "label": "technical"}
+{"id": "t34", "text": "Password reset is not working for my work email.", "label": "account"}
+{"id": "t35", "text": "Is there a list of keyboard shortcuts somewhere?", "label": "other"}
+{"id": "t36", "text": "Do you accept payment by bank transfer?", "label": "billing"}
+{"id": "t37", "text": "After updating to version 5.2 the export button gives an error.", "label": "technical"}
+{"id": "t38", "text": "The login screen says my username doesn't exist.", "label": "account"}
+{"id": "t39", "text": "Do you support right-to-left languages like Arabic?", "label": "other"}
+{"id": "t40", "text": "I was charged after my free trial ended, even though I cancelled.", "label": "billing"}
+{"id": "t41", "text": "Notes I edit offline don't sync when I reconnect.", "label": "technical"}
+{"id": "t42", "text": "Two-factor setup doesn't work with my authenticator app.", "label": "account"}
+{"id": "t43", "text": "Can I print my notes as greeting cards?", "label": "other"}
+{"id": "t44", "text": "Can you send last year's invoices in one PDF?", "label": "billing"}
+{"id": "t45", "text": "The web editor won't open in Firefox.", "label": "technical"}
+{"id": "t46", "text": "I want to sign in with Google on the Android app.", "label": "account"}
+{"id": "t47", "text": "I'd like to suggest a price tag template for small shops.", "label": "other"}
+{"id": "t48", "text": "My subscription shows as unpaid even though the money left my bank.", "label": "billing"}
+{"id": "t49", "text": "Pages load really slow on my office network.", "label": "technical"}
+{"id": "t50", "text": "Someone else seems to be using my profile.", "label": "account"}
+{"id": "t51", "text": "Love the new invoice template for freelancers!", "label": "other"}
+{"id": "t52", "text": "Is the student discount applied at checkout or as a refund later?", "label": "billing"}
+{"id": "t53", "text": "Dark mode is not working on my tablet.", "label": "technical"}
+{"id": "t54", "text": "I'd like to merge my two profiles into one.", "label": "account"}
+{"id": "t55", "text": "Which card do you have on file? I want to switch to a new one.", "label": "billing"}
+{"id": "t56", "text": "The print preview page is cut off on the right side.", "label": "technical"}
+{"id": "t57", "text": "The billing page says I owe 20 dollars, but I paid on Monday.", "label": "billing"}
+{"id": "t58", "text": "Copy and paste doesn't work in the tablet app.", "label": "technical"}
+{"id": "t59", "text": "Please stop the automatic renewal on my plan.", "label": "billing"}
+{"id": "t60", "text": "I think I paid for two seats but my team only uses one.", "label": "billing"}

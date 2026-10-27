@@ -1,0 +1,1143 @@
+[
+ {
+  "n": 1,
+  "id": "arXiv:2005.14165",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Brown et al., *Language Models are Few-Shot Learners* — arXiv 2005.14165"
+ },
+ {
+  "n": 2,
+  "id": "arXiv:2107.13586",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Liu et al., *Pre-train, Prompt, and Predict* — arXiv 2107.13586"
+ },
+ {
+  "n": 3,
+  "id": "arXiv:2109.01652",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Wei et al., *FLAN / Finetuned Language Models Are Zero-Shot Learners* — arXiv 2109.01652"
+ },
+ {
+  "n": 4,
+  "id": "arXiv:2203.02155",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Ouyang et al., *InstructGPT* — arXiv 2203.02155"
+ },
+ {
+  "n": 5,
+  "id": "arXiv:2406.06608",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Schulhoff et al., *The Prompt Report* — arXiv 2406.06608"
+ },
+ {
+  "n": 6,
+  "id": "arXiv:2402.07927",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Sahoo et al., *Prompt Engineering Survey* — arXiv 2402.07927"
+ },
+ {
+  "n": 7,
+  "id": "arXiv:2205.11916",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Kojima et al., *Large Language Models are Zero-Shot Reasoners* — arXiv 2205.11916"
+ },
+ {
+  "n": 8,
+  "id": "arXiv:2202.12837",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Min et al., *Rethinking the Role of Demonstrations* — arXiv 2202.12837"
+ },
+ {
+  "n": 9,
+  "id": "arXiv:2104.08786",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Lu et al., *Fantastically Ordered Prompts* — arXiv 2104.08786"
+ },
+ {
+  "n": 10,
+  "id": "arXiv:2102.09690",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Zhao et al., *Calibrate Before Use* — arXiv 2102.09690"
+ },
+ {
+  "n": 11,
+  "id": "arXiv:2310.11324",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Sclar et al., *Quantifying Language Model Sensitivity / FormatSpread* — arXiv 2310.11324"
+ },
+ {
+  "n": 12,
+  "id": "arXiv:2311.10054",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Zheng et al., *When “A Helpful Assistant” Is Not Really Helpful: Personas in System Prompts Do Not Improve Performances of Large Language Models* — Findings of EMNLP 2024, DOI 10.18653/v1/2024.findings-emnlp.888; arXiv 2311.10054"
+ },
+ {
+  "n": 12,
+  "id": "DOI:10.18653/v1/2024.findings-emnlp.888",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Zheng et al., *When “A Helpful Assistant” Is Not Really Helpful: Personas in System Prompts Do Not Improve Performances of Large Language Models* — Findings of EMNLP 2024, DOI 10.18653/v1/2024.findings-emnlp.888; arXiv 2311.10054"
+ },
+ {
+  "n": 13,
+  "id": "arXiv:2404.13208",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Wallace et al., *The Instruction Hierarchy* — arXiv 2404.13208"
+ },
+ {
+  "n": 14,
+  "id": "arXiv:2307.03172",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Liu et al., *Lost in the Middle: How Language Models Use Long Contexts* — *TACL* 12:157–173 (2024), DOI 10.1162/tacl_a_00638; arXiv 2307.03172"
+ },
+ {
+  "n": 14,
+  "id": "DOI:10.1162/tacl_a_00638",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Liu et al., *Lost in the Middle: How Language Models Use Long Contexts* — *TACL* 12:157–173 (2024), DOI 10.1162/tacl_a_00638; arXiv 2307.03172"
+ },
+ {
+  "n": 15,
+  "id": "arXiv:2209.11895",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Olsson et al., *In-context Learning and Induction Heads* — Anthropic, 2022; arXiv 2209.11895"
+ },
+ {
+  "n": 18,
+  "id": "arXiv:2406.11717",
+  "s2_title": "Refusal in Language Models Is Mediated by a Single Direction",
+  "title_score": 0.81,
+  "title_contained": false,
+  "first_authors": [
+   "Andy Arditi",
+   "O. Obeso",
+   "Aaquib Syed"
+  ],
+  "name_match": true,
+  "s2_venue": "Neural Information Processing Systems",
+  "s2_year": 2024,
+  "s2_date": "2024-06-17",
+  "cited": "Arditi et al., *Refusal Is Mediated by a Single Direction* — arXiv 2406.11717"
+ },
+ {
+  "n": 19,
+  "id": "arXiv:2506.14641",
+  "s2_title": "Revisiting Chain-of-Thought Prompting: Zero-shot Can Be Stronger than Few-shot",
+  "title_score": 1.0,
+  "title_contained": true,
+  "first_authors": [
+   "Xiang Cheng",
+   "Chengyan Pan",
+   "Minjun Zhao"
+  ],
+  "name_match": true,
+  "s2_venue": "Conference on Empirical Methods in Natural Language Processing",
+  "s2_year": 2025,
+  "s2_date": "2025-06-17",
+  "cited": "Cheng et al., *Revisiting Chain-of-Thought Prompting: Zero-shot Can Be Stronger than Few-shot* — arXiv 2506.14641; Findings of EMNLP 2025, pp. 13533–13554"
+ },
+ {
+  "n": 22,
+  "id": "arXiv:2305.10276",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Hu et al., *Chain-of-Symbol* — arXiv 2305.10276"
+ },
+ {
+  "n": 23,
+  "id": "arXiv:2502.18600",
+  "s2_title": "Chain of Draft: Thinking Faster by Writing Less",
+  "title_score": 0.47,
+  "title_contained": true,
+  "first_authors": [
+   "Si-Lei Xu",
+   "Wen-Hao Xie",
+   "Lingxiao Zhao"
+  ],
+  "name_match": true,
+  "s2_venue": "arXiv.org",
+  "s2_year": 2025,
+  "s2_date": "2025-02-25",
+  "cited": "Xu et al., *Chain of Draft* — arXiv 2502.18600"
+ },
+ {
+  "n": 24,
+  "id": "arXiv:2310.05736",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Jiang et al., *LLMLingua* — arXiv 2310.05736"
+ },
+ {
+  "n": 25,
+  "id": "arXiv:2310.06839",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Jiang et al., *LongLLMLingua* — arXiv 2310.06839"
+ },
+ {
+  "n": 26,
+  "id": "arXiv:2403.12968",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Pan et al., *LLMLingua-2* — arXiv 2403.12968"
+ },
+ {
+  "n": 27,
+  "id": "arXiv:2201.11903",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Wei et al., *Chain-of-Thought* — arXiv 2201.11903"
+ },
+ {
+  "n": 28,
+  "id": "arXiv:2203.11171",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Wang et al., *Self-Consistency* — arXiv 2203.11171"
+ },
+ {
+  "n": 29,
+  "id": "arXiv:2311.17311",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Chen et al., *Universal Self-Consistency* — arXiv 2311.17311"
+ },
+ {
+  "n": 30,
+  "id": "arXiv:2205.10625",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Zhou et al., *Least-to-Most* — arXiv 2205.10625"
+ },
+ {
+  "n": 31,
+  "id": "arXiv:2305.10601",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Yao et al., *Tree of Thoughts* — arXiv 2305.10601"
+ },
+ {
+  "n": 32,
+  "id": "arXiv:2308.09687",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Besta et al., *Graph of Thoughts* — arXiv 2308.09687 (AAAI 2024)"
+ },
+ {
+  "n": 33,
+  "id": "arXiv:2211.12588",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Chen et al., *Program of Thoughts* — arXiv 2211.12588"
+ },
+ {
+  "n": 34,
+  "id": "arXiv:2211.10435",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Gao et al., *PAL* — arXiv 2211.10435"
+ },
+ {
+  "n": 35,
+  "id": "arXiv:2305.04091",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Wang et al., *Plan-and-Solve* — arXiv 2305.04091"
+ },
+ {
+  "n": 36,
+  "id": "arXiv:2310.06117",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Zheng et al., *Step-Back Prompting* — arXiv 2310.06117"
+ },
+ {
+  "n": 37,
+  "id": "arXiv:2307.15337",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Ning et al., *Skeleton-of-Thought* — arXiv 2307.15337 (ICLR 2024)"
+ },
+ {
+  "n": 38,
+  "id": "arXiv:2503.04818",
+  "s2_title": "Prompting Science Report 1: Prompt Engineering is Complicated and Contingent",
+  "title_score": 1.0,
+  "title_contained": true,
+  "first_authors": [
+   "Lennart Meincke",
+   "Ethan Mollick",
+   "Lilach Mollick"
+  ],
+  "name_match": true,
+  "s2_venue": "arXiv.org",
+  "s2_year": 2025,
+  "s2_date": "2025-03-04",
+  "cited": "Meincke, Mollick, Mollick & Shapiro, *Prompting Science Report 1: Prompt Engineering is Complicated and Contingent* — arXiv 2503.04818; *Report 2: The Decreasing Value of Chain of Thought in Prompting* — arXiv 2506.07142; *Report 3: I’ll pay you or I’ll kill you — but will you care?* — arXiv 2508.00614"
+ },
+ {
+  "n": 38,
+  "id": "arXiv:2506.07142",
+  "s2_title": "Prompting Science Report 2: The Decreasing Value of Chain of Thought in Prompting",
+  "title_score": 0.87,
+  "title_contained": true,
+  "first_authors": [
+   "Lennart Meincke",
+   "Ethan Mollick",
+   "Lilach Mollick"
+  ],
+  "name_match": true,
+  "s2_venue": "arXiv.org",
+  "s2_year": 2025,
+  "s2_date": "2025-06-08",
+  "cited": "Meincke, Mollick, Mollick & Shapiro, *Prompting Science Report 1: Prompt Engineering is Complicated and Contingent* — arXiv 2503.04818; *Report 2: The Decreasing Value of Chain of Thought in Prompting* — arXiv 2506.07142; *Report 3: I’ll pay you or I’ll kill you — but will you care?* — arXiv 2508.00614"
+ },
+ {
+  "n": 38,
+  "id": "arXiv:2508.00614",
+  "s2_title": "Prompting Science Report 3: I'll pay you or I'll kill you - but will you care?",
+  "title_score": 0.86,
+  "title_contained": true,
+  "first_authors": [
+   "Lennart Meincke",
+   "Ethan Mollick",
+   "Lilach Mollick"
+  ],
+  "name_match": true,
+  "s2_venue": "arXiv.org",
+  "s2_year": 2025,
+  "s2_date": "2025-08-01",
+  "cited": "Meincke, Mollick, Mollick & Shapiro, *Prompting Science Report 1: Prompt Engineering is Complicated and Contingent* — arXiv 2503.04818; *Report 2: The Decreasing Value of Chain of Thought in Prompting* — arXiv 2506.07142; *Report 3: I’ll pay you or I’ll kill you — but will you care?* — arXiv 2508.00614"
+ },
+ {
+  "n": 40,
+  "id": "arXiv:2005.11401",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Lewis et al., *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks* — NeurIPS 2020; arXiv 2005.11401"
+ },
+ {
+  "n": 41,
+  "id": "arXiv:2210.03629",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Yao et al., *ReAct* — arXiv 2210.03629"
+ },
+ {
+  "n": 42,
+  "id": "arXiv:2303.11366",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Shinn et al., *Reflexion* — arXiv 2303.11366"
+ },
+ {
+  "n": 43,
+  "id": "arXiv:2305.19118",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Liang et al., *Multi-Agent Debate (Degeneration-of-Thought)* — arXiv 2305.19118"
+ },
+ {
+  "n": 44,
+  "id": "arXiv:2305.14325",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Du et al., *Improving Factuality via Multiagent Debate* — arXiv 2305.14325"
+ },
+ {
+  "n": 49,
+  "id": "arXiv:2211.01910",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Zhou et al., *APE* — arXiv 2211.01910"
+ },
+ {
+  "n": 50,
+  "id": "arXiv:2309.03409",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Yang et al., *OPRO* — arXiv 2309.03409"
+ },
+ {
+  "n": 51,
+  "id": "arXiv:2405.10276",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Zhang et al., *Revisiting OPRO* — arXiv 2405.10276 (Findings of ACL 2024)"
+ },
+ {
+  "n": 52,
+  "id": "arXiv:2309.08532",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Guo et al., *EvoPrompt* — arXiv 2309.08532"
+ },
+ {
+  "n": 53,
+  "id": "arXiv:2305.03495",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Pryzant et al., *ProTeGi* — arXiv 2305.03495"
+ },
+ {
+  "n": 54,
+  "id": "arXiv:2309.16797",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Fernando et al., *Promptbreeder* — arXiv 2309.16797"
+ },
+ {
+  "n": 55,
+  "id": "arXiv:2406.07496",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Yuksekgonul et al., *TextGrad* — arXiv 2406.07496"
+ },
+ {
+  "n": 56,
+  "id": "arXiv:2310.03714",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Khattab et al., *DSPy* — arXiv 2310.03714"
+ },
+ {
+  "n": 57,
+  "id": "arXiv:2406.11695",
+  "s2_title": "Optimizing Instructions and Demonstrations for Multi-Stage Language Model Programs",
+  "title_score": 0.13,
+  "title_contained": false,
+  "first_authors": [
+   "Krista Opsahl-Ong",
+   "Michael J Ryan",
+   "Josh Purtell"
+  ],
+  "name_match": false,
+  "s2_venue": "Conference on Empirical Methods in Natural Language Processing",
+  "s2_year": 2024,
+  "s2_date": "2024-06-17",
+  "cited": "Opsahl-Ong et al., *MIPRO/MIPROv2* — arXiv 2406.11695"
+ },
+ {
+  "n": 58,
+  "id": "arXiv:2507.19457",
+  "s2_title": "GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning",
+  "title_score": 0.11,
+  "title_contained": true,
+  "first_authors": [
+   "Lakshya A. Agrawal",
+   "Shang-Yin Tan",
+   "Dilara Soylu"
+  ],
+  "name_match": true,
+  "s2_venue": "arXiv.org",
+  "s2_year": 2025,
+  "s2_date": "2025-07-25",
+  "cited": "Agrawal et al., *GEPA* — arXiv 2507.19457 (ICLR 2026 Oral)"
+ },
+ {
+  "n": 59,
+  "id": "arXiv:2504.20355",
+  "s2_title": "Local Prompt Optimization",
+  "title_score": 1.0,
+  "title_contained": true,
+  "first_authors": [
+   "Y. Jain",
+   "Vishal Chowdhary"
+  ],
+  "name_match": true,
+  "s2_venue": "North American Chapter of the Association for Computational Linguistics",
+  "s2_year": 2025,
+  "s2_date": "2025-04-29",
+  "cited": "Jain & Chowdhary, *Local Prompt Optimization* — arXiv 2504.20355 (NAACL 2025)"
+ },
+ {
+  "n": 60,
+  "id": "arXiv:2508.02452",
+  "s2_title": "LatentPrompt: Optimizing Promts in Latent Space",
+  "title_score": 1.0,
+  "title_contained": true,
+  "first_authors": [
+   "Mateusz Bystro'nski",
+   "G. Piotrowski",
+   "Nitesh V. Chawla"
+  ],
+  "name_match": false,
+  "s2_venue": "arXiv.org",
+  "s2_year": 2025,
+  "s2_date": "2025-08-04",
+  "cited": "Bystroński et al., *LatentPrompt: Optimizing Promts in Latent Space* — arXiv 2508.02452 [title misspelling is the paper’s own]"
+ },
+ {
+  "n": 61,
+  "id": "arXiv:2104.08691",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Lester et al., *Prompt Tuning* — arXiv 2104.08691"
+ },
+ {
+  "n": 62,
+  "id": "arXiv:2101.00190",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Li & Liang, *Prefix-Tuning* — arXiv 2101.00190"
+ },
+ {
+  "n": 63,
+  "id": "arXiv:2103.10385",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Liu et al., *P-Tuning* — arXiv 2103.10385"
+ },
+ {
+  "n": 64,
+  "id": "arXiv:2010.15980",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Shin et al., *AutoPrompt* — arXiv 2010.15980"
+ },
+ {
+  "n": 65,
+  "id": "arXiv:2106.09685",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Hu et al., *LoRA* — arXiv 2106.09685"
+ },
+ {
+  "n": 66,
+  "id": "arXiv:2307.15043",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Zou et al., *GCG Adversarial Suffixes* — arXiv 2307.15043"
+ },
+ {
+  "n": 67,
+  "id": "arXiv:2302.11520",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Li et al., *Directional Stimulus Prompting* — arXiv 2302.11520"
+ },
+ {
+  "n": 69,
+  "id": "arXiv:2601.23273",
+  "s2_title": "UPA: Unsupervised Prompt Agent via Tree-Based Search and Selection",
+  "title_score": 0.62,
+  "title_contained": true,
+  "first_authors": [
+   "Si-Ran Peng",
+   "Wei-Song Zhao",
+   "Tian-Yu Fu"
+  ],
+  "name_match": null,
+  "s2_venue": "arXiv.org",
+  "s2_year": 2026,
+  "s2_date": "2026-01-30",
+  "cited": "*UPA: Unsupervised Prompt Agent* — arXiv 2601.23273 (January 2026)"
+ },
+ {
+  "n": 70,
+  "id": "arXiv:2305.13971",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Geng et al., *Grammar-Constrained Decoding* — arXiv 2305.13971"
+ },
+ {
+  "n": 71,
+  "id": "arXiv:2307.09702",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Willard & Louf, *Outlines / Efficient Guided Generation* — arXiv 2307.09702"
+ },
+ {
+  "n": 72,
+  "id": "arXiv:2411.15100",
+  "s2_title": "XGrammar: Flexible and Efficient Structured Generation Engine for Large Language Models",
+  "title_score": 0.17,
+  "title_contained": true,
+  "first_authors": [
+   "Yi-Xin Dong",
+   "Charlie F. Ruan",
+   "Yaxing Cai"
+  ],
+  "name_match": true,
+  "s2_venue": "arXiv.org",
+  "s2_year": 2024,
+  "s2_date": "2024-11-22",
+  "cited": "Dong et al., *XGrammar* — arXiv 2411.15100"
+ },
+ {
+  "n": 73,
+  "id": "arXiv:2601.04426",
+  "s2_title": "XGrammar-2: Dynamic and Efficient Structured Generation Engine for Agentic LLMs",
+  "title_score": 0.21,
+  "title_contained": true,
+  "first_authors": [
+   "Lin-Zhang Li",
+   "Yi-Xin Dong",
+   "Guanjie Wang"
+  ],
+  "name_match": true,
+  "s2_venue": "CAIS",
+  "s2_year": 2026,
+  "s2_date": "2026-01-07",
+  "cited": "Li et al., *XGrammar-2* — arXiv 2601.04426; ACM Conference on AI and Agentic Systems (CAIS), 2026, DOI 10.1145/3786335.3813124"
+ },
+ {
+  "n": 73,
+  "id": "DOI:10.1145/3786335.3813124",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Li et al., *XGrammar-2* — arXiv 2601.04426; ACM Conference on AI and Agentic Systems (CAIS), 2026, DOI 10.1145/3786335.3813124"
+ },
+ {
+  "n": 75,
+  "id": "arXiv:2408.02442",
+  "s2_title": "Let Me Speak Freely? A Study On The Impact Of Format Restrictions On Large Language Model Performance.",
+  "title_score": 0.32,
+  "title_contained": true,
+  "first_authors": [
+   "Zhi Rui Tam",
+   "Cheng-Kuang Wu",
+   "Yi-Lin Tsai"
+  ],
+  "name_match": true,
+  "s2_venue": "Conference on Empirical Methods in Natural Language Processing",
+  "s2_year": 2024,
+  "s2_date": "2024-08-05",
+  "cited": "Tam et al., *Let Me Speak Freely?* — arXiv 2408.02442; dottxt *Say What You Mean* rebuttal"
+ },
+ {
+  "n": 76,
+  "id": "arXiv:2306.05685",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Zheng et al., *Judging LLM-as-a-Judge (MT-Bench/Chatbot Arena)* — arXiv 2306.05685"
+ },
+ {
+  "n": 77,
+  "id": "arXiv:2404.13076",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Panickssery et al., *LLM Evaluators Recognize and Favor Their Own Generations* — arXiv 2404.13076"
+ },
+ {
+  "n": 78,
+  "id": "arXiv:2309.11495",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Dhuliawala et al., *Chain-of-Verification* — arXiv 2309.11495"
+ },
+ {
+  "n": 79,
+  "id": "arXiv:2303.17651",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Madaan et al., *Self-Refine* — arXiv 2303.17651; *Self-[In]Correct* — arXiv 2404.04298"
+ },
+ {
+  "n": 79,
+  "id": "arXiv:2404.04298",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Madaan et al., *Self-Refine* — arXiv 2303.17651; *Self-[In]Correct* — arXiv 2404.04298"
+ },
+ {
+  "n": 80,
+  "id": "arXiv:2310.01798",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Huang et al., *LLMs Cannot Self-Correct Reasoning Yet* — arXiv 2310.01798 (ICLR 2024)"
+ },
+ {
+  "n": 82,
+  "id": "arXiv:2302.12173",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Greshake et al., *Indirect Prompt Injection* — arXiv 2302.12173"
+ },
+ {
+  "n": 83,
+  "id": "arXiv:2305.04388",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Turpin et al., *Language Models Don’t Always Say What They Think* — arXiv 2305.04388"
+ },
+ {
+  "n": 84,
+  "id": "arXiv:2307.13702",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Lanham et al., *Measuring Faithfulness in CoT Reasoning* — arXiv 2307.13702"
+ },
+ {
+  "n": 85,
+  "id": "arXiv:2505.05410",
+  "s2_title": "Reasoning Models Don't Always Say What They Think",
+  "title_score": 1.0,
+  "title_contained": true,
+  "first_authors": [
+   "Yanda Chen",
+   "Joe Benton",
+   "Ansh Radhakrishnan"
+  ],
+  "name_match": true,
+  "s2_venue": "arXiv.org",
+  "s2_year": 2025,
+  "s2_date": "2025-05-08",
+  "cited": "Chen et al. (Anthropic), *Reasoning Models Don’t Always Say What They Think* — arXiv 2505.05410"
+ },
+ {
+  "n": 86,
+  "id": "arXiv:2412.14093",
+  "s2_title": "Alignment faking in large language models",
+  "title_score": 1.0,
+  "title_contained": true,
+  "first_authors": [
+   "R. Greenblatt",
+   "Carson Denison",
+   "Benjamin Wright"
+  ],
+  "name_match": true,
+  "s2_venue": "arXiv.org",
+  "s2_year": 2024,
+  "s2_date": "2024-12-18",
+  "cited": "Greenblatt et al., *Alignment Faking in Large Language Models* — arXiv 2412.14093"
+ },
+ {
+  "n": 87,
+  "id": "arXiv:2506.18032",
+  "s2_title": "Why Do Some Language Models Fake Alignment While Others Don't?",
+  "title_score": 1.0,
+  "title_contained": true,
+  "first_authors": [
+   "A. Sheshadri",
+   "John Hughes",
+   "Julian Michael"
+  ],
+  "name_match": true,
+  "s2_venue": "arXiv.org",
+  "s2_year": 2025,
+  "s2_date": "2025-06-22",
+  "cited": "Sheshadri et al., *Why Do Some Language Models Fake Alignment While Others Don’t?* — arXiv 2506.18032 (NeurIPS 2025)"
+ },
+ {
+  "n": 88,
+  "id": "arXiv:2310.13548",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Sharma et al., *Towards Understanding Sycophancy* — arXiv 2310.13548"
+ },
+ {
+  "n": 89,
+  "id": "arXiv:2405.20362",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Magesh et al., *Hallucination-Free? Assessing Legal AI Research Tools* — *J. Empirical Legal Studies* 22:216 (2025), DOI 10.1111/jels.12413; arXiv 2405.20362"
+ },
+ {
+  "n": 89,
+  "id": "DOI:10.1111/jels.12413",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Magesh et al., *Hallucination-Free? Assessing Legal AI Research Tools* — *J. Empirical Legal Studies* 22:216 (2025), DOI 10.1111/jels.12413; arXiv 2405.20362"
+ },
+ {
+  "n": 90,
+  "id": "arXiv:2401.01301",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Dahl et al., *Large Legal Fictions* — *Journal of Legal Analysis* 16(1):64–93 (2024); arXiv 2401.01301"
+ },
+ {
+  "n": 92,
+  "id": "arXiv:2110.08387",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Liu et al., *Generated Knowledge Prompting* — arXiv 2110.08387"
+ },
+ {
+  "n": 93,
+  "id": "arXiv:2205.11822",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Jung et al., *Maieutic Prompting* — arXiv 2205.11822"
+ },
+ {
+  "n": 94,
+  "id": "arXiv:2310.01714",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Yasunaga et al., *Analogical Prompting* — arXiv 2310.01714"
+ },
+ {
+  "n": 95,
+  "id": "arXiv:2210.03350",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Press et al., *Self-Ask (Compositionality Gap)* — arXiv 2210.03350"
+ },
+ {
+  "n": 96,
+  "id": "arXiv:2210.03493",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Zhang et al., *Auto-CoT* — arXiv 2210.03493"
+ },
+ {
+  "n": 97,
+  "id": "arXiv:2210.00720",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Fu et al., *Complexity-Based Prompting* — arXiv 2210.00720"
+ },
+ {
+  "n": 98,
+  "id": "arXiv:2302.12246",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Diao et al., *Active Prompting* — arXiv 2302.12246"
+ },
+ {
+  "n": 99,
+  "id": "arXiv:2305.18323",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Xu et al., *ReWOO* — arXiv 2305.18323"
+ },
+ {
+  "n": 100,
+  "id": "arXiv:2401.12954",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Suzgun & Kalai, *Meta-Prompting* — arXiv 2401.12954"
+ },
+ {
+  "n": 101,
+  "id": "arXiv:2307.11760",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Li et al., *EmotionPrompt* — arXiv 2307.11760 [effect on accuracy unproven; see Chapter 14]"
+ },
+ {
+  "n": 102,
+  "id": "arXiv:2311.04205",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Deng et al., *Rephrase-and-Respond* — arXiv 2311.04205; *Self-Discover* — arXiv 2402.03620"
+ },
+ {
+  "n": 102,
+  "id": "arXiv:2402.03620",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Deng et al., *Rephrase-and-Respond* — arXiv 2311.04205; *Self-Discover* — arXiv 2402.03620"
+ },
+ {
+  "n": 103,
+  "id": "arXiv:2212.10496",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Gao et al., *HyDE* — arXiv 2212.10496; Microsoft *GraphRAG* — arXiv 2404.16130; *Self-RAG* — arXiv 2310.11511; *CRAG* — arXiv 2401.15884"
+ },
+ {
+  "n": 103,
+  "id": "arXiv:2404.16130",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Gao et al., *HyDE* — arXiv 2212.10496; Microsoft *GraphRAG* — arXiv 2404.16130; *Self-RAG* — arXiv 2310.11511; *CRAG* — arXiv 2401.15884"
+ },
+ {
+  "n": 103,
+  "id": "arXiv:2310.11511",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Gao et al., *HyDE* — arXiv 2212.10496; Microsoft *GraphRAG* — arXiv 2404.16130; *Self-RAG* — arXiv 2310.11511; *CRAG* — arXiv 2401.15884"
+ },
+ {
+  "n": 103,
+  "id": "arXiv:2401.15884",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Gao et al., *HyDE* — arXiv 2212.10496; Microsoft *GraphRAG* — arXiv 2404.16130; *Self-RAG* — arXiv 2310.11511; *CRAG* — arXiv 2401.15884"
+ },
+ {
+  "n": 104,
+  "id": "arXiv:2309.04269",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Adams et al., *Chain-of-Density* — arXiv 2309.04269"
+ },
+ {
+  "n": 105,
+  "id": "arXiv:2408.03314",
+  "s2_title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
+  "title_score": 0.42,
+  "title_contained": false,
+  "first_authors": [
+   "C. Snell",
+   "Jaehoon Lee",
+   "Kelvin Xu"
+  ],
+  "name_match": true,
+  "s2_venue": "arXiv.org",
+  "s2_year": 2024,
+  "s2_date": "2024-08-06",
+  "cited": "Snell et al., *Test-Time Compute Scaling* — arXiv 2408.03314; *DeepSeek-R1* — arXiv 2501.12948"
+ },
+ {
+  "n": 105,
+  "id": "arXiv:2501.12948",
+  "s2_title": "DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning",
+  "title_score": 0.24,
+  "title_contained": true,
+  "first_authors": [
+   "DeepSeek-AI",
+   "Daya Guo",
+   "De-Jian Yang"
+  ],
+  "name_match": false,
+  "s2_venue": "Nature",
+  "s2_year": 2025,
+  "s2_date": "2025-01-22",
+  "cited": "Snell et al., *Test-Time Compute Scaling* — arXiv 2408.03314; *DeepSeek-R1* — arXiv 2501.12948"
+ },
+ {
+  "n": 106,
+  "id": "DOI:10.1007/BF01173471",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Norem & Cantor (1986), *Cognitive Therapy and Research* 10(3):347–362, DOI 10.1007/BF01173471; Spencer & Norem (1996), *PSPB*"
+ },
+ {
+  "n": 107,
+  "id": "DOI:10.1002/bdm.3960020103",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Mitchell, Russo & Pennington (1989), *J. Behavioral Decision Making* 2(1):25–38, DOI 10.1002/bdm.3960020103; Klein, *Performing a Project Premortem*, HBR (September 2007)"
+ },
+ {
+  "n": 111,
+  "id": "arXiv:2404.06654",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Hsieh et al., *RULER: What’s the Real Context Size of Your Long-Context Language Models?* — COLM 2024; arXiv 2404.06654"
+ },
+ {
+  "n": 112,
+  "id": "arXiv:2502.05167",
+  "s2_title": "NoLiMa: Long-Context Evaluation Beyond Literal Matching",
+  "title_score": 1.0,
+  "title_contained": true,
+  "first_authors": [
+   "Ali Modarressi",
+   "Hanieh Deilamsalehy",
+   "Franck Dernoncourt"
+  ],
+  "name_match": true,
+  "s2_venue": "International Conference on Machine Learning",
+  "s2_year": 2025,
+  "s2_date": "2025-02-07",
+  "cited": "Modarressi et al., *NoLiMa: Long-Context Evaluation Beyond Literal Matching* — ICML 2025, PMLR 267; arXiv 2502.05167"
+ },
+ {
+  "n": 114,
+  "id": "arXiv:2402.14848",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Levy, Jacoby & Goldberg, *Same Task, More Tokens: the Impact of Input Length on the Reasoning Performance of Large Language Models* — ACL 2024, pp. 15339–15353, DOI 10.18653/v1/2024.acl-long.818; arXiv 2402.14848"
+ },
+ {
+  "n": 114,
+  "id": "DOI:10.18653/v1/2024.acl-long.818",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Levy, Jacoby & Goldberg, *Same Task, More Tokens: the Impact of Input Length on the Reasoning Performance of Large Language Models* — ACL 2024, pp. 15339–15353, DOI 10.18653/v1/2024.acl-long.818; arXiv 2402.14848"
+ },
+ {
+  "n": 115,
+  "id": "arXiv:2507.11538",
+  "s2_title": "How Many Instructions Can LLMs Follow at Once?",
+  "title_score": 1.0,
+  "title_contained": true,
+  "first_authors": [
+   "Daniel Jaroslawicz",
+   "B. Whiting",
+   "P. Shah"
+  ],
+  "name_match": true,
+  "s2_venue": "arXiv.org",
+  "s2_year": 2025,
+  "s2_date": "2025-07-15",
+  "cited": "Jaroslawicz, Whiting, Shah & Maamari, *How Many Instructions Can LLMs Follow at Once?* (IFScale) — arXiv 2507.11538"
+ },
+ {
+  "n": 116,
+  "id": "arXiv:2209.12711",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Jang, Ye & Seo, *Can Large Language Models Truly Understand Prompts? A Case Study with Negated Prompts* — PMLR 203:52–62 (2023); arXiv 2209.12711"
+ },
+ {
+  "n": 119,
+  "id": "arXiv:2405.00332",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Zhang et al., *A Careful Examination of Large Language Model Performance on Grade School Arithmetic* (GSM1k) — NeurIPS 2024 Datasets and Benchmarks; arXiv 2405.00332"
+ },
+ {
+  "n": 120,
+  "id": "arXiv:2411.00640",
+  "s2_title": "Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations",
+  "title_score": 1.0,
+  "title_contained": true,
+  "first_authors": [
+   "E. Miller"
+  ],
+  "name_match": true,
+  "s2_venue": "arXiv.org",
+  "s2_year": 2024,
+  "s2_date": "2024-11-01",
+  "cited": "Miller, *Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations* — arXiv 2411.00640"
+ },
+ {
+  "n": 121,
+  "id": "arXiv:2406.12045",
+  "s2_title": "τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains",
+  "title_score": 1.0,
+  "title_contained": true,
+  "first_authors": [
+   "Shun-Yu Yao",
+   "Noah Shinn",
+   "Pedram Razavi"
+  ],
+  "name_match": true,
+  "s2_venue": "arXiv.org",
+  "s2_year": 2024,
+  "s2_date": "2024-06-17",
+  "cited": "Yao et al., *τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains* — arXiv 2406.12045"
+ },
+ {
+  "n": 122,
+  "id": "arXiv:2402.05201",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Renze & Guven, *The Effect of Sampling Temperature on Problem Solving in Large Language Models* — Findings of EMNLP 2024, pp. 7346–7356; arXiv 2402.05201"
+ },
+ {
+  "n": 124,
+  "id": "arXiv:2110.14168",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Cobbe et al., *Training Verifiers to Solve Math Word Problems* — arXiv 2110.14168"
+ },
+ {
+  "n": 125,
+  "id": "arXiv:2302.00083",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Ram et al., *In-Context Retrieval-Augmented Language Models* — TACL 2023; arXiv 2302.00083"
+ },
+ {
+  "n": 126,
+  "id": "DOI:10.1038/s41586-024-07421-0",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Farquhar, Kossen, Kuhn & Gal, *Detecting Hallucinations in Large Language Models Using Semantic Entropy* — *Nature* 630:625–630 (2024), DOI 10.1038/s41586-024-07421-0"
+ },
+ {
+  "n": 127,
+  "id": "arXiv:2509.04664",
+  "s2_title": "Why Language Models Hallucinate",
+  "title_score": 1.0,
+  "title_contained": true,
+  "first_authors": [
+   "A. Kalai",
+   "Ofir Nachum",
+   "S. Vempala"
+  ],
+  "name_match": true,
+  "s2_venue": "arXiv.org",
+  "s2_year": 2025,
+  "s2_date": "2025-09-04",
+  "cited": "Kalai, Nachum, Vempala & Zhang, *Why Language Models Hallucinate* — arXiv 2509.04664"
+ },
+ {
+  "n": 128,
+  "id": "arXiv:2407.04503",
+  "s2_title": "When LLMs Play the Telephone Game: Cultural Attractors as Conceptual Tools to Evaluate LLMs in Multi-turn Settings",
+  "title_score": 0.6,
+  "title_contained": false,
+  "first_authors": [
+   "J'er'emy Perez",
+   "Grgur Kovač",
+   "C. Léger"
+  ],
+  "name_match": true,
+  "s2_venue": "International Conference on Learning Representations",
+  "s2_year": 2024,
+  "s2_date": "2024-07-05",
+  "cited": "Perez et al., *When LLMs Play the Telephone Game: Cumulative Changes and Attractors in Iterated Cultural Transmissions* — ICLR 2025; arXiv 2407.04503"
+ },
+ {
+  "n": 129,
+  "id": "arXiv:2503.11926",
+  "s2_title": "Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation",
+  "title_score": 1.0,
+  "title_contained": true,
+  "first_authors": [
+   "Bowen Baker",
+   "Joost Huizinga",
+   "Leo Gao"
+  ],
+  "name_match": true,
+  "s2_venue": "arXiv.org",
+  "s2_year": 2025,
+  "s2_date": "2025-03-14",
+  "cited": "Baker et al., *Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation* — arXiv 2503.11926"
+ },
+ {
+  "n": 130,
+  "id": "arXiv:2507.11473",
+  "s2_title": "Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety",
+  "title_score": 1.0,
+  "title_contained": true,
+  "first_authors": [
+   "Tomasz Korbak",
+   "Mikita Balesni",
+   "Eliza-beth Barnes"
+  ],
+  "name_match": true,
+  "s2_venue": "arXiv.org",
+  "s2_year": 2025,
+  "s2_date": "2025-07-15",
+  "cited": "Korbak et al., *Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety* — arXiv 2507.11473"
+ },
+ {
+  "n": 131,
+  "id": "arXiv:2403.14720",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Hines et al., *Defending Against Indirect Prompt Injection Attacks With Spotlighting* — arXiv 2403.14720"
+ },
+ {
+  "n": 132,
+  "id": "arXiv:2402.06363",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Chen, Piet, Sitawarin & Wagner, *StruQ: Defending Against Prompt Injection with Structured Queries* — USENIX Security 2025; arXiv 2402.06363"
+ },
+ {
+  "n": 133,
+  "id": "arXiv:2506.08837",
+  "s2_title": "Design Patterns for Securing LLM Agents against Prompt Injections",
+  "title_score": 1.0,
+  "title_contained": true,
+  "first_authors": [
+   "Luca Beurer-Kellner",
+   "Beat Buesser",
+   "Ana-Maria Creţu"
+  ],
+  "name_match": false,
+  "s2_venue": "arXiv.org",
+  "s2_year": 2025,
+  "s2_date": "2025-06-10",
+  "cited": "Beurer-Kellner et al., *Design Patterns for Securing LLM Agents against Prompt Injections* — arXiv 2506.08837"
+ },
+ {
+  "n": 134,
+  "id": "arXiv:2503.18813",
+  "s2_title": "Defeating Prompt Injections by Design",
+  "title_score": 1.0,
+  "title_contained": true,
+  "first_authors": [
+   "Edoardo Debenedetti",
+   "Ilia Shumailov",
+   "Tianqi Fan"
+  ],
+  "name_match": true,
+  "s2_venue": "2026 IEEE Conference on Secure and Trustworthy Machine Learning (SaTML)",
+  "s2_year": 2025,
+  "s2_date": "2025-03-24",
+  "cited": "Debenedetti et al., *Defeating Prompt Injections by Design* (CaMeL) — arXiv 2503.18813"
+ },
+ {
+  "n": 135,
+  "id": "arXiv:2510.09023",
+  "s2_title": "The Attacker Moves Second: Stronger Adaptive Attacks Bypass Defenses Against Llm Jailbreaks and Prompt Injections",
+  "title_score": 0.36,
+  "title_contained": true,
+  "first_authors": [
+   "Milad Nasr",
+   "Nicholas Carlini",
+   "Chawin Sitawarin"
+  ],
+  "name_match": true,
+  "s2_venue": "arXiv.org",
+  "s2_year": 2025,
+  "s2_date": "2025-10-10",
+  "cited": "Nasr et al., *The Attacker Moves Second* — arXiv 2510.09023"
+ },
+ {
+  "n": 137,
+  "id": "arXiv:2310.11441",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Yang et al., *Set-of-Mark Prompting Unleashes Extraordinary Visual Grounding in GPT-4V* — arXiv 2310.11441"
+ },
+ {
+  "n": 138,
+  "id": "arXiv:2302.00923",
+  "status": "NOT_FOUND_IN_S2",
+  "cited": "Zhang et al., *Multimodal Chain-of-Thought Reasoning in Language Models* — arXiv 2302.00923"
+ },
+ {
+  "n": 139,
+  "id": "arXiv:2506.09677",
+  "s2_title": "Benchmarking Gaslighting Negation Attacks Against Reasoning Models",
+  "title_score": 0,
+  "title_contained": false,
+  "first_authors": [
+   "Bin Zhu",
+   "Hai-Long Yin",
+   "Jing-Jing Chen"
+  ],
+  "name_match": null,
+  "s2_venue": "",
+  "s2_year": 2025,
+  "s2_date": "2025-06-11",
+  "cited": "Benchmarks named in Chapter 18: GaslightingBench-R — arXiv 2506.09677; SafeRBench — arXiv 2511.15169"
+ },
+ {
+  "n": 139,
+  "id": "arXiv:2511.15169",
+  "s2_title": "SafeRBench: Dissecting the Reasoning Safety of Large Language Models",
+  "title_score": 0,
+  "title_contained": false,
+  "first_authors": [
+   "Xin Gao",
+   "Shaohan Yu",
+   "Ze-Rui Chen"
+  ],
+  "name_match": null,
+  "s2_venue": "",
+  "s2_year": 2025,
+  "s2_date": "2025-11-19",
+  "cited": "Benchmarks named in Chapter 18: GaslightingBench-R — arXiv 2506.09677; SafeRBench — arXiv 2511.15169"
+ }
+]

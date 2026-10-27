@@ -1,0 +1,26 @@
+q1_0     block=128 weights,  18 bytes, 1.1250 bits/weight
+q2_0     block= 64 weights,  18 bytes, 2.2500 bits/weight
+q4_0     block= 32 weights,  18 bytes, 4.5000 bits/weight
+q4_1     block= 32 weights,  20 bytes, 5.0000 bits/weight
+q5_0     block= 32 weights,  22 bytes, 5.5000 bits/weight
+q5_1     block= 32 weights,  24 bytes, 6.0000 bits/weight
+q8_0     block= 32 weights,  34 bytes, 8.5000 bits/weight
+mxfp4    block= 32 weights,  17 bytes, 4.2500 bits/weight
+nvfp4    block= 64 weights,  36 bytes, 4.5000 bits/weight
+q2_K     block=256 weights,  84 bytes, 2.6250 bits/weight
+q3_K     block=256 weights, 110 bytes, 3.4375 bits/weight
+q4_K     block=256 weights, 144 bytes, 4.5000 bits/weight
+q5_K     block=256 weights, 176 bytes, 5.5000 bits/weight
+q6_K     block=256 weights, 210 bytes, 6.5625 bits/weight
+tq1_0    block=256 weights,  54 bytes, 1.6875 bits/weight
+tq2_0    block=256 weights,  66 bytes, 2.0625 bits/weight
+iq1_s    block=256 weights,  50 bytes, 1.5625 bits/weight
+iq1_m    block=256 weights,  56 bytes, 1.7500 bits/weight
+iq2_xxs  block=256 weights,  66 bytes, 2.0625 bits/weight
+iq2_xs   block=256 weights,  74 bytes, 2.3125 bits/weight
+iq2_s    block=256 weights,  82 bytes, 2.5625 bits/weight
+iq3_xxs  block=256 weights,  98 bytes, 3.0625 bits/weight
+iq3_s    block=256 weights, 110 bytes, 3.4375 bits/weight
+iq4_nl   block= 32 weights,  18 bytes, 4.5000 bits/weight
+iq4_xs   block=256 weights, 136 bytes, 4.2500 bits/weight
+Compiled from llama.cpp@f3363593f457169cdfbdfe22ea399b1cc139ba18 ggml/src/ggml-common.h with gcc -DGGML_COMMON_DECL_C on 2026-10-16

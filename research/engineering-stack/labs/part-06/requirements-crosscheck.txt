@@ -1,0 +1,4 @@
+# Optional cross-check (crosscheck.py). Versions read from PyPI on 2026-10-14.
+# networkx 3.7 needs Python 3.12 or later; 3.6.1 is the last for 3.11.
+networkx==3.7 ; python_version >= "3.12"
+networkx==3.6.1 ; python_version < "3.12"

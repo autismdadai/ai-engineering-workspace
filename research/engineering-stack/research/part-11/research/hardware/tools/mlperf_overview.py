@@ -1,0 +1,25 @@
+import csv, sys, collections
+path = sys.argv[1]
+rows = list(csv.DictReader(open(path, newline='', encoding='utf-8')))
+print("result rows:", len(rows))
+print("versions:", collections.Counter(r['version'] for r in rows))
+print("divisions:", collections.Counter(r['Division'] for r in rows))
+print("availability:", collections.Counter(r['Availability'] for r in rows))
+print("system types:", collections.Counter(r['SystemType'] for r in rows))
+orgs = sorted({r['Organization'] for r in rows})
+print("organizations (%d): %s" % (len(orgs), "; ".join(orgs)))
+for div in sorted({r['Division'] for r in rows}):
+    for st in sorted({r['SystemType'] for r in rows}):
+        ms = sorted({r['MlperfModel'] for r in rows if r['Division']==div and r['SystemType']==st})
+        if ms: print(f"[{div}/{st}] benchmarks ({len(ms)}): {ms}")
+print("\nscenarios:", collections.Counter(r['Scenario'] for r in rows))
+acc = collections.Counter((r['accelerator_model_name'] or '(none)') for r in rows if r['Division']=='closed')
+print("\nclosed-division accelerators (result rows):")
+for a, n in acc.most_common(): print(f"  {n:4d}  {a}")
+acc_o = collections.Counter((r['accelerator_model_name'] or '(none)') for r in rows if r['Division']=='open')
+print("\nopen-division accelerators (result rows):")
+for a, n in acc_o.most_common(): print(f"  {n:4d}  {a}")
+fw = collections.Counter(r['framework'][:90] for r in rows)
+print("\nframeworks (top 40):")
+for a, n in fw.most_common(40): print(f"  {n:4d}  {a}")
+print("\nmax nodes:", max(int(r['number_of_nodes'] or 0) for r in rows), " max total accelerators:", max(int(r['total_accelerators'] or 0) for r in rows if (r['total_accelerators'] or '').isdigit()))

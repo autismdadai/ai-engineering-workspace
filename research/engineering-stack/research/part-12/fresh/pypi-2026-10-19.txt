@@ -1,0 +1,23 @@
+transformers | 5.20.2 | 2026-10-19 | Apache 2.0 License | >=3.10.0
+torch | 2.14.1 | 2026-09-30 | Apache-2.0 AND Apache-2.0 WITH LLVM-exce | >=3.10
+peft | 0.21.2 | 2026-10-01 | Apache | >=3.10.0
+trl | 1.16.0 | 2026-10-15 | Apache-2.0 | >=3.11
+accelerate | 1.15.0 | 2026-09-09 | Apache | >=3.10.0
+datasets | 5.1.0 | 2026-10-05 | Apache 2.0 | >=3.10.0
+bitsandbytes | 0.50.2 | 2026-08-27 | MIT | >=3.10
+unsloth | 2026.10.7 | 2026-10-19 | Apache-2.0 | <3.15,>=3.9
+axolotl | 0.21.0 | 2026-10-16 | ? | >=3.12
+torchtune | 0.6.1 | 2025-04-07 | BSD 3-Clause License | >=3.9
+mlx-lm | 0.32.2 | 2026-10-16 | MIT | >=3.11
+mlx | 0.32.4 | 2026-10-14 | MIT | >=3.10
+deepspeed | 0.19.7 | 2026-09-16 | Apache Software License 2.0 | 
+liger-kernel | 0.8.4 | 2026-09-30 | BSD 2-CLAUSE LICENSE | >=3.10
+lm-eval | 0.4.13 | 2026-08-31 | MIT | >=3.10
+huggingface-hub | 2.2.0 | 2026-10-08 | Apache-2.0 | >=3.10.0
+safetensors | 0.8.0 | 2026-06-09 | Apache Software License | >=3.10
+llamafactory | 0.9.5 | 2026-05-30 | Apache-2.0 | >=3.11.0
+openai | 3.35.1 | 2026-10-18 | Apache-2.0 | >=3.10
+anthropic | 1.15.0 | 2026-10-15 | MIT | >=3.10
+mistralai | 3.2.0 | 2026-10-09 | ? | >=3.10
+together | 2.42.0 | 2026-10-18 | Apache-2.0 | >=3.10
+sentence-transformers | 6.1.0 | 2026-09-18 | Apache-2.0 | >=3.10

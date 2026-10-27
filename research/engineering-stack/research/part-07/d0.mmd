@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant U as User
+    participant H as Host and client
+    participant S as Server
+    H->>S: tools/call delete_note, id 4, with _meta
+    S-->>H: resultType input_required, inputRequests, requestState
+    H->>U: Delete note n3?
+    U-->>H: Yes
+    H->>S: same call, new id 5, inputResponses, requestState unchanged
+    Note over S: verify the HMAC, the call and the expiry
+    S-->>H: resultType complete, Deleted n3

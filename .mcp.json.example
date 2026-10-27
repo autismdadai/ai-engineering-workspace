@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "local-model": {
+      "type": "stdio",
+      "command": "<full path to python.exe>",
+      "args": [
+        "<full path to this repository>\\tools\\local-model\\local_model_server.py"
+      ]
+    }
+  }
+}

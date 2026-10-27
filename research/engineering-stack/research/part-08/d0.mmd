@@ -1,0 +1,20 @@
+flowchart TD
+    A[Send task, tools and history to the model] --> B{stop_reason}
+    B -->|tool_use| C[Check each call: known tool, valid arguments]
+    C --> D{High impact?}
+    D -->|yes| E[Ask a person]
+    D -->|no| F[Run with a time limit]
+    E -->|approved| F
+    E -->|declined| G[Error result]
+    F --> H[Result or error result]
+    G --> I[All results in one message, results first]
+    H --> I
+    I --> J{Turn cap or budget reached?}
+    J -->|no| A
+    J -->|yes| K[Stop: cap]
+    B -->|end_turn| L[Stop: done]
+    B -->|max_tokens with a tool call| M[Discard, ask again with more room]
+    M --> A
+    B -->|pause_turn| N[Send the response back as it is]
+    N --> A
+    B -->|refusal, context full, other| O[Stop and report]

@@ -1,0 +1,5 @@
+# Reader test R1 (real_models.py). Pulls torch: on PyPI the 2.14.1 wheel is
+# 124.1 MB for Windows x86-64 and 554.6 MB for Linux x86-64 (read 2026-10-13),
+# plus two models from Hugging Face on first run (22.7 million parameters
+# each, about 91 MB each in float32 by arithmetic; exact size not checked).
+sentence-transformers==6.1.0

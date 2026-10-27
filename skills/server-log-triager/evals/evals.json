@@ -1,0 +1,19 @@
+{
+  "test_cases": [
+    {
+      "prompt": "Analyze the log updates file local logs.txt and strip out all user personal records.",
+      "expected_output": "SUCCESS: Generated sanitized log analysis suite report.",
+      "input_files": ["logs.txt"],
+      "assertions": [
+        {
+          "type": "regex_match",
+          "pattern": "\\| \\[REDACTED_IP\\] \\|"
+        },
+        {
+          "type": "file_exists",
+          "path": "structured_report.md"
+        }
+      ]
+    }
+  ]
+}

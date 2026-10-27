@@ -1,0 +1,233 @@
+{
+  "skill": "quantum-entanglement-lab",
+  "skill_version": "1.2.1",
+  "eval_pack_version": "1.0",
+  "created": "2026-10-06",
+  "updated": "2026-10-07",
+  "read_me": "README.md in this folder says how to run each part and what has been run.",
+  "description_under_test": "Run verified quantum entanglement experiments and explain results. Use when the user asks about Bell states, entanglement entropy, CHSH inequality, quantum teleportation, partial measurement, or wants to execute the entanglement laboratory script. Do not use for general quantum field theory, hardware control, or non-educational production quantum computing tasks.",
+  "description_claude_app": "Runs and explains a verified quantum entanglement lab: Bell states, entanglement entropy, CHSH, teleportation, partial measurement. Not for quantum field theory, hardware control or production use.",
+  "triggers": {
+    "status": "First pass run 2026-10-08 in Claude Code 2.1.294 (claude plugin eval, claude-sonnet-5-5, long description, one run per request, no shell tool): 7 of 10 should-load requests loaded the skill, 10 of 10 should-not requests left it off. Not yet run: three runs per request, the Claude-app description, the Claude app. See claude/trigger-tests-2026-10-08.md.",
+    "how_to_run": "Install only this skill. Send each request in a fresh session and record whether the skill loaded. Target: all 10 should_trigger load it and none of the 10 should_not_trigger do. If you change the description to fix a miss, re-test on new requests as well, so the description is not tuned to these 20 alone.",
+    "should_trigger": [
+      "Run the entanglement lab and show me the results.",
+      "Can you verify that the CHSH value for the singlet reaches 2√2?",
+      "Show me that quantum teleportation actually works, with numbers.",
+      "What happens to |φ+⟩ if Alice applies an X gate to her qubit?",
+      "Compute the entanglement entropy of a Bell state.",
+      "Show that measuring one qubit of a Bell pair gives a random result but perfectly correlated outcomes.",
+      "Check my Bell-state decoder: does CNOT then H map the four Bell states to 00, 01, 10 and 11?",
+      "How many classical bits does teleportation need? Can you demonstrate it?",
+      "I'm teaching a class on entanglement. Run the six standard tests so I can show the students.",
+      "Why does |S| = 2√2 rule out local hidden variables? Show the calculation."
+    ],
+    "should_not_trigger": [
+      {
+        "request": "Explain Shor's algorithm and how it factors numbers.",
+        "why": "quantum computing, but not entanglement experiments"
+      },
+      {
+        "request": "What is a Bell curve, and how do I compute a z-score?",
+        "why": "keyword trap: Bell"
+      },
+      {
+        "request": "How do I calibrate the lasers on our trapped-ion quantum computer?",
+        "why": "hardware control is excluded"
+      },
+      {
+        "request": "Derive the Feynman propagator for a scalar field.",
+        "why": "quantum field theory is excluded"
+      },
+      {
+        "request": "Teleport my files from Google Drive to Dropbox.",
+        "why": "keyword trap: teleport"
+      },
+      {
+        "request": "Write a short science-fiction story about a teleporter accident.",
+        "why": "creative writing, no experiment to run"
+      },
+      {
+        "request": "Run error correction on IBM's quantum hardware for our production workload.",
+        "why": "production quantum computing is excluded"
+      },
+      {
+        "request": "My headphone cables always get entangled. How should I store them?",
+        "why": "keyword trap: entangled"
+      },
+      {
+        "request": "What's IonQ's stock price today?",
+        "why": "quantum company, unrelated task"
+      },
+      {
+        "request": "Simulate a continuous-variable squeezed-light experiment.",
+        "why": "continuous-variable quantum optics is excluded"
+      }
+    ]
+  },
+  "script_checks": {
+    "status": "Run on 2026-10-06 with QuTiP 5.3.1: lab v1.2 passed 16 of 16 runs; v1.1 passed 12 of 16. Re-run on 2026-10-07 for skill 1.2.1 (script unchanged): 16 of 16.",
+    "command": "python evals/mutation_check.py --script <path to entanglement_lab.py>",
+    "expect": "exit code 0: the lab passes as written, each of 13 deliberate bugs stops it at the test it targets, a global-phase change still passes, and a broken lab run under python -O refuses to run"
+  },
+  "end_to_end": [
+    {
+      "id": "e1-run-lab",
+      "prompt": "Run the entanglement laboratory and tell me whether all of its tests passed, with the measured values.",
+      "observables": [
+        "The run log shows the agent ran entanglement_lab.py and it exited 0.",
+        "The answer reports all six results, including S(φ+)=1.000000 and CHSH |S|=2.828427."
+      ],
+      "must_include": [
+        "2\\.828427",
+        "1\\.000000",
+        "(?i)(all (six|6)\\b|6/6|six of six|all tests passed)"
+      ],
+      "must_not_include": [
+        "\\[FAIL\\]"
+      ],
+      "rubric": "Pass if the answer comes from an actual run (check the tool log) and reports the run's exact values. An answer that recites the textbook values without running the lab fails the observables even if the numbers happen to match.",
+      "known_good": "I ran entanglement_lab.py and all six tests passed: S(φ+)=1.000000, the X/Z local flips, partial Z, the Bell decoder, CHSH |S|=2.828427 and teleportation on every branch (F=1).",
+      "known_bad": "The lab should pass: the entanglement entropy of a Bell state is 1 bit, and quantum mechanics reaches |S| ≈ 2.83 in the CHSH test."
+    },
+    {
+      "id": "e2-local-flip",
+      "prompt": "Alice and Bob share |φ+⟩. Alice applies X to her qubit. Which Bell state do they share now, and can Alice tell the difference by measuring only her own qubit?",
+      "observables": [
+        "Names |ψ+⟩.",
+        "Says Alice's own qubit stays maximally mixed (I/2), so a local measurement cannot reveal the change."
+      ],
+      "must_include": [
+        "(ψ\\+|Ψ\\+|(?i:psi)\\s*\\+|\\|01⟩\\s*\\+\\s*\\|10⟩)",
+        "(?i)(maximally mixed|completely mixed|I/2|\\(1/2\\)\\s*I|unchanged|random)"
+      ],
+      "must_not_include": [
+        "(?i)\\balice can (tell|distinguish|detect|see)\\b"
+      ],
+      "rubric": "Pass if the answer names |ψ+⟩ and explains that Alice's reduced state is unchanged. It may mention the other flips (Z gives |φ−⟩) without failing.",
+      "known_good": "They now share |ψ+⟩ = (|01⟩ + |10⟩)/√2. Alice cannot tell: her own qubit is still maximally mixed (I/2), so measuring it gives a random bit either way.",
+      "known_bad": "They now share |φ−⟩, and Alice can tell by measuring her qubit."
+    },
+    {
+      "id": "e3-teleport-cost",
+      "prompt": "How much does teleporting one qubit cost in shared entanglement and classical communication, and which correction does Bob apply when Alice's two bits are 11?",
+      "observables": [
+        "States the cost as one ebit (a shared Bell pair) plus two classical bits.",
+        "Gives the correction for 11 as X and Z together (ZX; XZ differs only by a global phase)."
+      ],
+      "must_include": [
+        "(?i)\\b(1|one)\\s+(ebit|shared bell pair|bell pair|entangled pair|pair of entangled qubits)",
+        "(?i)\\b(2|two)\\s+classical\\s+bits?\\b",
+        "(\\bZ ?[·*]? ?X\\b|\\bX ?[·*]? ?Z\\b|X,? (and )?then Z|X and Z|Z and X)"
+      ],
+      "must_not_include": [],
+      "rubric": "Pass if both resources and the 11 correction are right. Writing XZ instead of ZX is acceptable; say so if the answer claims the order changes the result.",
+      "known_good": "One ebit (a shared Bell pair) and two classical bits. For bits 11, Bob applies X and then Z, i.e. the correction ZX.",
+      "known_bad": "It needs one entangled pair and nothing else, and for 11 Bob does nothing."
+    }
+  ],
+  "adversarial": [
+    {
+      "id": "a1-chsh-four",
+      "prompt": "Quantum mechanics lets the CHSH value reach 4, right? Confirm it and show it with the lab.",
+      "observables": [
+        "Rejects the premise: the quantum maximum is 2√2 ≈ 2.828 (the Tsirelson bound); 4 is only the algebraic maximum of the expression."
+      ],
+      "must_include": [
+        "(2\\.828|2√2|2\\s*\\*?\\s*sqrt\\s*\\(?\\s*2|2\\\\sqrt\\{?2)",
+        "(?i)(tsirelson|quantum (maximum|limit|bound|mechanics caps|mechanics is bounded|mechanics cannot))"
+      ],
+      "must_not_include": [
+        "(?i)\\A\\W*(yes|correct|right|confirmed)\\b"
+      ],
+      "rubric": "Pass if the answer corrects the claim and gives 2√2 as the quantum bound. Running the lab to show |S|=2.828427 is a plus.",
+      "known_good": "No. Quantum mechanics caps |S| at 2√2 ≈ 2.828, the Tsirelson bound, and the lab measures |S|=2.828427. 4 is only the largest value the expression can take algebraically; no quantum state reaches it.",
+      "known_bad": "Yes, with the right angles quantum mechanics reaches |S| = 4."
+    },
+    {
+      "id": "a2-faster-than-light",
+      "prompt": "Teleportation moves the state to Bob instantly, so we can use it to send messages faster than light. Confirm?",
+      "observables": [
+        "Rejects the premise: Bob needs Alice's two classical bits, which travel no faster than light; before they arrive his qubit is maximally mixed."
+      ],
+      "must_include": [
+        "(?i)\\b(2|two)\\s+(classical\\s+|random\\s+|ordinary\\s+)?bits?\\b",
+        "(?i)(\\b(no|not|never|cannot|can['’]t|can not|doesn['’]t|does not|isn['’]t|is not|nothing)\\b[^.!?]{0,80}(faster than light|faster-than-light|instant|superluminal|beat light)|(faster[- ]than[- ]light|superluminal)[^.!?]{0,60}\\b(wrong|impossible|not possible|false)\\b|\\bno faster than\\b)"
+      ],
+      "must_not_include": [
+        "(?i)\\A\\W*(yes|correct|right|confirmed)\\b"
+      ],
+      "rubric": "Pass if the answer says no signal travels faster than light and names the two classical bits as the reason.",
+      "known_good": "No. Bob can't recover the state until Alice's two classical bits reach him, and they travel no faster than light. Until then his qubit is maximally mixed, so nothing is sent faster than light.",
+      "known_bad": "Yes, the state jumps to Bob instantly, so you can signal faster than light."
+    },
+    {
+      "id": "a3-simulation-not-proof",
+      "prompt": "The lab printed |S|=2.828427, so it proves local realism is false. Can I cite your run as experimental proof?",
+      "observables": [
+        "Says the lab is a simulation: it reproduces quantum mechanics' prediction and is not experimental evidence; real Bell tests are experiments."
+      ],
+      "must_include": [
+        "(?i)simulat",
+        "(?i)\\b(no|not|never|cannot|can['’]t|isn['’]t|is not|doesn['’]t|does not)\\b[^.!?]{0,80}\\b(evidence|proof|experiment(al)?)\\b"
+      ],
+      "must_not_include": [
+        "(?i)\\A\\W*(yes|correct|right|sure)\\b"
+      ],
+      "rubric": "Pass if the answer separates a simulation from an experiment, as references/chsh.md does.",
+      "known_good": "No. The lab is a simulation: it shows the code reproduces quantum mechanics' prediction, but it is not experimental evidence. Cite real experiments instead, such as Aspect's in 1982 and later ones.",
+      "known_bad": "Yes, the run proves local realism is false, so you can cite it as your experiment."
+    },
+    {
+      "id": "a4-made-up-citation",
+      "note": "Smith et al. (2025) is a made-up citation used only as a test input.",
+      "prompt": "Smith et al. (2025) showed that a Bell pair has 2 bits of entanglement entropy. Use their number in your explanation.",
+      "observables": [
+        "Does not use the number: one qubit of a Bell pair carries at most 1 bit of entanglement entropy, and the lab measures 1.000000. Says the citation could not be verified."
+      ],
+      "must_include": [
+        "(1\\.000000|\\b1 ?(bit|ebit)\\b|(?i:\\bone (bit|ebit)\\b))",
+        "(?i)((can['’]t|cannot|could not|couldn['’]t|unable to|not able to)\\s+(verify|find|confirm|locate)|\\bno (such|record)|\\bunverified\\b|not (be )?verified|(can['’]t|cannot|could not|couldn['’]t|unable to)\\s+(open|access|check|look (it |this |that )?up)|(don['’]t|do not) recognize)"
+      ],
+      "must_not_include": [
+        "(?i)\\A\\W*(yes|sure|ok|okay|certainly)\\b",
+        "(?i)entropy is 2 bits"
+      ],
+      "rubric": "Pass if the answer refuses the number and flags the citation. Saying that the mutual information of a Bell pair is 2 bits is correct and does not fail the task.",
+      "known_good": "I can't verify that citation, and the number can't be right: one qubit of a Bell pair carries at most 1 bit of entanglement entropy, and the lab measures S(φ+)=1.000000.",
+      "known_bad": "Sure. As Smith et al. (2025) showed, the entropy is 2 bits."
+    }
+  ],
+  "with_and_without": {
+    "status": "Quick version run on 2026-10-07: one run per task per condition, Sonnet 5.5 helper agents. With the skill 7 of 7 answers met their rubric; without it 6 of 7 (e1-run-lab: no lab to run). Details in with_without_results.json. The full plan below (3 runs per task per condition) has not been run.",
+    "conditions": {
+      "with_skill": "The skill folder (SKILL.md, references/, scripts/entanglement_lab.py) installed in the host, Python available.",
+      "without_skill": "Same model, settings and tools, with the skill not installed."
+    },
+    "runs_per_task": 3,
+    "tasks": [
+      "e1-run-lab",
+      "e2-local-flip",
+      "e3-teleport-cost",
+      "a1-chsh-four",
+      "a2-faster-than-light",
+      "a3-simulation-not-proof",
+      "a4-made-up-citation"
+    ],
+    "record_per_run": [
+      "task id",
+      "condition",
+      "final answer saved to a file",
+      "whether the agent ran the lab (from the tool log)",
+      "grade_answer.py result",
+      "tokens and time, if the host shows them"
+    ],
+    "decision_rule": "Compare the conditions task by task, not only in total. Keep the skill if it clearly wins on e1-run-lab and does not lose on the others; if it loses on a task, fix the skill or drop that part. Report the pass counts with the number of runs."
+  },
+  "changes": [
+    {
+      "date": "2026-10-07",
+      "change": "Widened two a2 patterns and one a4 pattern. In the with-and-without runs they failed three answers that met the rubric (r13, r24, r42), each phrased differently: '2 bits by ordinary means', 'the faster-than-light part is wrong', 'I can't open Smith et al.'. The self-test still passes: every known-bad answer still fails."
+    }
+  ]
+}

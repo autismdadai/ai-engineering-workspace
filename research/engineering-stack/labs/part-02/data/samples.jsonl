@@ -1,0 +1,8 @@
+{"id": "q1", "question": "How many days does the free trial last?", "reference": "14 days", "samples": ["14 days", "14 days", "Fourteen days", "Two weeks", "The trial lasts 14 days.", "14 days", "14 days", "Fourteen days", "Two weeks", "The trial lasts 14 days."]}
+{"id": "q2", "question": "Which file format does the export button produce?", "reference": "PDF", "samples": ["PDF", "PDF", "PDF", "A PDF file", "pdf", "PDF", "PDF", "A PDF file", "A PDF file", "pdf"]}
+{"id": "q3", "question": "What is the largest attachment you can upload?", "reference": "25 MB", "samples": ["25 MB", "25 MB", "25 MB", "25 megabytes", "25 megabytes", "25 MB", "25 MB", "25 MB", "25 megabytes", "50 MB"]}
+{"id": "q4", "question": "In what year was the app first released?", "reference": "2019", "samples": ["2018", "2018", "2018", "2019", "2019", "2018", "2018", "2018", "2019", "2020"]}
+{"id": "q5", "question": "How many notebooks can a free account have?", "reference": "3", "samples": ["5", "5", "Five", "3", "Three", "5", "Five", "3", "Three", "10"]}
+{"id": "q6", "question": "What time does phone support open on weekdays?", "reference": "9 am", "samples": ["8 am", "8 am", "10 am", "10 am", "9 am", "8 am", "8 am", "10 am", "9 am", "7 am"]}
+{"id": "q7", "question": "How many people can share one notebook?", "reference": "20", "samples": ["10", "10", "10", "Ten", "10 people", "10", "10", "10", "Ten", "10 people"]}
+{"id": "q8", "question": "Which keyboard shortcut creates a new note?", "reference": "Ctrl+N", "samples": ["Ctrl+N", "Ctrl+N", "Ctrl+N", "Control+N", "Ctrl+Shift+N", "Ctrl+N", "Ctrl+N", "Control+N", "Control+N", "Ctrl+Shift+N"]}

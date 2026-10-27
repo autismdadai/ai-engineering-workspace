@@ -1,0 +1,8 @@
+{
+  "test_cases": [
+    {
+      "prompt": "Verify this claim from a model answer: 'The Agent Skills open standard was released by Anthropic on 18 December 2025 and is documented at agentskills.io.'",
+      "expected_output": "Extract one or more atomic claims; require primary source; produce accuracy table."
+    }
+  ]
+}

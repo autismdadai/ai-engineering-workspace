@@ -1,0 +1,1300 @@
+﻿
+==== This computer  [2026-10-20 08:15:30]
+Windows: Microsoft Windows 11 Pro 10.0.26300; PowerShell 5.1.26100.9711
+Memory: 7.79 GB total, 1.29 GB free now
+Free disk on C: 123.4 GB
+Python: %USERPROFILE%\AppData\Local\Programs\Python\Python313\python.exe exists: True
+docker not found
+claude not found
+node not found
+
+==== Part 03: R1, R2, R3 (Pydantic)  [2026-10-20 08:15:31]
+Lab zip: %USERPROFILE%\Downloads\engineering-stack-lab-part-03.zip, 21450 bytes, SHA-256 01e88c6a9a8cd8a90311e8d175d28c721936806b5d3b46dc62165b8e7b4d8011
+> -m venv .venv
+(exit code 0, 13.1 s)
+> --version
+Python 3.13.16
+(exit code 0, 0.1 s)
+> run_lab.py
+[PASS] check 1: python_version: 3.13.16
+[PASS] check 2: contract_verdicts: 6 of 6 verdicts right
+[PASS] check 3: schema_lint_rules: 8 of 8 linter checks right
+[PASS] check 4: retry_loop: fixed on attempt 2; gave up after 3
+[PASS] check 5: tool_loop_guards: good run answered; runaway run max_steps
+[PASS] check 6: optimizer_overfits_small_val: small-val pick test 0.417; big-val pick test 0.75
+[PASS] check 7: paper_arithmetic: 10.3 points; 7.01 and 6.55 points; 3.4x to 13.1x
+7 of 7 checks passed.
+(exit code 0, 0.2 s)
+> mutation_check.py
+[OK] unbroken copy: pass
+[OK] enum ignored (ticket_contract.py): run_lab fail
+[OK] extra fields allowed (ticket_contract.py): run_lab fail
+[OK] required ignored (ticket_contract.py): run_lab fail
+[OK] types ignored (ticket_contract.py): run_lab fail
+[OK] lint misses additionalProperties (schema_lint.py): run_lab fail
+[OK] lint misses OpenAI required rule (schema_lint.py): run_lab fail
+[OK] lint misses maxLength (schema_lint.py): run_lab fail
+[OK] lint misses a missing object type (schema_lint.py): run_lab fail
+[OK] lint can't read UTF-16 (schema_lint.py): run_lab fail
+[OK] lint crashes on broken JSON (schema_lint.py): run_lab fail
+[OK] retry hides the error (validate_retry.py): run_lab fail
+[OK] one retry too few (validate_retry.py): run_lab fail
+[OK] tool runs unvalidated input (tool_loop.py): run_lab fail
+[OK] unknown tool not caught (tool_loop.py): run_lab fail
+[OK] no step cap (tool_loop.py): run_lab fail
+[OK] optimizer keeps the worst (toy_optimizer.py): run_lab fail
+[OK] copied figure wrong (paper_numbers.py): run_lab fail
+Every mutation behaved as expected.
+(exit code 0, 4.6 s)
+> -m pip install --disable-pip-version-check --require-hashes -r requirements-optional.txt
+Collecting pydantic==2.14.1 (from -r requirements-optional.txt (line 3))
+  Downloading pydantic-2.14.1-py3-none-any.whl (488 kB)
+Collecting pydantic-core==2.50.1 (from -r requirements-optional.txt (line 6))
+  Downloading pydantic_core-2.50.1-cp313-cp313-win_amd64.whl (2.2 MB)
+     ---------------------------------------- 2.2/2.2 MB 12.2 MB/s  0:00:00
+Collecting annotated-types==0.8.0 (from -r requirements-optional.txt (line 144))
+  Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+Collecting typing-extensions==4.16.0 (from -r requirements-optional.txt (line 147))
+  Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Collecting typing-inspection==0.4.4 (from -r requirements-optional.txt (line 150))
+  Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+Installing collected packages: typing-extensions, annotated-types, typing-inspection, pydantic-core, pydantic
+
+Successfully installed annotated-types-0.8.0 pydantic-2.14.1 pydantic-core-2.50.1 typing-extensions-4.16.0 typing-inspection-0.4.4
+(exit code 0, 8.1 s)
+pip: Successfully installed annotated-types-0.8.0 pydantic-2.14.1 pydantic-core-2.50.1 typing-extensions-4.16.0 typing-inspection-0.4.4
+> run_lab.py --with-pydantic
+[PASS] check 1: python_version: 3.13.16
+[PASS] check 2: contract_verdicts: 6 of 6 verdicts right
+[PASS] check 3: schema_lint_rules: 8 of 8 linter checks right
+[PASS] check 4: retry_loop: fixed on attempt 2; gave up after 3
+[PASS] check 5: tool_loop_guards: good run answered; runaway run max_steps
+[PASS] check 6: optimizer_overfits_small_val: small-val pick test 0.417; big-val pick test 0.75
+[PASS] check 7: paper_arithmetic: 10.3 points; 7.01 and 6.55 points; 3.4x to 13.1x
+[PASS] check 8: pydantic_agrees: agreement: 6 of 6
+8 of 8 checks passed.
+(exit code 0, 1 s)
+
+==== Part 04: R1, R2, R3 (tiktoken)  [2026-10-20 08:15:59]
+Lab zip: %USERPROFILE%\Downloads\engineering-stack-lab-part-04.zip, 34804 bytes, SHA-256 05a71960e24f7a8734b23b65b29c6d9e9f5386f22645721080281903e6ba11de
+> -m venv .venv
+(exit code 0, 9.3 s)
+> --version
+Python 3.13.16
+(exit code 0, 0.1 s)
+> run_lab.py
+[PASS] check 1: python_version: 3.13.16
+[PASS] check 2: budget_plan: kept the must-keep parts; dropped b, then c and b with growth 1.5
+[PASS] check 3: overflow_rules: error 400; drop-oldest [0, 1]; keep-system-and-last [1]
+[PASS] check 4: estimate_is_rough: 1, 100 and 0 tokens for 1, 400 and 0 characters
+[PASS] check 5: break_even: 5-minute 1, 1-hour 2, 1-hour at 0.025x 2
+[PASS] check 6: sonnet_totals: cents [40, 26, 41, 200, 34, 49]; always-expired costs 1.25x
+[PASS] check 7: gemini_storage: [0.74, 2.5, 4.0]
+[PASS] check 8: cache_stable_prefix: turns read [0, 10000, 10000]
+[PASS] check 9: cache_timestamp_breaks_it: reads [0, 0, 0]; cost 38,700 vs 31,200 uncached
+[PASS] check 10: cache_lifetime: 5-minute miss at 6 minutes; 1-hour hit; refreshed entry hit at 8 minutes
+[PASS] check 11: cache_minimum_and_order: no caching below 512 tokens; bad order and 5 breakpoints refused
+[PASS] check 12: placement_harness: U stand-in: 5/5 U-shaped; flat: 0/5 U-shaped
+[PASS] check 13: quoted_numbers: Liu gap 22.0 points; NoLiMa 70.2%; 10,000,000 tokens per minute
+13 of 13 checks passed.
+(exit code 0, 0.8 s)
+> mutation_check.py
+[OK] unbroken copy: pass
+[OK] must-keep parts not reserved (token_budget.py): run_lab fail
+[OK] priority ignored (token_budget.py): run_lab fail
+[OK] growth ignored (token_budget.py): run_lab fail
+[OK] Ollama rule drops the last message (token_budget.py): run_lab fail
+[OK] overflow silently accepted (token_budget.py): run_lab fail
+[OK] break-even off by one (cache_cost.py): run_lab fail
+[OK] expired writes not charged (cache_cost.py): run_lab fail
+[OK] fingerprint ignores text (cache_sim.py): run_lab fail
+[OK] expired entries still hit (cache_sim.py): run_lab fail
+[OK] hits don't refresh the lifetime (cache_sim.py): run_lab fail
+[OK] minimum length ignored (cache_sim.py): run_lab fail
+[OK] block order not checked (cache_sim.py): run_lab fail
+[OK] verdict ignores the intervals (placement_test.py): run_lab fail
+[OK] U stand-in loses its bias (placement_test.py): run_lab fail
+[OK] copied figure wrong (paper_numbers.py): run_lab fail
+Every mutation behaved as expected.
+(exit code 0, 14.5 s)
+> -m pip install --disable-pip-version-check --require-hashes -r requirements-optional.txt
+Collecting tiktoken==0.14.0 (from -r requirements-optional.txt (line 3))
+  Downloading tiktoken-0.14.0-cp313-cp313-win_amd64.whl (940 kB)
+     ---------------------------------------- 940.9/940.9 kB 6.2 MB/s  0:00:00
+Collecting regex==2026.9.29 (from -r requirements-optional.txt (line 68))
+  Downloading regex-2026.9.29-cp313-cp313-win_amd64.whl (280 kB)
+Collecting requests==2.34.2 (from -r requirements-optional.txt (line 199))
+  Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+Collecting certifi==2026.7.22 (from -r requirements-optional.txt (line 202))
+  Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+Collecting charset-normalizer==3.5.2 (from -r requirements-optional.txt (line 205))
+  Downloading charset_normalizer-3.5.2-cp313-cp313-win_amd64.whl (206 kB)
+Collecting idna==3.20 (from -r requirements-optional.txt (line 378))
+  Downloading idna-3.20-py3-none-any.whl (69 kB)
+Collecting urllib3==2.8.0 (from -r requirements-optional.txt (line 381))
+  Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+Installing collected packages: urllib3, regex, idna, charset-normalizer, certifi, requests, tiktoken
+
+Successfully installed certifi-2026.7.22 charset-normalizer-3.5.2 idna-3.20 regex-2026.9.29 requests-2.34.2 tiktoken-0.14.0 urllib3-2.8.0
+(exit code 0, 7.5 s)
+pip: Successfully installed certifi-2026.7.22 charset-normalizer-3.5.2 idna-3.20 regex-2026.9.29 requests-2.34.2 tiktoken-0.14.0 urllib3-2.8.0
+> run_lab.py --with-tiktoken
+[PASS] check 1: python_version: 3.13.16
+[PASS] check 2: budget_plan: kept the must-keep parts; dropped b, then c and b with growth 1.5
+[PASS] check 3: overflow_rules: error 400; drop-oldest [0, 1]; keep-system-and-last [1]
+[PASS] check 4: estimate_is_rough: 1, 100 and 0 tokens for 1, 400 and 0 characters
+[PASS] check 5: break_even: 5-minute 1, 1-hour 2, 1-hour at 0.025x 2
+[PASS] check 6: sonnet_totals: cents [40, 26, 41, 200, 34, 49]; always-expired costs 1.25x
+[PASS] check 7: gemini_storage: [0.74, 2.5, 4.0]
+[PASS] check 8: cache_stable_prefix: turns read [0, 10000, 10000]
+[PASS] check 9: cache_timestamp_breaks_it: reads [0, 0, 0]; cost 38,700 vs 31,200 uncached
+[PASS] check 10: cache_lifetime: 5-minute miss at 6 minutes; 1-hour hit; refreshed entry hit at 8 minutes
+[PASS] check 11: cache_minimum_and_order: no caching below 512 tokens; bad order and 5 breakpoints refused
+[PASS] check 12: placement_harness: U stand-in: 5/5 U-shaped; flat: 0/5 U-shaped
+[PASS] check 13: quoted_numbers: Liu gap 22.0 points; NoLiMa 70.2%; 10,000,000 tokens per minute
+[PASS] check 14: tiktoken_counts: PASS  tiktoken counted every sample
+14 of 14 checks passed.
+(exit code 0, 3.6 s)
+
+==== Part 05: R1, R2, R3 (bm25s, rank_bm25, ir_measures)  [2026-10-20 08:16:36]
+Lab zip: %USERPROFILE%\Downloads\engineering-stack-lab-part-05.zip, 14842 bytes, SHA-256 44bb36d6a1853598a1e3b9da0ffea8e9c1ba0d4c5a913339a808ffb86f23b2a3
+> -m venv .venv
+(exit code 0, 9.6 s)
+> --version
+Python 3.13.16
+(exit code 0, 0.1 s)
+> run_lab.py
+PASS 1 BM25 score matches the formula by hand: 3.553336 vs 3.553336
+PASS 2 BM25 puts the E42 document first: ['d03']
+PASS 3 BM25 finds nothing for 'fix a flat bicycle tyre'
+PASS 3b stand-in dense search puts d01 first
+PASS 3c 'squeaky brakes': BM25 finds nothing, dense finds d06
+PASS 4 RRF scores: b=0.032522, a=0.016393
+PASS 4b agreement at rank r in both lists beats a lone first place only while r <= 61: last winning rank 61
+PASS 4c RRF's default k is 60
+PASS 4d Qdrant's default (k = 2, 0-based) equals Cormack's formula with k = 1, where a lone first place beats rank 5 in both lists: 0.500 vs 0.333
+PASS 5 RRF ignores score scale
+PASS 6 convex combination by hand: 0.9566
+PASS 6b alpha weights the dense list (alpha = 0.8): 0.8000
+PASS 7 recall@4, precision@4, precision@5, MRR
+PASS 7b nDCG@4 (gain = grade): 0.5406
+PASS 7c the two nDCG gains agree on yes/no labels and differ on graded ones: graded: 0.5406 vs 0.5625
+     mean nDCG@3 BM25                 0.4174
+     mean nDCG@3 stand-in dense       0.8651
+     mean nDCG@3 RRF (k=60)           0.8877
+     mean nDCG@3 convex (alpha=0.5)   0.8877
+PASS 8 mean nDCG@3 table matches the part
+PASS 8b fusion can lose on one query: RRF below dense on q3: 0.7602 vs 0.9502
+PASS 9 chunks stay within 200 characters, overlap 40, and rebuild the text: 21 chunks, longest 198
+PASS 10 paper arithmetic: 13 figures
+
+19 of 19 checks passed
+(exit code 0, 0.1 s)
+> mutation_check.py
+OK   the unbroken copy passes
+CAUGHT IDF loses Lucene's +1: FAIL 1 BM25 score matches the formula by hand: 3.106814 vs 3.553336
+CAUGHT drop the (k1 + 1) factor: FAIL 1 BM25 score matches the formula by hand: 1.615153 vs 3.553336
+CAUGHT ignore document length (b): FAIL 1 BM25 score matches the formula by hand: 3.471671 vs 3.553336
+CAUGHT tokenizer drops digits: FAIL 1 BM25 score matches the formula by hand: 3.521345 vs 1.330962
+CAUGHT dense vectors not unit length: FAIL 8 mean nDCG@3 table matches the part
+CAUGHT RRF ranks start at 0: FAIL 4 RRF scores: b=0.033060, a=0.016667
+CAUGHT RRF default k = 1: FAIL 4c RRF's default k is 60
+CAUGHT RRF adds scores, not ranks: FAIL 4 RRF scores: b=8.900000, a=9.000000
+CAUGHT min-max upside down: FAIL 6 convex combination by hand: 0.0434
+CAUGHT convex weights swapped: FAIL 6b alpha weights the dense list (alpha = 0.8): 0.2000
+CAUGHT recall divides by k: FAIL 7 recall@4, precision@4, precision@5, MRR
+CAUGHT precision divides by what came back: FAIL 7 recall@4, precision@4, precision@5, MRR
+CAUGHT MRR off by one rank: FAIL 7 recall@4, precision@4, precision@5, MRR
+CAUGHT nDCG ideal list not sorted: FAIL 7b nDCG@4 (gain = grade): 0.5406
+CAUGHT chunks lose their overlap: FAIL 9 chunks stay within 200 characters, overlap 40, and rebuild the text: 21 chunks, longest 158
+CAUGHT query mapped to the wrong concept: FAIL 3c 'squeaky brakes': BM25 finds nothing, dense finds d06
+
+16 of 16 mutations caught
+(exit code 0, 2.8 s)
+> -m pip install --disable-pip-version-check -r requirements-crosscheck.txt
+Ignoring numpy: markers 'python_version < "3.12"' don't match your environment
+Ignoring scipy: markers 'python_version < "3.12"' don't match your environment
+Collecting bm25s==0.3.13 (from -r requirements-crosscheck.txt (line 3))
+  Downloading bm25s-0.3.13-py3-none-any.whl.metadata (29 kB)
+Collecting rank-bm25==0.2.2 (from -r requirements-crosscheck.txt (line 4))
+  Downloading rank_bm25-0.2.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting numpy==2.5.4 (from -r requirements-crosscheck.txt (line 5))
+  Downloading numpy-2.5.4-cp313-cp313-win_amd64.whl.metadata (6.6 kB)
+Collecting scipy==1.18.1 (from -r requirements-crosscheck.txt (line 7))
+  Downloading scipy-1.18.1-cp313-cp313-win_amd64.whl.metadata (61 kB)
+Collecting ir-measures==0.4.3 (from -r requirements-crosscheck.txt (line 9))
+  Downloading ir_measures-0.4.3-py3-none-any.whl.metadata (7.0 kB)
+Collecting pytrec-eval-terrier==0.5.10 (from -r requirements-crosscheck.txt (line 10))
+  Downloading pytrec_eval_terrier-0.5.10-cp313-cp313-win_amd64.whl.metadata (1.1 kB)
+Downloading bm25s-0.3.13-py3-none-any.whl (75 kB)
+Downloading rank_bm25-0.2.2-py3-none-any.whl (8.6 kB)
+Downloading numpy-2.5.4-cp313-cp313-win_amd64.whl (12.6 MB)
+   ---------------------------------------- 12.6/12.6 MB 32.4 MB/s  0:00:00
+Downloading scipy-1.18.1-cp313-cp313-win_amd64.whl (36.6 MB)
+   ---------------------------------------- 36.6/36.6 MB 84.1 MB/s  0:00:00
+Downloading ir_measures-0.4.3-py3-none-any.whl (61 kB)
+Downloading pytrec_eval_terrier-0.5.10-cp313-cp313-win_amd64.whl (58 kB)
+Installing collected packages: numpy, scipy, rank-bm25, bm25s, pytrec-eval-terrier, ir-measures
+
+Successfully installed bm25s-0.3.13 ir-measures-0.4.3 numpy-2.5.4 pytrec-eval-terrier-0.5.10 rank-bm25-0.2.2 scipy-1.18.1
+(exit code 0, 44.1 s)
+pip: Successfully installed bm25s-0.3.13 ir-measures-0.4.3 numpy-2.5.4 pytrec-eval-terrier-0.5.10 rank-bm25-0.2.2 scipy-1.18.1
+> crosscheck.py
+PASS bm25s 0.3.13 lucene: largest score gap 9.27e-08 over 4x12 pairs
+INFO rank_bm25 top 3 for 'dishwasher E42': ['d03', 'd09', 'd04'] (ours ['d03', 'd09', 'd04'])
+INFO rank_bm25 top 3 for 'fix a flat bicycle tyre': [] (ours [])
+INFO rank_bm25 top 3 for 'dishwasher water not draining': ['d07', 'd09', 'd03'] (ours ['d07', 'd09', 'd03'])
+INFO rank_bm25 top 3 for 'squeaky brakes': [] (ours [])
+INFO rank_bm25 agrees on the top 3 for 4 of 4 queries (different IDF, so not required)
+PASS ir_measures 0.4.3: nDCG@3, R@3, RR largest gap 0.00e+00
+(exit code 0, 3.3 s)
+
+==== Part 06: R1, R2, R3 (networkx)  [2026-10-20 08:17:36]
+Lab zip: %USERPROFILE%\Downloads\engineering-stack-lab-part-06.zip, 12139 bytes, SHA-256 93ebcf6f53cdfdca84be3ad2e9dbc67effacb0c5d4031ffbd8ccf305ca031fb4
+> -m venv .venv
+(exit code 0, 10 s)
+> --version
+Python 3.13.16
+(exit code 0, 0 s)
+> run_lab.py
+PASS 1 one triple per note, each with its source: 10 triples
+PASS 2 exact names: 11 nodes ('ledger DB' and 'ledger database' apart)
+PASS 2b normalized names: 10 nodes, one ledger node
+PASS 3 two hops, with provenance: avery lin, from notes n8 and n2: [('avery lin', ['n8', 'n2'])]
+PASS 3b the same question finds nothing without entity resolution
+PASS 3c no single note holds both hops
+PASS 4 shortest path rowan park -> index store: ['rowan park', 'discovery team', 'index store']
+PASS 4b no path between unconnected names
+PASS 5 modularity of the two-team split = 0.5 by hand: 0.5000
+PASS 5b one community for everything has modularity 0
+PASS 6 local moving alone stops at 4 communities: [['avery lin', 'finance group', 'payments team'], ['billing service', 'ledger database'], ['discovery team', 'product group', 'rowan park'], ['index store', 'search service']]
+PASS 6b with merging: the two teams: [['avery lin', 'billing service', 'finance group', 'ledger database', 'payments team'], ['discovery team', 'index store', 'product group', 'rowan park', 'search service']]
+PASS 6c without entity resolution the ledger splits off into its own community: 3 communities
+PASS 7 overwrite: only Oslo, history lost
+PASS 7b add-only: the stale city is still 'current'
+PASS 7c temporal: Oslo now, Lisbon on day 20
+PASS 7d temporal: an older fact arriving late doesn't close the newer one
+PASS 8 untrusted write is quarantined, memory unchanged
+PASS 8b the same write is stored once approved
+PASS 8c traversal and look-alike paths refused, normal ones kept: 5 of 5 refused
+PASS 9 paper arithmetic: 8 figures
+
+21 of 21 checks passed
+(exit code 0, 0.2 s)
+> mutation_check.py
+OK   the unbroken copy passes
+CAUGHT extractor drops the source note: FAIL 1 one triple per note, each with its source: 10 triples
+CAUGHT resolution ignores the alias table: FAIL 2b normalized names: 10 nodes, one ledger node
+CAUGHT normalizing keeps upper case: FAIL 2b normalized names: 10 nodes, one ledger node
+CAUGHT backwards edges walk forwards: FAIL 3 two hops, with provenance: avery lin, from notes n8 and n2
+CAUGHT path search follows edge direction only: FAIL 4 shortest path rowan park -> index store
+CAUGHT modularity forgets the expected term: FAIL 5 modularity of the two-team split = 0.5 by hand: 1.0000
+CAUGHT modularity squares with m, not 2m: FAIL 5 modularity of the two-team split = 0.5 by hand: -1.0000
+CAUGHT local moving never moves a node: FAIL 6 local moving alone stops at 4 communities: [['avery lin'], ['billing service'], ['discovery team'], ['finance group'], ['index store'], ['ledger database'], ['payments team'], ['product group'], ['rowan park'], ['search service']]
+CAUGHT merging phase switched off: FAIL 6b with merging: the two teams: [['avery lin', 'finance group', 'payments team'], ['billing service', 'ledger database'], ['discovery team', 'product group', 'rowan park'], ['index store', 'search service']]
+CAUGHT overwrite keeps the old value: FAIL 7 overwrite: only Oslo, history lost
+CAUGHT temporal mode never closes old facts: FAIL 7c temporal: Oslo now, Lisbon on day 20
+CAUGHT temporal mode closes newer facts too: FAIL 7d temporal: an older fact arriving late doesn't close the newer one
+CAUGHT as_of ignores the end date: FAIL 7c temporal: Oslo now, Lisbon on day 20
+CAUGHT quarantine switched off: FAIL 8 untrusted write is quarantined, memory unchanged
+CAUGHT path check skips normalizing: FAIL 8c traversal and look-alike paths refused, normal ones kept: 4 of 5 refused
+CAUGHT path check accepts look-alike folders: FAIL 8c traversal and look-alike paths refused, normal ones kept: 4 of 5 refused
+
+16 of 16 mutations caught
+(exit code 0, 3.5 s)
+> -m pip install --disable-pip-version-check -r requirements-crosscheck.txt
+Ignoring networkx: markers 'python_version < "3.12"' don't match your environment
+Collecting networkx==3.7 (from -r requirements-crosscheck.txt (line 3))
+  Downloading networkx-3.7-py3-none-any.whl.metadata (6.7 kB)
+Downloading networkx-3.7-py3-none-any.whl (2.1 MB)
+   ---------------------------------------- 2.1/2.1 MB 8.6 MB/s  0:00:00
+Installing collected packages: networkx
+Successfully installed networkx-3.7
+(exit code 0, 14.5 s)
+pip: Successfully installed networkx-3.7
+> crosscheck.py
+PASS networkx 3.7 modularity of our partition: gap 0.0e+00
+PASS networkx louvain_communities (seed 7) finds the same two communities
+PASS shortest path matches: ['rowan park', 'discovery team', 'index store']
+INFO networkx Leiden (modularity) finds 2 communities
+(exit code 0, 1.1 s)
+
+==== Part 07: R1, R2, R3 (mcp 2.3.0)  [2026-10-20 08:18:05]
+Lab zip: %USERPROFILE%\Downloads\engineering-stack-lab-part-07.zip, 22690 bytes, SHA-256 22f6a7e6b1ea992b2a76a6e8a12299e5b5d1c76953911cd9b844da9273d95168
+> -m venv .venv
+(exit code 0, 12.5 s)
+> --version
+Python 3.13.16
+(exit code 0, 0.1 s)
+> run_lab.py
+PASS 1 server/discover answers the first request, with no initialize: ['2026-07-28']
+PASS 2 tools/list: three tools, same order every time, cache hints present: ['search_notes', 'add_note', 'delete_note']
+PASS 3 a request without the _meta envelope is refused with -32602: -32602
+PASS 3b an unsupported version gets -32022 and the list of supported versions: {'supported': ['2026-07-28'], 'requested': '2025-06-18'}
+PASS 3c every stdout line is one JSON-RPC message; logs are on stderr: 1 stdout line, 3 stderr lines
+PASS 4 search_notes returns structuredContent and the same hits as text: [{'id': 'n2', 'text': 'The ledger database is owned by the payments team.'}]
+PASS 4b bad arguments come back as isError: true, not as a protocol error: Invalid arguments: query is too short
+PASS 4c an unknown tool is a JSON-RPC error -32602: Unknown tool: format_disk
+PASS 5 delete_note asks first (input_required), then deletes on a retry with a new id: ids [2, 3]
+PASS 5b when the user declines, the note is kept: Kept n1: the user did not confirm.
+PASS 5c a tampered requestState is refused: requestState failed verification
+PASS 5d state issued for n1 cannot delete n2: requestState was issued for a different call
+PASS 5e without the elicitation capability, delete_note returns -32021: -32021
+PASS 6 a different server process completes the retry (no session needed): Deleted n4.
+PASS 7 the clean server's descriptions raise no flags, and a re-list matches the pins
+PASS 7b a description changed after approval is caught by the pins: ['add_note']
+PASS 7c the changed description is flagged for review: ['a tag addressed to the model', 'asks to hide something from the user', 'a precondition on other actions', 'names a credential file', 'asks the model to read files']
+PASS 7d annotations count only from trusted servers
+PASS 8 the example skill passes the open spec and both product profiles
+PASS 8b seven broken skills each fail for the expected reason: 7 of 7
+PASS 8c product rules stay out of the open-spec check
+PASS 9 paper arithmetic: 11 figures
+
+22 of 22 checks passed
+(exit code 0, 2.9 s)
+> mutation_check.py
+OK   the unbroken copy passes
+CAUGHT discover forgets supportedVersions: FAIL 1 server/discover answers the first request, with no initialize: error: KeyError: 'supportedVersions'
+CAUGHT tool order changes between calls: FAIL 2 tools/list: three tools, same order every time, cache hints present: ['search_notes', 'add_note', 'dele
+CAUGHT server accepts requests without _meta: FAIL 3 a request without the _meta envelope is refused with -32602
+CAUGHT server ignores the protocol version: FAIL 3b an unsupported version gets -32022 and the list of supported versions
+CAUGHT server logs to stdout: FAIL 1 server/discover answers the first request, with no initialize: error: JSONDecodeError: Expecting value:
+CAUGHT bad arguments become a protocol error: FAIL 4b bad arguments come back as isError: true, not as a protocol error: protocol error -32602: Invalid argu
+CAUGHT unknown tool becomes an isError result: FAIL 4c an unknown tool is a JSON-RPC error -32602
+CAUGHT delete happens without asking: FAIL 5 delete_note asks first (input_required), then deletes on a retry with a new id: error: RpcError: -32602
+CAUGHT client retries with the same id: FAIL 5 delete_note asks first (input_required), then deletes on a retry with a new id: ids [1, 1]
+CAUGHT a declined delete still deletes: FAIL 5b when the user declines, the note is kept: Deleted n1.
+CAUGHT state signature not checked: FAIL 5c a tampered requestState is refused
+CAUGHT state not bound to the call: FAIL 5d state issued for n1 cannot delete n2
+CAUGHT server asks a client that cannot answer: FAIL 5e without the elicitation capability, delete_note returns -32021
+CAUGHT each process signs state with its own random key: FAIL 6 a different server process completes the retry (no session needed): the second process refused the retr
+CAUGHT fingerprint covers only the name: FAIL 7b a description changed after approval is caught by the pins: []
+CAUGHT annotations trusted from any server: FAIL 7d annotations count only from trusted servers
+CAUGHT scanner misses credential files: FAIL 7c the changed description is flagged for review: ['a tag addressed to the model', 'asks to hide somethin
+CAUGHT skill name need not match its folder: FAIL 8b seven broken skills each fail for the expected reason: 6 of 7, missed ['other-name']
+CAUGHT open spec uses the app's 200-character limit: FAIL 8c product rules stay out of the open-spec check
+CAUGHT double hyphens allowed in names: FAIL 8b seven broken skills each fail for the expected reason: 6 of 7, missed ['note--finder']
+
+20 of 20 mutations caught
+(exit code 0, 54.3 s)
+> -m pip install --disable-pip-version-check -r requirements-crosscheck.txt
+Collecting mcp==2.3.0 (from -r requirements-crosscheck.txt (line 1))
+  Downloading mcp-2.3.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting anyio>=4.9 (from mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting httpx2>=2.10.0 (from mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading httpx2-2.15.1-py3-none-any.whl.metadata (9.6 kB)
+Collecting jsonschema>=4.20.0 (from mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)
+Collecting mcp-types==2.3.0 (from mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading mcp_types-2.3.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting opentelemetry-api>=1.28.0 (from mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading opentelemetry_api-1.45.1-py3-none-any.whl.metadata (1.4 kB)
+Collecting pydantic>=2.12.0 (from mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading pydantic-2.14.1-py3-none-any.whl.metadata (133 kB)
+Collecting pyjwt>=2.10.1 (from pyjwt[crypto]>=2.10.1->mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading pyjwt-2.15.1-py3-none-any.whl.metadata (3.5 kB)
+Collecting python-multipart>=0.0.9 (from mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading python_multipart-0.0.32-py3-none-any.whl.metadata (2.1 kB)
+Collecting pywin32>=311 (from mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading pywin32-312-cp313-cp313-win_amd64.whl.metadata (11 kB)
+Collecting sse-starlette>=3.0.0 (from mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading sse_starlette-3.5.0-py3-none-any.whl.metadata (15 kB)
+Collecting starlette>=0.27 (from mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading starlette-1.9.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting typing-extensions>=4.13.0 (from mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting typing-inspection>=0.4.1 (from mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading typing_inspection-0.4.4-py3-none-any.whl.metadata (2.6 kB)
+Collecting uvicorn>=0.31.1 (from mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading uvicorn-0.54.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting idna>=2.8 (from anyio>=4.9->mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting httpcore2==2.15.1 (from httpx2>=2.10.0->mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading httpcore2-2.15.1-py3-none-any.whl.metadata (27 kB)
+Collecting truststore>=0.10 (from httpx2>=2.10.0->mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading truststore-0.10.5-py3-none-any.whl.metadata (4.5 kB)
+Collecting h11>=0.16 (from httpcore2==2.15.1->httpx2>=2.10.0->mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting attrs>=22.2.0 (from jsonschema>=4.20.0->mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting jsonschema-specifications>=2023.03.6 (from jsonschema>=4.20.0->mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting referencing>=0.28.4 (from jsonschema>=4.20.0->mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting rpds-py>=0.25.0 (from jsonschema>=4.20.0->mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading rpds_py-2026.9.1-cp313-cp313-win_amd64.whl.metadata (4.2 kB)
+Collecting annotated-types>=0.6.0 (from pydantic>=2.12.0->mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.50.1 (from pydantic>=2.12.0->mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading pydantic_core-2.50.1-cp313-cp313-win_amd64.whl.metadata (6.7 kB)
+Collecting cryptography>=3.4.0 (from pyjwt[crypto]>=2.10.1->mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading cryptography-50.0.2-cp311-abi3-win_amd64.whl.metadata (4.4 kB)
+Collecting cffi>=2.0.0 (from cryptography>=3.4.0->pyjwt[crypto]>=2.10.1->mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading cffi-2.1.1-cp313-cp313-win_amd64.whl.metadata (2.6 kB)
+Collecting pycparser (from cffi>=2.0.0->cryptography>=3.4.0->pyjwt[crypto]>=2.10.1->mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading pycparser-3.11-py3-none-any.whl.metadata (8.2 kB)
+Collecting click>=7.0 (from uvicorn>=0.31.1->mcp==2.3.0->-r requirements-crosscheck.txt (line 1))
+  Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Downloading mcp-2.3.0-py3-none-any.whl (368 kB)
+Downloading mcp_types-2.3.0-py3-none-any.whl (69 kB)
+Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+Downloading httpx2-2.15.1-py3-none-any.whl (96 kB)
+Downloading httpcore2-2.15.1-py3-none-any.whl (85 kB)
+Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Using cached idna-3.20-py3-none-any.whl (69 kB)
+Downloading jsonschema-4.26.0-py3-none-any.whl (90 kB)
+Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+Downloading opentelemetry_api-1.45.1-py3-none-any.whl (60 kB)
+Using cached pydantic-2.14.1-py3-none-any.whl (488 kB)
+Using cached pydantic_core-2.50.1-cp313-cp313-win_amd64.whl (2.2 MB)
+Using cached annotated_types-0.8.0-py3-none-any.whl (13 kB)
+Downloading pyjwt-2.15.1-py3-none-any.whl (33 kB)
+Downloading cryptography-50.0.2-cp311-abi3-win_amd64.whl (3.8 MB)
+   ---------------------------------------- 3.8/3.8 MB 2.2 MB/s  0:00:01
+Downloading cffi-2.1.1-cp313-cp313-win_amd64.whl (185 kB)
+Downloading python_multipart-0.0.32-py3-none-any.whl (30 kB)
+Downloading pywin32-312-cp313-cp313-win_amd64.whl (6.9 MB)
+   ---------------------------------------- 6.9/6.9 MB 4.8 MB/s  0:00:01
+Downloading referencing-0.37.0-py3-none-any.whl (26 kB)
+Downloading rpds_py-2026.9.1-cp313-cp313-win_amd64.whl (222 kB)
+Downloading sse_starlette-3.5.0-py3-none-any.whl (17 kB)
+Downloading starlette-1.9.0-py3-none-any.whl (80 kB)
+Downloading truststore-0.10.5-py3-none-any.whl (19 kB)
+Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Using cached typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+Downloading uvicorn-0.54.0-py3-none-any.whl (87 kB)
+Downloading click-8.5.0-py3-none-any.whl (125 kB)
+Downloading pycparser-3.11-py3-none-any.whl (51 kB)
+Installing collected packages: typing-extensions, truststore, rpds-py, pywin32, python-multipart, pyjwt, pycparser, idna, h11, click, attrs, annotated-types, uvicorn, typing-inspection, referencing, pydantic-core, opentelemetry-api, httpcore2, cffi, anyio, starlette, pydantic, jsonschema-specifications, httpx2, cryptography, sse-starlette, mcp-types, jsonschema, mcp
+
+Successfully installed annotated-types-0.8.0 anyio-4.15.1 attrs-26.1.0 cffi-2.1.1 click-8.5.0 cryptography-50.0.2 h11-0.16.0 httpcore2-2.15.1 httpx2-2.15.1 idna-3.20 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 mcp-2.3.0 mcp-types-2.3.0 opentelemetry-api-1.45.1 pycparser-3.11 pydantic-2.14.1 pydantic-core-2.50.1 pyjwt-2.15.1 python-multipart-0.0.32 pywin32-312 referencing-0.37.0 rpds-py-2026.9.1 sse-starlette-3.5.0 starlette-1.9.0 truststore-0.10.5 typing-extensions-4.16.0 typing-inspection-0.4.4 uvicorn-0.54.0
+(exit code 0, 46.5 s)
+pip: Successfully installed annotated-types-0.8.0 anyio-4.15.1 attrs-26.1.0 cffi-2.1.1 click-8.5.0 cryptography-50.0.2 h11-0.16.0 httpcore2-2.15.1 httpx2-2.15.1 idna-3.20 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 mcp-2.3.0 mcp-types-2.3.0 opentelemetry-api-1.45.1 pycparser-3.11 pydantic-2.14.1 pydantic-core-2.50.1 pyjwt-2.15.1 python-multipart-0.0.32 pywin32-312 referencing-0.37.0 rpds-py-2026.9.1 sse-starlette-3.5.0 starlette-1.9.0 truststore-0.10.5 typing-extensions-4.16.0 typing-inspection-0.4.4 uvicorn-0.54.0
+> crosscheck.py
+INFO mcp 2.3.0 on Python 3.13.16
+PASS A1 the SDK client agrees on protocol 2026-07-28 with the lab server: 2026-07-28
+PASS A2 the SDK client lists the lab server's three tools: ['search_notes', 'add_note', 'delete_note']
+PASS A3 the SDK client calls a lab tool and reads structured content: n2
+PASS A4 the SDK client answers the lab server's input_required round and retries: Delete note n3: "Rotate the staging API key every 90 days."?
+PASS B1 the lab client's server/discover works against the SDK server: ['2026-07-28']
+PASS B2 the SDK turned type hints into input schemas: ['divide', 'word_count']
+PASS B3 the lab client calls an SDK tool: {'result': 3}
+PASS B4 a ToolError comes back as isError: true with its message: Error executing tool divide: b must not be zero
+INFO an unknown tool on the SDK server comes back as: isError result (the spec's example uses a JSON-RPC error; the lab server follows the spec)
+
+8 of 8 cross-checks passed
+[notes-server] started in normal mode
+[notes-server] tools/call search_notes {"query": "ledger"}
+[notes-server] stdin closed, exiting
+[notes-server] started in normal mode
+[notes-server] tools/call delete_note {"note_id": "n3"}
+[notes-server] tools/call delete_note {"note_id": "n3"}
+[notes-server] stdin closed, exiting
+(exit code 0, 6.2 s)
+
+==== Part 08: R1, R2, R3 (openai-agents 0.23.1, fake model, tracing off)  [2026-10-20 08:20:08]
+Lab zip: %USERPROFILE%\Downloads\engineering-stack-lab-part-08.zip, 24350 bytes, SHA-256 fa15c995ae6a9c508b47acfc520b1c7fc4928d0c6f428571c784edef729ede21
+> -m venv .venv
+(exit code 0, 10 s)
+> --version
+Python 3.13.16
+(exit code 0, 0.1 s)
+> run_lab.py
+PASS 1 tool_use, then end_turn: the loop runs the tool, sends the result back, and stops: done after 2 turns
+PASS 1b two calls in one response: both results go back in one message, in order, results first: ['a', 'b']
+PASS 1c end_turn ends the loop even if the response also holds a tool call; nothing runs: done
+PASS 2 an unknown tool comes back as is_error, naming the real tools, and the loop goes on: No tool named 'delete_everything'. Available: broken_tool, i
+PASS 2b bad arguments are refused before the tool runs: ['Invalid arguments: missing required argu', "Invalid arguments: argument 'path' must "]
+PASS 2c an unexpected error reaches the model as a generic message; details go to the developer's log: Tool 'broken_tool' failed with an internal error (ValueError). Details were logged.
+PASS 2d a ToolError's message, written for the model, does reach it: Tool 'read_file' failed: no file 'nope.txt'; call list_files to see what exists
+PASS 2e the loop stops waiting for a slow tool at its time limit, and goes on: 0.5 s; told the model: Tool 'slow_report' timed out after 0.5 seconds and may still...
+PASS 2f a timed-out tool can still finish: the log says so (threads can't be stopped): log: timeout, may still finish; the tool finished anyway: True
+PASS 3 a high-impact tool doesn't run unless a person approves it: default: denied; approved: ok
+PASS 3b only an exact True approves: an approver that says 'no' or crashes counts as a no: 'no', 1, crash: ['denied', 'denied', 'denied']; amount=True: invalid arguments
+PASS 4 a model that never stops is cut off at the turn cap: max_turns after 10 model calls
+PASS 4b the token budget stops the loop too: budget after 5 calls, 600 tokens
+PASS 5 a tool call cut off by max_tokens is never run; the loop asks again with more room: max_tokens sent: [1024, 4096, 4096]
+PASS 5b pause_turn: the response goes back as it is and the loop continues: done
+PASS 5c refusal, a full context window and an unknown stop reason each stop the loop cleanly: ['refusal', 'context_full', 'unknown_stop_reason']
+PASS 6 context growth when the whole history is resent each turn: turn 20: 33,500 sent, 385,000 in total; 40 turns: 1,370,000
+PASS 7 the hardened command has every hardening option and nothing dangerous: image python:3.12-slim, runtime: default (runc: shares the host kernel)
+PASS 7b each dangerous option is caught: 8 of 8
+PASS 7c tricks that fooled an earlier version are caught: unknown options, short flags, weak values: 10 of 10 not ok
+PASS 7d a bare docker run is missing all 8 hardening options and uses the default runtime: 8 missing
+PASS 8 an instruction shown on screen is blocked; the user's task still completes: performed [('open', 'shop.example'), ('click', 'Add to cart')]; blocked [('send', 'pay.example')]
+PASS 8b the harness never trusts the model's account: a mislabelled injection is still blocked: 'pay.example' is not a recipient this task allows
+PASS 8c sites off the allowlist are blocked; high-risk actions wait for the user
+PASS 8d the limit: an injected action inside the task's scope is not blocked: a click on the wrong item passes: scope, not intent, is checked
+PASS 9 exec() with empty builtins still reaches the os module: not a sandbox: reached os.getcwd()
+PASS 10 paper arithmetic: 9 figures
+
+27 of 27 checks passed
+(exit code 0, 2 s)
+> mutation_check.py
+OK   the unbroken copy passes
+CAUGHT loop keeps going after end_turn: FAIL 1c end_turn ends the loop even if the response also holds a tool call; nothing runs: error: RuntimeError:
+CAUGHT text sent before the tool results: FAIL 1 tool_use, then end_turn: the loop runs the tool, sends the result back, and stops: done after 2 turns
+CAUGHT parallel results sent in reverse order: FAIL 1b two calls in one response: both results go back in one message, in order, results first: ['b', 'a']
+CAUGHT unknown tool crashes the loop: FAIL 2 an unknown tool comes back as is_error, naming the real tools, and the loop goes on: error: KeyError: '
+CAUGHT arguments not validated: FAIL 2b bad arguments are refused before the tool runs: ["Tool 'read_file' failed with an internal", "Tool 're
+CAUGHT a true/false value accepted as a number: FAIL 3b only an exact True approves: an approver that says 'no' or crashes counts as a no: 'no', 1, crash: ['d
+CAUGHT exception text sent to the model: FAIL 2c an unexpected error reaches the model as a generic message; details go to the developer's log: Tool 'b
+CAUGHT tool time limit ignored: FAIL 2e the loop stops waiting for a slow tool at its time limit, and goes on: 5.0 s; told the model: report..
+CAUGHT a timed-out tool reported as safe to retry: FAIL 2e the loop stops waiting for a slow tool at its time limit, and goes on: 0.5 s; told the model: Tool 'sl
+CAUGHT high-impact tools run without approval: FAIL 3 a high-impact tool doesn't run unless a person approves it: default: ok; approved: ok
+CAUGHT any truthy answer approves: FAIL 3b only an exact True approves: an approver that says 'no' or crashes counts as a no: 'no', 1, crash: ['o
+CAUGHT a crashing approver crashes the run: FAIL 3b only an exact True approves: an approver that says 'no' or crashes counts as a no: error: RuntimeError
+CAUGHT no turn cap: FAIL 4 a model that never stops is cut off at the turn cap: budget after 417 model calls
+CAUGHT token budget ignored: FAIL 4b the token budget stops the loop too: max_turns after 100 calls, 12000 tokens
+CAUGHT truncated tool call is run: FAIL 5 a tool call cut off by max_tokens is never run; the loop asks again with more room: max_tokens sent: [1
+CAUGHT pause_turn treated as finished: FAIL 5b pause_turn: the response goes back as it is and the loop continues: error: IndexError: list index out 
+CAUGHT refusal treated as a tool call: FAIL 5c refusal, a full context window and an unknown stop reason each stop the loop cleanly: error: RuntimeEr
+CAUGHT context arithmetic off by one turn: FAIL 6 context growth when the whole history is resent each turn: turn 20: 35,000 sent, 385,000 in total; 40 t
+CAUGHT --privileged not flagged: FAIL 7b each dangerous option is caught: 7 of 8, missed ['privileged']
+CAUGHT runtime socket mount not flagged: FAIL 7b each dangerous option is caught: 7 of 8, missed ['runtime_socket']
+CAUGHT host-path mounts not flagged: FAIL 7b each dangerous option is caught: 7 of 8, missed ['host_path_mount']
+CAUGHT --cap-drop ALL not recognised: FAIL 7 the hardened command has every hardening option and nothing dangerous: image python:3.12-slim, runtime:
+CAUGHT unknown options read as flags (the old bug): FAIL 7 the hardened command has every hardening option and nothing dangerous: image none, runtime: default (ru
+CAUGHT first value wins instead of the last: FAIL 7c tricks that fooled an earlier version are caught: unknown options, short flags, weak values: 9 of 10 n
+CAUGHT harness trusts the model's account of an action: FAIL 8b the harness never trusts the model's account: a mislabelled injection is still blocked: nothing blocke
+CAUGHT recipients not checked: FAIL 8b the harness never trusts the model's account: a mislabelled injection is still blocked: nothing blocke
+CAUGHT high-risk actions don't wait for the user: FAIL 8c sites off the allowlist are blocked; high-risk actions wait for the user: error: IndexError: list inde
+CAUGHT demo looks for the wrong class, so it seems safe: FAIL 9 exec() with empty builtins still reaches the os module: not a sandbox: reached os.getcwd()
+
+28 of 28 mutations caught
+(exit code 0, 63.4 s)
+> -m pip install --disable-pip-version-check -r requirements-crosscheck.txt
+Collecting openai-agents==0.23.1 (from -r requirements-crosscheck.txt (line 1))
+  Downloading openai_agents-0.23.1-py3-none-any.whl.metadata (13 kB)
+Collecting griffelib<3,>=2 (from openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Downloading griffelib-2.4.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting httpx2>=2.12.0 (from openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached httpx2-2.15.1-py3-none-any.whl.metadata (9.6 kB)
+Collecting mcp<3,>=1.19.0 (from openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached mcp-2.3.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting openai<4,>=3.0.0 (from openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Downloading openai-3.35.1-py3-none-any.whl.metadata (44 kB)
+Collecting pydantic<3,>=2.12.2 (from openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached pydantic-2.14.1-py3-none-any.whl.metadata (133 kB)
+Collecting pyjwt>=2.15.0 (from openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached pyjwt-2.15.1-py3-none-any.whl.metadata (3.5 kB)
+Collecting python-multipart>=0.0.31 (from openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached python_multipart-0.0.32-py3-none-any.whl.metadata (2.1 kB)
+Collecting requests<3,>=2.0 (from openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting starlette>=1.3.1 (from openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached starlette-1.9.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting typing-extensions<5,>=4.12.2 (from openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting urllib3>=2.8.0 (from openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting websockets<17,>=15.0 (from openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Downloading websockets-16.1.1-cp313-cp313-win_amd64.whl.metadata (7.0 kB)
+Collecting anyio>=4.9 (from mcp<3,>=1.19.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting jsonschema>=4.20.0 (from mcp<3,>=1.19.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)
+Collecting mcp-types==2.3.0 (from mcp<3,>=1.19.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached mcp_types-2.3.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting opentelemetry-api>=1.28.0 (from mcp<3,>=1.19.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached opentelemetry_api-1.45.1-py3-none-any.whl.metadata (1.4 kB)
+Collecting pywin32>=311 (from mcp<3,>=1.19.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached pywin32-312-cp313-cp313-win_amd64.whl.metadata (11 kB)
+Collecting sse-starlette>=3.0.0 (from mcp<3,>=1.19.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached sse_starlette-3.5.0-py3-none-any.whl.metadata (15 kB)
+Collecting typing-inspection>=0.4.1 (from mcp<3,>=1.19.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached typing_inspection-0.4.4-py3-none-any.whl.metadata (2.6 kB)
+Collecting uvicorn>=0.31.1 (from mcp<3,>=1.19.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached uvicorn-0.54.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting jiter<1,>=0.16.0 (from openai<4,>=3.0.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Downloading jiter-0.17.0-cp313-cp313-win_amd64.whl.metadata (5.3 kB)
+Collecting sniffio (from openai<4,>=3.0.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+Collecting idna>=2.8 (from anyio>=4.9->mcp<3,>=1.19.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting httpcore2==2.15.1 (from httpx2>=2.12.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached httpcore2-2.15.1-py3-none-any.whl.metadata (27 kB)
+Collecting truststore>=0.10 (from httpx2>=2.12.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached truststore-0.10.5-py3-none-any.whl.metadata (4.5 kB)
+Collecting h11>=0.16 (from httpcore2==2.15.1->httpx2>=2.12.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting annotated-types>=0.6.0 (from pydantic<3,>=2.12.2->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.50.1 (from pydantic<3,>=2.12.2->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached pydantic_core-2.50.1-cp313-cp313-win_amd64.whl.metadata (6.7 kB)
+Collecting charset_normalizer<4,>=2 (from requests<3,>=2.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Downloading charset_normalizer-3.5.2-cp313-cp313-win_amd64.whl.metadata (47 kB)
+Collecting certifi>=2023.5.7 (from requests<3,>=2.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Downloading certifi-2026.10.19-py3-none-any.whl.metadata (2.5 kB)
+Collecting attrs>=22.2.0 (from jsonschema>=4.20.0->mcp<3,>=1.19.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting jsonschema-specifications>=2023.03.6 (from jsonschema>=4.20.0->mcp<3,>=1.19.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting referencing>=0.28.4 (from jsonschema>=4.20.0->mcp<3,>=1.19.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting rpds-py>=0.25.0 (from jsonschema>=4.20.0->mcp<3,>=1.19.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached rpds_py-2026.9.1-cp313-cp313-win_amd64.whl.metadata (4.2 kB)
+Collecting cryptography>=3.4.0 (from pyjwt[crypto]>=2.10.1->mcp<3,>=1.19.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached cryptography-50.0.2-cp311-abi3-win_amd64.whl.metadata (4.4 kB)
+Collecting cffi>=2.0.0 (from cryptography>=3.4.0->pyjwt[crypto]>=2.10.1->mcp<3,>=1.19.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached cffi-2.1.1-cp313-cp313-win_amd64.whl.metadata (2.6 kB)
+Collecting pycparser (from cffi>=2.0.0->cryptography>=3.4.0->pyjwt[crypto]>=2.10.1->mcp<3,>=1.19.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached pycparser-3.11-py3-none-any.whl.metadata (8.2 kB)
+Collecting click>=7.0 (from uvicorn>=0.31.1->mcp<3,>=1.19.0->openai-agents==0.23.1->-r requirements-crosscheck.txt (line 1))
+  Using cached click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Downloading openai_agents-0.23.1-py3-none-any.whl (1.2 MB)
+   ---------------------------------------- 1.2/1.2 MB 1.6 MB/s  0:00:00
+Downloading griffelib-2.4.0-py3-none-any.whl (172 kB)
+Using cached mcp-2.3.0-py3-none-any.whl (368 kB)
+Using cached mcp_types-2.3.0-py3-none-any.whl (69 kB)
+Downloading openai-3.35.1-py3-none-any.whl (2.3 MB)
+   ---------------------------------------- 2.3/2.3 MB 2.5 MB/s  0:00:00
+Using cached anyio-4.15.1-py3-none-any.whl (132 kB)
+Using cached httpx2-2.15.1-py3-none-any.whl (96 kB)
+Using cached httpcore2-2.15.1-py3-none-any.whl (85 kB)
+Downloading jiter-0.17.0-cp313-cp313-win_amd64.whl (226 kB)
+Using cached pydantic-2.14.1-py3-none-any.whl (488 kB)
+Using cached pydantic_core-2.50.1-cp313-cp313-win_amd64.whl (2.2 MB)
+Using cached requests-2.34.2-py3-none-any.whl (73 kB)
+Using cached charset_normalizer-3.5.2-cp313-cp313-win_amd64.whl (206 kB)
+Using cached idna-3.20-py3-none-any.whl (69 kB)
+Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Using cached urllib3-2.8.0-py3-none-any.whl (135 kB)
+Downloading websockets-16.1.1-cp313-cp313-win_amd64.whl (180 kB)
+Using cached annotated_types-0.8.0-py3-none-any.whl (13 kB)
+Downloading certifi-2026.10.19-py3-none-any.whl (136 kB)
+Using cached h11-0.16.0-py3-none-any.whl (37 kB)
+Using cached jsonschema-4.26.0-py3-none-any.whl (90 kB)
+Using cached attrs-26.1.0-py3-none-any.whl (67 kB)
+Using cached jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+Using cached opentelemetry_api-1.45.1-py3-none-any.whl (60 kB)
+Using cached pyjwt-2.15.1-py3-none-any.whl (33 kB)
+Using cached cryptography-50.0.2-cp311-abi3-win_amd64.whl (3.8 MB)
+Using cached cffi-2.1.1-cp313-cp313-win_amd64.whl (185 kB)
+Using cached python_multipart-0.0.32-py3-none-any.whl (30 kB)
+Using cached pywin32-312-cp313-cp313-win_amd64.whl (6.9 MB)
+Using cached referencing-0.37.0-py3-none-any.whl (26 kB)
+Using cached rpds_py-2026.9.1-cp313-cp313-win_amd64.whl (222 kB)
+Using cached sse_starlette-3.5.0-py3-none-any.whl (17 kB)
+Using cached starlette-1.9.0-py3-none-any.whl (80 kB)
+Using cached truststore-0.10.5-py3-none-any.whl (19 kB)
+Using cached typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+Using cached uvicorn-0.54.0-py3-none-any.whl (87 kB)
+Using cached click-8.5.0-py3-none-any.whl (125 kB)
+Using cached pycparser-3.11-py3-none-any.whl (51 kB)
+Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+Installing collected packages: websockets, urllib3, typing-extensions, truststore, sniffio, rpds-py, pywin32, python-multipart, pyjwt, pycparser, jiter, idna, h11, griffelib, click, charset_normalizer, certifi, attrs, annotated-types, uvicorn, typing-inspection, requests, referencing, pydantic-core, opentelemetry-api, httpcore2, cffi, anyio, starlette, pydantic, jsonschema-specifications, httpx2, cryptography, sse-starlette, openai, mcp-types, jsonschema, mcp, openai-agents
+
+Successfully installed annotated-types-0.8.0 anyio-4.15.1 attrs-26.1.0 certifi-2026.10.19 cffi-2.1.1 charset_normalizer-3.5.2 click-8.5.0 cryptography-50.0.2 griffelib-2.4.0 h11-0.16.0 httpcore2-2.15.1 httpx2-2.15.1 idna-3.20 jiter-0.17.0 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 mcp-2.3.0 mcp-types-2.3.0 openai-3.35.1 openai-agents-0.23.1 opentelemetry-api-1.45.1 pycparser-3.11 pydantic-2.14.1 pydantic-core-2.50.1 pyjwt-2.15.1 python-multipart-0.0.32 pywin32-312 referencing-0.37.0 requests-2.34.2 rpds-py-2026.9.1 sniffio-1.3.1 sse-starlette-3.5.0 starlette-1.9.0 truststore-0.10.5 typing-extensions-4.16.0 typing-inspection-0.4.4 urllib3-2.8.0 uvicorn-0.54.0 websockets-16.1.1
+(exit code 0, 81.5 s)
+pip: Successfully installed annotated-types-0.8.0 anyio-4.15.1 attrs-26.1.0 certifi-2026.10.19 cffi-2.1.1 charset_normalizer-3.5.2 click-8.5.0 cryptography-50.0.2 griffelib-2.4.0 h11-0.16.0 httpcore2-2.15.1 httpx2-2.15.1 idna-3.20 jiter-0.17.0 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 mcp-2.3.0 mcp-types-2.3.0 openai-3.35.1 openai-agents-0.23.1 opentelemetry-api-1.45.1 pycparser-3.11 pydantic-2.14.1 pydantic-core-2.50.1 pyjwt-2.15.1 python-multipart-0.0.32 pywin32-312 referencing-0.37.0 requests-2.34.2 rpds-py-2026.9.1 sniffio-1.3.1 sse-starlette-3.5.0 starlette-1.9.0 truststore-0.10.5 typing-extensions-4.16.0 typing-inspection-0.4.4 urllib3-2.8.0 uvicorn-0.54.0 websockets-16.1.1
+> crosscheck.py
+INFO openai-agents 0.23.1 on Python 3.13.16; tracing off, no network calls
+PASS B1 the default turn cap stops a model that never finishes: MaxTurnsExceeded after 10 model calls: Max turns (10) exceeded
+PASS B2 a failing tool's exception text is kept from the model by default: the model saw the generic message only
+PASS B3 the lab's loop stops at the same cap when set to 10: 10 calls
+
+3 of 3 cross-checks passed
+(exit code 0, 5.7 s)
+
+==== Part 09: R1, R2, R3 (LangGraph 1.2.15), R4 (pause in one process, approve in another)  [2026-10-20 08:22:51]
+Lab zip: %USERPROFILE%\Downloads\engineering-stack-lab-part-09.zip, 22064 bytes, SHA-256 b60a0bf192a9e1607a6694cfb97011db959ec8d01eb98dd133f0607b7fedff2d
+> -m venv .venv
+(exit code 0, 10.3 s)
+> --version
+Python 3.13.16
+(exit code 0, 0.1 s)
+> run_lab.py
+PASS  1 a refund run pauses for approval, then finishes with one refund
+PASS  1b routing sends hard requests to the larger model
+PASS  2 the pause carries what the person must decide
+PASS  2b resuming re-runs the paused step from its start, and only that step
+PASS  2c a rejection ends the run with no refund
+PASS  2d only an explicit approval approves (it fails closed)
+PASS  2e two pauses in one step get their answers by position
+PASS  2f misuse is refused: no answer for a pause, an answer with no pause, a reused id
+PASS  3 a process killed mid-step is continued by a new process from its checkpoint
+PASS  4 a loop with no way out stops at the step limit
+PASS  4b the draft-and-review loop ends at its cap when the review never passes
+PASS  5 retries wait with full jitter, within the cap, then give up
+PASS  5b an error that isn't transient is not retried
+PASS  5c a pause is not a failure: it is never retried
+PASS  5d a retried step starts over, so an answered pause gets the same answer
+PASS  6 a lost reply plus a retry pays twice without a key, once with one
+PASS  6b the payment service refuses a key reused with different parameters
+PASS  6c the idempotency store runs an effect once per key, across restarts
+PASS  6d its limit: a crash after the effect but before the record repeats the effect
+PASS  7 a signed checkpoint that was edited is refused
+PASS  7b thread ids can't reach outside the checkpoint folder
+PASS  8 a checkpoint is saved after every step, with no temporary files left
+PASS  8b the engine uses only the standard library
+PASS  9 a handoff passes the whole history; an agent-as-tool gets only a brief
+PASS  9b dropping tool messages doesn't remove tool output already quoted
+PASS  10 a subagent reads a lot; its parent gets only the summary
+PASS  10b orchestrator arithmetic: 3 workers each reading 20,000 tokens
+PASS  11 errors compound: five 95% steps succeed together about 77% of the time
+PASS  12 extra voters help only when their mistakes are independent
+PASS  13 text passed between agents arrives either way; tagging marks it as data
+
+30 of 30 checks passed
+(exit code 0, 1.3 s)
+> mutation_check.py
+OK   the unbroken copy passes
+CAUGHT answers never reach a paused step: FAIL  1 a refund run pauses for approval, then finishes with one refund
+CAUGHT answers matched to the wrong pause: FAIL  2e two pauses in one step get their answers by position
+CAUGHT a new answer replaces earlier ones: FAIL  2e two pauses in one step get their answers by position
+CAUGHT answers carried into the next step: FAIL  2e two pauses in one step get their answers by position
+CAUGHT a retried step keeps its place among answers: FAIL  5d a retried step starts over, so an answered pause gets the same answer
+CAUGHT a pause is retried like a failure: FAIL  5c a pause is not a failure: it is never retried
+CAUGHT every error is retried: FAIL  5b an error that isn't transient is not retried
+CAUGHT one attempt too few: FAIL  5 retries wait with full jitter, within the cap, then give up
+CAUGHT the last failure is swallowed: FAIL  5 retries wait with full jitter, within the cap, then give up
+CAUGHT no cap on the wait: FAIL  5 retries wait with full jitter, within the cap, then give up
+CAUGHT waits never grow: FAIL  5 retries wait with full jitter, within the cap, then give up
+CAUGHT step limit off by one: FAIL  4 a loop with no way out stops at the step limit
+CAUGHT no checkpoint after a step: FAIL  3 a process killed mid-step is continued by a new process from its checkpoint
+CAUGHT signature not checked: FAIL  7 a signed checkpoint that was edited is refused
+CAUGHT signed files load without a check: FAIL  7 a signed checkpoint that was edited is refused
+CAUGHT thread ids only checked at the start: FAIL  7b thread ids can't reach outside the checkpoint folder
+CAUGHT an existing thread restarted from scratch: FAIL  2f misuse is refused: no answer for a pause, an answer with no pause, a reused id
+CAUGHT a paused thread continues with no answer: FAIL  2f misuse is refused: no answer for a pause, an answer with no pause, a reused id
+CAUGHT idempotency key reuse with new parameters allowed: FAIL  6c the idempotency store runs an effect once per key, across restarts
+CAUGHT idempotency results not saved: FAIL  6c the idempotency store runs an effect once per key, across restarts
+CAUGHT approval is case-insensitive: FAIL  2d only an explicit approval approves (it fails closed)
+CAUGHT any answer approves: FAIL  2c a rejection ends the run with no refund
+CAUGHT payment service ignores idempotency keys: FAIL  6 a lost reply plus a retry pays twice without a key, once with one
+CAUGHT review loop has no cap: FAIL  4b the draft-and-review loop ends at its cap when the review never passes
+CAUGHT routing ignores hard words: FAIL  1b routing sends hard requests to the larger model
+CAUGHT refund step not retried: FAIL  6 a lost reply plus a retry pays twice without a key, once with one
+CAUGHT handoff passes only the last message: FAIL  9 a handoff passes the whole history; an agent-as-tool gets only a brief
+CAUGHT subagent returns everything it read: FAIL  10 a subagent reads a lot; its parent gets only the summary
+CAUGHT lead pays for what workers read: FAIL  10b orchestrator arithmetic: 3 workers each reading 20,000 tokens
+CAUGHT correlated voters treated as independent: FAIL  12 extra voters help only when their mistakes are independent
+CAUGHT ties counted as right: FAIL  12 extra voters help only when their mistakes are independent
+CAUGHT tagging does nothing: FAIL  13 text passed between agents arrives either way; tagging marks it as data
+CAUGHT chain success adds instead of multiplying: FAIL  11 errors compound: five 95% steps succeed together about 77% of the time
+
+33 of 33 mutations caught
+(exit code 0, 43.3 s)
+> -m pip install --disable-pip-version-check -r requirements-crosscheck.txt
+Collecting langgraph==1.2.15 (from -r requirements-crosscheck.txt (line 1))
+  Downloading langgraph-1.2.15-py3-none-any.whl.metadata (4.9 kB)
+Collecting langgraph-checkpoint-sqlite==3.1.2 (from -r requirements-crosscheck.txt (line 2))
+  Downloading langgraph_checkpoint_sqlite-3.1.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting langchain-core<2,>=1.4.7 (from langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Downloading langchain_core-1.6.12-py3-none-any.whl.metadata (4.8 kB)
+Collecting langgraph-checkpoint<5.0.0,>=4.3.0 (from langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Downloading langgraph_checkpoint-4.3.0-py3-none-any.whl.metadata (6.7 kB)
+Collecting langgraph-prebuilt<1.2.0,>=1.1.0 (from langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Downloading langgraph_prebuilt-1.1.1-py3-none-any.whl.metadata (6.9 kB)
+Collecting langgraph-sdk<0.5.0,>=0.4.6 (from langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Downloading langgraph_sdk-0.4.8-py3-none-any.whl.metadata (5.1 kB)
+Collecting pydantic>=2.7.4 (from langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Using cached pydantic-2.14.1-py3-none-any.whl.metadata (133 kB)
+Collecting xxhash>=3.5.0 (from langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Downloading xxhash-4.0.2-cp313-cp313-win_amd64.whl.metadata (18 kB)
+Collecting aiosqlite>=0.20 (from langgraph-checkpoint-sqlite==3.1.2->-r requirements-crosscheck.txt (line 2))
+  Downloading aiosqlite-0.22.1-py3-none-any.whl.metadata (4.3 kB)
+Collecting sqlite-vec>=0.1.6 (from langgraph-checkpoint-sqlite==3.1.2->-r requirements-crosscheck.txt (line 2))
+  Downloading sqlite_vec-0.1.9-py3-none-win_amd64.whl.metadata (198 bytes)
+Collecting httpx<1.0.0,>=0.23.0 (from langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+Collecting jsonpatch<2.0.0,>=1.33.0 (from langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Downloading jsonpatch-1.36-py3-none-any.whl.metadata (3.7 kB)
+Collecting langchain-protocol>=0.0.17 (from langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Downloading langchain_protocol-0.0.20-py3-none-any.whl.metadata (2.4 kB)
+Collecting langsmith<1.0.0,>=0.14.9 (from langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Downloading langsmith-0.14.11-py3-none-any.whl.metadata (38 kB)
+Collecting packaging>=23.2.0 (from langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pyyaml<7.0.0,>=5.3.0 (from langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Downloading pyyaml-6.0.3-cp313-cp313-win_amd64.whl.metadata (2.4 kB)
+Collecting tenacity!=8.4.0,<10.0.0,>=8.1.0 (from langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Downloading tenacity-9.2.1-py3-none-any.whl.metadata (1.4 kB)
+Collecting typing-extensions<5.0.0,>=4.7.0 (from langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting uuid-utils<1.0,>=0.12.0 (from langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Downloading uuid_utils-0.18.0-cp313-cp313-win_amd64.whl.metadata (6.5 kB)
+Collecting anyio (from httpx<1.0.0,>=0.23.0->langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Using cached anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting certifi (from httpx<1.0.0,>=0.23.0->langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Using cached certifi-2026.10.19-py3-none-any.whl.metadata (2.5 kB)
+Collecting httpcore==1.* (from httpx<1.0.0,>=0.23.0->langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+Collecting idna (from httpx<1.0.0,>=0.23.0->langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Using cached idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting h11>=0.16 (from httpcore==1.*->httpx<1.0.0,>=0.23.0->langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Using cached h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting jsonpointer>=3.2 (from jsonpatch<2.0.0,>=1.33.0->langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Downloading jsonpointer-3.4-py3-none-any.whl.metadata (2.6 kB)
+Collecting ormsgpack>=1.12.0 (from langgraph-checkpoint<5.0.0,>=4.3.0->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Downloading ormsgpack-1.13.0-cp313-cp313-win_amd64.whl.metadata (3.3 kB)
+Collecting orjson>=3.11.5 (from langgraph-sdk<0.5.0,>=0.4.6->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Downloading orjson-3.13.0-cp313-cp313-win_amd64.whl.metadata (43 kB)
+Collecting websockets<17,>=14 (from langgraph-sdk<0.5.0,>=0.4.6->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Using cached websockets-16.1.1-cp313-cp313-win_amd64.whl.metadata (7.0 kB)
+Collecting distro<2,>=1.7.0 (from langsmith<1.0.0,>=0.14.9->langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Downloading distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)
+Collecting httpx2<3,>=2 (from langsmith<1.0.0,>=0.14.9->langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Using cached httpx2-2.15.1-py3-none-any.whl.metadata (9.6 kB)
+Collecting requests-toolbelt>=1.0.0 (from langsmith<1.0.0,>=0.14.9->langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Downloading requests_toolbelt-1.0.0-py2.py3-none-any.whl.metadata (14 kB)
+Collecting requests>=2.0.0 (from langsmith<1.0.0,>=0.14.9->langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Using cached requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting sniffio (from langsmith<1.0.0,>=0.14.9->langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Using cached sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+Collecting zstandard>=0.23.0 (from langsmith<1.0.0,>=0.14.9->langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Downloading zstandard-0.25.0-cp313-cp313-win_amd64.whl.metadata (3.3 kB)
+Collecting httpcore2==2.15.1 (from httpx2<3,>=2->langsmith<1.0.0,>=0.14.9->langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Using cached httpcore2-2.15.1-py3-none-any.whl.metadata (27 kB)
+Collecting truststore>=0.10 (from httpx2<3,>=2->langsmith<1.0.0,>=0.14.9->langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Using cached truststore-0.10.5-py3-none-any.whl.metadata (4.5 kB)
+Collecting annotated-types>=0.6.0 (from pydantic>=2.7.4->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Using cached annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.50.1 (from pydantic>=2.7.4->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Using cached pydantic_core-2.50.1-cp313-cp313-win_amd64.whl.metadata (6.7 kB)
+Collecting typing-inspection>=0.4.4 (from pydantic>=2.7.4->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Using cached typing_inspection-0.4.4-py3-none-any.whl.metadata (2.6 kB)
+Collecting charset_normalizer<4,>=2 (from requests>=2.0.0->langsmith<1.0.0,>=0.14.9->langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Using cached charset_normalizer-3.5.2-cp313-cp313-win_amd64.whl.metadata (47 kB)
+Collecting urllib3<3,>=1.26 (from requests>=2.0.0->langsmith<1.0.0,>=0.14.9->langchain-core<2,>=1.4.7->langgraph==1.2.15->-r requirements-crosscheck.txt (line 1))
+  Using cached urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+Downloading langgraph-1.2.15-py3-none-any.whl (259 kB)
+Downloading langgraph_checkpoint_sqlite-3.1.2-py3-none-any.whl (41 kB)
+Downloading langchain_core-1.6.12-py3-none-any.whl (573 kB)
+   ---------------------------------------- 573.8/573.8 kB 1.4 MB/s  0:00:00
+Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+Downloading jsonpatch-1.36-py3-none-any.whl (17 kB)
+Downloading langgraph_checkpoint-4.3.0-py3-none-any.whl (58 kB)
+Downloading langgraph_prebuilt-1.1.1-py3-none-any.whl (42 kB)
+Downloading langgraph_sdk-0.4.8-py3-none-any.whl (164 kB)
+Downloading langsmith-0.14.11-py3-none-any.whl (869 kB)
+   ---------------------------------------- 869.0/869.0 kB 1.8 MB/s  0:00:00
+Using cached anyio-4.15.1-py3-none-any.whl (132 kB)
+Downloading distro-1.9.0-py3-none-any.whl (20 kB)
+Using cached httpx2-2.15.1-py3-none-any.whl (96 kB)
+Using cached httpcore2-2.15.1-py3-none-any.whl (85 kB)
+Using cached pydantic-2.14.1-py3-none-any.whl (488 kB)
+Using cached pydantic_core-2.50.1-cp313-cp313-win_amd64.whl (2.2 MB)
+Downloading pyyaml-6.0.3-cp313-cp313-win_amd64.whl (154 kB)
+Downloading tenacity-9.2.1-py3-none-any.whl (32 kB)
+Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Downloading uuid_utils-0.18.0-cp313-cp313-win_amd64.whl (175 kB)
+Using cached websockets-16.1.1-cp313-cp313-win_amd64.whl (180 kB)
+Downloading aiosqlite-0.22.1-py3-none-any.whl (17 kB)
+Using cached annotated_types-0.8.0-py3-none-any.whl (13 kB)
+Using cached h11-0.16.0-py3-none-any.whl (37 kB)
+Using cached idna-3.20-py3-none-any.whl (69 kB)
+Downloading jsonpointer-3.4-py3-none-any.whl (9.0 kB)
+Downloading langchain_protocol-0.0.20-py3-none-any.whl (7.3 kB)
+Downloading orjson-3.13.0-cp313-cp313-win_amd64.whl (121 kB)
+Downloading ormsgpack-1.13.0-cp313-cp313-win_amd64.whl (158 kB)
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Using cached requests-2.34.2-py3-none-any.whl (73 kB)
+Using cached charset_normalizer-3.5.2-cp313-cp313-win_amd64.whl (206 kB)
+Using cached urllib3-2.8.0-py3-none-any.whl (135 kB)
+Using cached certifi-2026.10.19-py3-none-any.whl (136 kB)
+Downloading requests_toolbelt-1.0.0-py2.py3-none-any.whl (54 kB)
+Downloading sqlite_vec-0.1.9-py3-none-win_amd64.whl (292 kB)
+Using cached truststore-0.10.5-py3-none-any.whl (19 kB)
+Using cached typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+Downloading xxhash-4.0.2-cp313-cp313-win_amd64.whl (36 kB)
+Downloading zstandard-0.25.0-cp313-cp313-win_amd64.whl (506 kB)
+Using cached sniffio-1.3.1-py3-none-any.whl (10 kB)
+Installing collected packages: sqlite-vec, zstandard, xxhash, websockets, uuid-utils, urllib3, typing-extensions, truststore, tenacity, sniffio, pyyaml, packaging, ormsgpack, orjson, jsonpointer, idna, h11, distro, charset_normalizer, certifi, annotated-types, aiosqlite, typing-inspection, requests, pydantic-core, langchain-protocol, jsonpatch, httpcore2, httpcore, anyio, requests-toolbelt, pydantic, httpx2, httpx, langsmith, langchain-core, langgraph-sdk, langgraph-checkpoint, langgraph-prebuilt, langgraph-checkpoint-sqlite, langgraph
+
+Successfully installed aiosqlite-0.22.1 annotated-types-0.8.0 anyio-4.15.1 certifi-2026.10.19 charset_normalizer-3.5.2 distro-1.9.0 h11-0.16.0 httpcore-1.0.9 httpcore2-2.15.1 httpx-0.28.1 httpx2-2.15.1 idna-3.20 jsonpatch-1.36 jsonpointer-3.4 langchain-core-1.6.12 langchain-protocol-0.0.20 langgraph-1.2.15 langgraph-checkpoint-4.3.0 langgraph-checkpoint-sqlite-3.1.2 langgraph-prebuilt-1.1.1 langgraph-sdk-0.4.8 langsmith-0.14.11 orjson-3.13.0 ormsgpack-1.13.0 packaging-26.3 pydantic-2.14.1 pydantic-core-2.50.1 pyyaml-6.0.3 requests-2.34.2 requests-toolbelt-1.0.0 sniffio-1.3.1 sqlite-vec-0.1.9 tenacity-9.2.1 truststore-0.10.5 typing-extensions-4.16.0 typing-inspection-0.4.4 urllib3-2.8.0 uuid-utils-0.18.0 websockets-16.1.1 xxhash-4.0.2 zstandard-0.25.0
+(exit code 0, 44.9 s)
+pip: Successfully installed aiosqlite-0.22.1 annotated-types-0.8.0 anyio-4.15.1 certifi-2026.10.19 charset_normalizer-3.5.2 distro-1.9.0 h11-0.16.0 httpcore-1.0.9 httpcore2-2.15.1 httpx-0.28.1 httpx2-2.15.1 idna-3.20 jsonpatch-1.36 jsonpointer-3.4 langchain-core-1.6.12 langchain-protocol-0.0.20 langgraph-1.2.15 langgraph-checkpoint-4.3.0 langgraph-checkpoint-sqlite-3.1.2 langgraph-prebuilt-1.1.1 langgraph-sdk-0.4.8 langsmith-0.14.11 orjson-3.13.0 ormsgpack-1.13.0 packaging-26.3 pydantic-2.14.1 pydantic-core-2.50.1 pyyaml-6.0.3 requests-2.34.2 requests-toolbelt-1.0.0 sniffio-1.3.1 sqlite-vec-0.1.9 tenacity-9.2.1 truststore-0.10.5 typing-extensions-4.16.0 typing-inspection-0.4.4 urllib3-2.8.0 uuid-utils-0.18.0 websockets-16.1.1 xxhash-4.0.2 zstandard-0.25.0
+> crosscheck.py
+PASS  L1 resume re-runs the paused node from its start; earlier nodes don't re-run
+PASS  L2 two interrupts in one node get their answers by position
+PASS  L3 the default step limit is 10007 in this version, and a limit raises GraphRecursionError
+PASS  L4 RetryPolicy defaults: 0.5 s, factor 2, 128 s cap, 3 attempts, jitter on
+PASS  L5 a graph with a checkpointer refuses to run without a thread_id
+PASS  L6 a pause saved in SQLite is resumed through a new connection
+
+6 of 6 cross-checks passed
+(exit code 0, 3.1 s)
+> -c "from examples import *; from workflow import *; f = build_refund_workflow(FakePaymentService(), {}); cp = f.run('A17', FileCheckpointer('my-checkpoints'), state={'order': 'A17', 'amount': 250, 'request': 'Refund please'}); print(cp['status'], cp['pending']['value'])"
+interrupted {'action': 'refund', 'order': 'A17', 'amount': 250}
+(exit code 0, 0.2 s)
+Checkpoint left by the first process: %USERPROFILE%\Downloads\ai-stack\engineering-stack-lab-part-09\my-checkpoints\A17.json, 428 bytes
+> -c "from examples import *; from workflow import *; f = build_refund_workflow(FakePaymentService(), {}); cp = f.run('A17', FileCheckpointer('my-checkpoints'), resume={'decision': 'approve'}); print(cp['status'], cp['state']['refund_id'])"
+done rf_1
+(exit code 0, 0.2 s)
+my-checkpoints removed: True
+
+==== Part 10: R1, R2, R3 (Presidio and python-stdnum, network blocked by the script)  [2026-10-20 08:24:34]
+Lab zip: %USERPROFILE%\Downloads\engineering-stack-lab-part-10.zip, 26665 bytes, SHA-256 db679559dbae60210f3213b56d75e5ec9ad1da67936ff7c5d1055f2293aaccdc
+> -m venv .venv
+(exit code 0, 9.8 s)
+> --version
+Python 3.13.16
+(exit code 0, 0.1 s)
+> run_lab.py
+PASS  1 the gate allows an in-scope call with valid arguments
+PASS  1b unknown tools and tools outside the task's list are denied
+PASS  1c malformed calls and smuggled arguments are denied
+PASS  1d argument limits: amounts, email domains and URL hosts
+PASS  1e a call budget stops a runaway loop
+PASS  2 Rule of Two: all three legs ask; any two are allowed
+PASS  2b the session's legs never reset, whatever order they come in
+PASS  2c approval is bound to the exact action, used once, and fails closed
+PASS  3 worked example: the injected forward is denied and the leak image removed
+PASS  3b worked example: an allowed recipient still waits for a person
+PASS  3c labelling and stripping don't stop a model that obeys the page
+PASS  4 images to other hosts are removed; allowed images stay
+PASS  4b links keep their text but lose an off-list target; reference links too
+PASS  4c tricky URLs are judged by their real host and scheme
+PASS  4d raw HTML can't render and bare URLs to other hosts are removed
+PASS  5 invisible characters are removed and counted
+PASS  5b outside text can't close its own label
+PASS  6 pattern redaction finds every pattern type in the record set, and no names
+PASS  6b check digits and number rules cut false positives; one remains
+PASS  6c placeholders are consistent and restore() round-trips
+PASS  6d hash mode is stable across calls, depends on the secret, and needs one
+PASS  6e a logging filter redacts before anything is written
+PASS  6f each character belongs to at most one finding; longest wins
+PASS  7 a classifier's published rates, applied to traffic with few attacks
+PASS  7b stacking layers, if their mistakes were independent
+PASS  8 licence expressions sort into buckets; OR takes the easier side, AND the harder
+PASS  8b malformed or empty expressions are unknown, never permissive
+PASS  9 the lab uses only Python's standard library
+28 of 28 checks passed
+(exit code 0, 0.3 s)
+> mutation_check.py
+caught   1 smuggled arguments allowed
+caught   2 missing arguments allowed
+caught   3 any known tool allowed
+caught   4 budget off by one
+caught   5 Rule of Two never asks
+caught   6 the call's own leg ignored
+caught   7 legs reset after each call
+caught   8 approval not tied to an action id
+caught   9 approval not tied to the exact call
+caught  10 an approval can be replayed
+caught  11 no nonce, so an old approval fits a new call
+caught  12 www. links kept
+caught  13 variation selectors kept
+caught  14 approval accepts 'Approve'
+caught  15 approve() works on any decision
+caught  16 True accepted as a number
+caught  17 email checks a prefix only
+caught  18 plain http allowed
+caught  19 user-info allowed
+caught  20 backslash allowed
+caught  21 host matched by substring
+caught  22 raw HTML not escaped
+caught  23 bare URLs kept
+caught  24 reference links not checked
+caught  25 off-list link kept
+caught  26 every image kept
+caught  27 most tag characters kept
+caught  28 bidi overrides kept
+caught  29 content can close its label
+caught  30 invisible characters not shown
+caught  31 no Luhn check
+caught  32 Luhn doubles the wrong digits
+caught  33 SSN area 666 allowed
+caught  34 SSN area 9xx allowed
+caught  35 IP octets not checked
+caught  36 overlapping findings kept
+caught  37 same value, new placeholder
+caught  38 numbering shared across types
+caught  39 hash ignores the secret
+caught  40 hash mode without a secret
+caught  41 log arguments not redacted
+caught  42 precision is really recall
+caught  43 stacked FPR wrong
+caught  44 rates not range-checked
+caught  45 AND takes the easier side
+caught  46 OR takes the harder side
+caught  47 trailing tokens ignored
+caught  48 custom licences treated as permissive
+caught  49 source-available not recognized
+caught  50 any answer approves in the app
+50 of 50 mutations caught
+Exception in thread Thread-27 (_readerthread):
+Traceback (most recent call last):
+  File "%USERPROFILE%\AppData\Local\Programs\Python\Python313\Lib\threading.py", line 1044, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+  File "%USERPROFILE%\AppData\Local\Programs\Python\Python313\Lib\threading.py", line 995, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "%USERPROFILE%\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1616, in _readerthread
+    buffer.append(fh.read())
+                  ~~~~~~~^^
+  File "%USERPROFILE%\AppData\Local\Programs\Python\Python313\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x8f in position 1100: character maps to <undefined>
+(exit code 0, 13.7 s)
+> -m pip install --disable-pip-version-check -r requirements-crosscheck.txt
+Collecting presidio-analyzer==2.2.364 (from -r requirements-crosscheck.txt (line 3))
+  Downloading presidio_analyzer-2.2.364-py3-none-any.whl.metadata (6.7 kB)
+Collecting python-stdnum==2.2 (from -r requirements-crosscheck.txt (line 5))
+  Downloading python_stdnum-2.2-py3-none-any.whl.metadata (19 kB)
+Collecting click<9.0.0,>=8.1.0 (from presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Using cached click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting numpy<2.5.0,>=1.19.0 (from presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading numpy-2.4.6-cp313-cp313-win_amd64.whl.metadata (6.6 kB)
+Collecting phonenumbers<10.0.0,>=9.0.28 (from presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading phonenumbers-9.0.41-py2.py3-none-any.whl.metadata (10 kB)
+Collecting pydantic<3.0.0,>=2.12.5 (from presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Using cached pydantic-2.14.1-py3-none-any.whl.metadata (133 kB)
+Collecting pyyaml<7.0.0,>=6.0.3 (from presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Using cached pyyaml-6.0.3-cp313-cp313-win_amd64.whl.metadata (2.4 kB)
+Collecting regex>=2023.0.0 (from presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading regex-2026.9.29-cp313-cp313-win_amd64.whl.metadata (41 kB)
+Collecting spacy!=3.7.0,<4.0.0,>=3.4.4 (from presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading spacy-3.8.16-cp313-cp313-win_amd64.whl.metadata (28 kB)
+Collecting tldextract<6.0.0,>=5.3.1 (from presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading tldextract-5.4.0-py3-none-any.whl.metadata (9.2 kB)
+Collecting annotated-types>=0.6.0 (from pydantic<3.0.0,>=2.12.5->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Using cached annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.50.1 (from pydantic<3.0.0,>=2.12.5->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Using cached pydantic_core-2.50.1-cp313-cp313-win_amd64.whl.metadata (6.7 kB)
+Collecting typing-extensions>=4.16.0 (from pydantic<3.0.0,>=2.12.5->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting typing-inspection>=0.4.4 (from pydantic<3.0.0,>=2.12.5->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Using cached typing_inspection-0.4.4-py3-none-any.whl.metadata (2.6 kB)
+Collecting spacy-legacy<3.1.0,>=3.0.11 (from spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading spacy_legacy-3.0.12-py2.py3-none-any.whl.metadata (2.8 kB)
+Collecting spacy-loggers<2.0.0,>=1.0.0 (from spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading spacy_loggers-1.0.5-py3-none-any.whl.metadata (23 kB)
+Collecting murmurhash<1.1.0,>=0.28.0 (from spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading murmurhash-1.0.15-cp313-cp313-win_amd64.whl.metadata (2.3 kB)
+Collecting cymem<2.1.0,>=2.0.2 (from spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading cymem-2.0.13-cp313-cp313-win_amd64.whl.metadata (9.9 kB)
+Collecting preshed<3.1.0,>=3.0.2 (from spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading preshed-3.0.13-cp313-cp313-win_amd64.whl.metadata (5.4 kB)
+Collecting thinc<8.4.0,>=8.3.12 (from spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading thinc-8.3.13-cp313-cp313-win_amd64.whl.metadata (15 kB)
+Collecting wasabi<1.2.0,>=0.9.1 (from spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading wasabi-1.1.3-py3-none-any.whl.metadata (28 kB)
+Collecting srsly<3.0.0,>=2.5.3 (from spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading srsly-2.5.4-cp313-cp313-win_amd64.whl.metadata (20 kB)
+Collecting catalogue<2.1.0,>=2.0.6 (from spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading catalogue-2.0.10-py3-none-any.whl.metadata (14 kB)
+Collecting weasel<2.0.0,>=1.0.0 (from spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading weasel-1.0.0-py3-none-any.whl.metadata (4.6 kB)
+Collecting confection<2.0.0,>=1.3.2 (from spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading confection-1.3.3-py3-none-any.whl.metadata (19 kB)
+Collecting typer<1.0.0,>=0.3.0 (from spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading typer-0.27.3-py3-none-any.whl.metadata (16 kB)
+Collecting tqdm<5.0.0,>=4.38.0 (from spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+Collecting requests<3.0.0,>=2.13.0 (from spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Using cached requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting jinja2 (from spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting setuptools (from spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading setuptools-84.2.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting packaging>=20.0 (from spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting charset_normalizer<4,>=2 (from requests<3.0.0,>=2.13.0->spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Using cached charset_normalizer-3.5.2-cp313-cp313-win_amd64.whl.metadata (47 kB)
+Collecting idna<4,>=2.5 (from requests<3.0.0,>=2.13.0->spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Using cached idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting urllib3<3,>=1.26 (from requests<3.0.0,>=2.13.0->spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Using cached urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting certifi>=2023.5.7 (from requests<3.0.0,>=2.13.0->spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Using cached certifi-2026.10.19-py3-none-any.whl.metadata (2.5 kB)
+Collecting blis<1.4.0,>=1.3.0 (from thinc<8.4.0,>=8.3.12->spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading blis-1.3.3-cp313-cp313-win_amd64.whl.metadata (7.7 kB)
+Collecting requests-file>=1.4 (from tldextract<6.0.0,>=5.3.1->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading requests_file-3.0.1-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting filelock>=3.0.8 (from tldextract<6.0.0,>=5.3.1->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading filelock-4.2.4-py3-none-any.whl.metadata (2.0 kB)
+Collecting colorama (from tqdm<5.0.0,>=4.38.0->spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting shellingham>=1.3.0 (from typer<1.0.0,>=0.3.0->spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting rich>=13.8.0 (from typer<1.0.0,>=0.3.0->spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+Collecting annotated-doc>=0.0.2 (from typer<1.0.0,>=0.3.0->spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+Collecting cloudpathlib>=0.7.0 (from weasel<2.0.0,>=1.0.0->spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading cloudpathlib-0.26.0-py3-none-any.whl.metadata (16 kB)
+Collecting smart-open>=5.2.1 (from weasel<2.0.0,>=1.0.0->spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading smart_open-8.0.4-py3-none-any.whl.metadata (25 kB)
+Collecting httpx>=0.24.0 (from weasel<2.0.0,>=1.0.0->spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Using cached httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+Collecting anyio (from httpx>=0.24.0->weasel<2.0.0,>=1.0.0->spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Using cached anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting httpcore==1.* (from httpx>=0.24.0->weasel<2.0.0,>=1.0.0->spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Using cached httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+Collecting h11>=0.16 (from httpcore==1.*->httpx>=0.24.0->weasel<2.0.0,>=1.0.0->spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Using cached h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting markdown-it-py>=2.2.0 (from rich>=13.8.0->typer<1.0.0,>=0.3.0->spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting pygments<3.0.0,>=2.13.0 (from rich>=13.8.0->typer<1.0.0,>=0.3.0->spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.8.0->typer<1.0.0,>=0.3.0->spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Collecting wrapt (from smart-open>=5.2.1->weasel<2.0.0,>=1.0.0->spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading wrapt-2.5.1-cp313-cp313-win_amd64.whl.metadata (7.7 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->spacy!=3.7.0,<4.0.0,>=3.4.4->presidio-analyzer==2.2.364->-r requirements-crosscheck.txt (line 3))
+  Downloading markupsafe-3.0.4-cp313-cp313-win_amd64.whl.metadata (2.8 kB)
+Downloading presidio_analyzer-2.2.364-py3-none-any.whl (266 kB)
+Downloading python_stdnum-2.2-py3-none-any.whl (1.2 MB)
+   ---------------------------------------- 1.2/1.2 MB 1.4 MB/s  0:00:00
+Using cached click-8.5.0-py3-none-any.whl (125 kB)
+Downloading numpy-2.4.6-cp313-cp313-win_amd64.whl (12.3 MB)
+   ---------------------------------------- 12.3/12.3 MB 4.1 MB/s  0:00:03
+Downloading phonenumbers-9.0.41-py2.py3-none-any.whl (2.6 MB)
+   ---------------------------------------- 2.6/2.6 MB 8.1 MB/s  0:00:00
+Using cached pydantic-2.14.1-py3-none-any.whl (488 kB)
+Using cached pydantic_core-2.50.1-cp313-cp313-win_amd64.whl (2.2 MB)
+Using cached pyyaml-6.0.3-cp313-cp313-win_amd64.whl (154 kB)
+Downloading spacy-3.8.16-cp313-cp313-win_amd64.whl (15.2 MB)
+   ---------------------------------------- 15.2/15.2 MB 13.2 MB/s  0:00:01
+Downloading catalogue-2.0.10-py3-none-any.whl (17 kB)
+Downloading confection-1.3.3-py3-none-any.whl (35 kB)
+Downloading cymem-2.0.13-cp313-cp313-win_amd64.whl (40 kB)
+Downloading murmurhash-1.0.15-cp313-cp313-win_amd64.whl (25 kB)
+Downloading preshed-3.0.13-cp313-cp313-win_amd64.whl (122 kB)
+Using cached requests-2.34.2-py3-none-any.whl (73 kB)
+Using cached charset_normalizer-3.5.2-cp313-cp313-win_amd64.whl (206 kB)
+Using cached idna-3.20-py3-none-any.whl (69 kB)
+Downloading spacy_legacy-3.0.12-py2.py3-none-any.whl (29 kB)
+Downloading spacy_loggers-1.0.5-py3-none-any.whl (22 kB)
+Downloading srsly-2.5.4-cp313-cp313-win_amd64.whl (672 kB)
+   ---------------------------------------- 672.3/672.3 kB 1.3 MB/s  0:00:00
+Downloading thinc-8.3.13-cp313-cp313-win_amd64.whl (1.7 MB)
+   ---------------------------------------- 1.7/1.7 MB 1.9 MB/s  0:00:00
+Downloading blis-1.3.3-cp313-cp313-win_amd64.whl (6.2 MB)
+   ---------------------------------------- 6.2/6.2 MB 3.8 MB/s  0:00:01
+Downloading tldextract-5.4.0-py3-none-any.whl (107 kB)
+Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+Downloading typer-0.27.3-py3-none-any.whl (123 kB)
+Using cached urllib3-2.8.0-py3-none-any.whl (135 kB)
+Downloading wasabi-1.1.3-py3-none-any.whl (27 kB)
+Downloading weasel-1.0.0-py3-none-any.whl (50 kB)
+Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+Using cached annotated_types-0.8.0-py3-none-any.whl (13 kB)
+Using cached certifi-2026.10.19-py3-none-any.whl (136 kB)
+Downloading cloudpathlib-0.26.0-py3-none-any.whl (66 kB)
+Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Downloading filelock-4.2.4-py3-none-any.whl (162 kB)
+Using cached httpx-0.28.1-py3-none-any.whl (73 kB)
+Using cached httpcore-1.0.9-py3-none-any.whl (78 kB)
+Using cached h11-0.16.0-py3-none-any.whl (37 kB)
+Using cached packaging-26.3-py3-none-any.whl (129 kB)
+Using cached regex-2026.9.29-cp313-cp313-win_amd64.whl (280 kB)
+Downloading requests_file-3.0.1-py2.py3-none-any.whl (4.5 kB)
+Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+   ---------------------------------------- 1.3/1.3 MB 2.4 MB/s  0:00:00
+Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Downloading smart_open-8.0.4-py3-none-any.whl (73 kB)
+Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Using cached typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+Using cached anyio-4.15.1-py3-none-any.whl (132 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading markupsafe-3.0.4-cp313-cp313-win_amd64.whl (14 kB)
+Downloading setuptools-84.2.0-py3-none-any.whl (875 kB)
+   ---------------------------------------- 875.8/875.8 kB 2.8 MB/s  0:00:00
+Downloading wrapt-2.5.1-cp313-cp313-win_amd64.whl (105 kB)
+Installing collected packages: wrapt, urllib3, typing-extensions, spacy-loggers, spacy-legacy, shellingham, setuptools, regex, pyyaml, python-stdnum, pygments, phonenumbers, packaging, numpy, murmurhash, mdurl, MarkupSafe, idna, h11, filelock, cymem, confection, colorama, cloudpathlib, click, charset_normalizer, certifi, catalogue, annotated-types, annotated-doc, wasabi, typing-inspection, tqdm, srsly, smart-open, requests, pydantic-core, preshed, markdown-it-py, jinja2, httpcore, blis, anyio, rich, requests-file, pydantic, httpx, typer, tldextract, thinc, weasel, spacy, presidio-analyzer
+
+Successfully installed MarkupSafe-3.0.4 annotated-doc-0.0.5 annotated-types-0.8.0 anyio-4.15.1 blis-1.3.3 catalogue-2.0.10 certifi-2026.10.19 charset_normalizer-3.5.2 click-8.5.0 cloudpathlib-0.26.0 colorama-0.4.6 confection-1.3.3 cymem-2.0.13 filelock-4.2.4 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 idna-3.20 jinja2-3.1.6 markdown-it-py-4.2.0 mdurl-0.1.2 murmurhash-1.0.15 numpy-2.4.6 packaging-26.3 phonenumbers-9.0.41 preshed-3.0.13 presidio-analyzer-2.2.364 pydantic-2.14.1 pydantic-core-2.50.1 pygments-2.21.0 python-stdnum-2.2 pyyaml-6.0.3 regex-2026.9.29 requests-2.34.2 requests-file-3.0.1 rich-15.0.0 setuptools-84.2.0 shellingham-1.5.4 smart-open-8.0.4 spacy-3.8.16 spacy-legacy-3.0.12 spacy-loggers-1.0.5 srsly-2.5.4 thinc-8.3.13 tldextract-5.4.0 tqdm-4.70.1 typer-0.27.3 typing-extensions-4.16.0 typing-inspection-0.4.4 urllib3-2.8.0 wasabi-1.1.3 weasel-1.0.0 wrapt-2.5.1
+(exit code 0, 119.1 s)
+pip: Successfully installed MarkupSafe-3.0.4 annotated-doc-0.0.5 annotated-types-0.8.0 anyio-4.15.1 blis-1.3.3 catalogue-2.0.10 certifi-2026.10.19 charset_normalizer-3.5.2 click-8.5.0 cloudpathlib-0.26.0 colorama-0.4.6 confection-1.3.3 cymem-2.0.13 filelock-4.2.4 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 idna-3.20 jinja2-3.1.6 markdown-it-py-4.2.0 mdurl-0.1.2 murmurhash-1.0.15 numpy-2.4.6 packaging-26.3 phonenumbers-9.0.41 preshed-3.0.13 presidio-analyzer-2.2.364 pydantic-2.14.1 pydantic-core-2.50.1 pygments-2.21.0 python-stdnum-2.2 pyyaml-6.0.3 regex-2026.9.29 requests-2.34.2 requests-file-3.0.1 rich-15.0.0 setuptools-84.2.0 shellingham-1.5.4 smart-open-8.0.4 spacy-3.8.16 spacy-legacy-3.0.12 spacy-loggers-1.0.5 srsly-2.5.4 thinc-8.3.13 tldextract-5.4.0 tqdm-4.70.1 typer-0.27.3 typing-extensions-4.16.0 typing-inspection-0.4.4 urllib3-2.8.0 wasabi-1.1.3 weasel-1.0.0 wrapt-2.5.1
+> crosscheck.py
+PASS  X1 the lab's Luhn check agrees with python-stdnum on 5,000 numbers
+      5000 numbers, 484 valid, 0 disagreements
+PASS  X2 card numbers: the same matches as Presidio
+      2 found by both
+PASS  X3 email addresses: the same matches as Presidio
+      2 found by both
+PASS  X4 IPv4 addresses: the same matches, including the version-number false positive
+      3 found by both, 1.2.3.4 among them
+PASS  X5 SSNs differ exactly where the two rule sets differ
+      lab only: 123-45-6789 (Presidio drops published sample numbers); Presidio only: 900-12-3456 (the lab drops 9xx areas)
+PASS  X6 US phone numbers: the same matches as Presidio
+      2 found by both
+PASS  X7 the only network attempts are the suffix-list download, and matching works without it
+      attempted: publicsuffix.org, raw.githubusercontent.com (tldextract's fixed suffix-list URLs)
+Network attempts blocked: 2 (publicsuffix.org, raw.githubusercontent.com)
+7 of 7 cross-checks passed
+(exit code 0, 6.7 s)
+
+==== Part 12: R1, R2, and the R3 plan (no downloads)  [2026-10-20 08:27:04]
+Lab zip: %USERPROFILE%\Downloads\engineering-stack-lab-part-12.zip, 19327 bytes, SHA-256 c8695be4b966b18dfeab013442ce5ae5f00b15419d4fa415c2e972b3898d9e75
+> -m venv .venv
+(exit code 0, 10.9 s)
+> --version
+Python 3.13.16
+(exit code 0, 0.1 s)
+> run_lab.py
+PASS c01_weight_counts
+PASS c02_reproduces_peft_readme
+PASS c03_reproduces_lora_paper
+PASS c04_llama3_8b_adapters
+PASS c05_one_matrix
+PASS c06_scaling
+PASS c07_full_finetuning_memory
+PASS c08_qlora_bits
+PASS c09_lora_memory_and_fit
+PASS c10_openai_dates
+PASS c11_decision_rules
+PASS c12_sharing_names
+PASS c13_shortlist
+PASS c14_sample_data
+PASS c15_format_problems
+PASS c16_leak_rules
+PASS c17_reader_test_logic
+17 of 17 checks passed
+(exit code 0, 0.2 s)
+> mutation_check.py
+caught  grouped-query attention ignored
+caught  o_proj sized from the hidden width
+caught  one norm per block
+caught  q, k and v biases left out
+caught  Qwen3's q and k norms left out
+caught  tied output layer counted twice
+caught  final norm left out
+caught  only A counted, not B
+caught  one layer instead of all
+caught  rsLoRA ignored
+caught  optimizer state without the fp32 weight copy
+caught  double quantization ignored
+caught  adapter gradients and optimizer state left out
+caught  no spare memory kept
+caught  closing day off by one
+caught  60-day rule ignored
+caught  new facts sent to fine-tuning
+caught  stop rule inverted
+caught  name prefix accepted anywhere
+caught  Llama 4 given Llama 3's terms
+caught  licence filter ignored
+caught  a 4-bit file taken at 4 bits
+caught  chat format not recognized
+caught  any role accepted
+caught  blank content accepted
+caught  no answer to learn accepted
+caught  identical chosen and rejected accepted
+caught  12-word runs counted as leaks
+caught  shared system prompt counted
+caught  duplicates never reported
+caught  short test examples never checked
+caught  prompt not masked: the model learns to write the question
+caught  prediction for the wrong target layers
+33 of 33 mutations caught
+(exit code 0, 7.7 s)
+> reader_lora.py --plan
+HuggingFaceTB/SmolLM2-135M-Instruct: 134,515,008 weights; LoRA r=8 on q and v trains 460,800
+Model states for LoRA in 32-bit: 0.55 GB, plus activations
+(exit code 0, 0.2 s)
+
+==== FINISHED  [2026-10-20 08:27:24]
+Free disk on C: 122.3 GB
+Each lab folder and its .venv stay in Downloads\ai-stack; delete a folder to remove it.

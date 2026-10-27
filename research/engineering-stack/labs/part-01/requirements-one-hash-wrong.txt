@@ -1,0 +1,6 @@
+# BROKEN ON PURPOSE for the Part 01 lab. Same as requirements.txt except that
+# the last character of the FIRST hash (the wheel's) is changed.
+# Expected: pip skips the wheel and builds from the source archive instead.
+packaging==26.3 \
+    --hash=sha256:d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1d \
+    --hash=sha256:94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79

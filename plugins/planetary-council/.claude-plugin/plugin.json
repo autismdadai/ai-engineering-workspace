@@ -1,0 +1,16 @@
+{
+  "name": "planetary-council-system",
+  "version": "1.3.3",
+  "description": "The Planetary Council: an orchestrator (the Sun), nine planet specialists and Planet X, an independent fact-checker. Each planet can run as its own sub-agent.",
+  "author": {
+    "name": "Aaron"
+  },
+  "license": "MIT",
+  "keywords": [
+    "council",
+    "multi-agent",
+    "research",
+    "verification",
+    "evidence-grading"
+  ]
+}

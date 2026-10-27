@@ -1,0 +1,8 @@
+# Optional DSPy check (--with-dspy). About 400 MB with its dependencies.
+# Install on its own, after requirements-optional.txt: pip will not mix a
+# hash-pinned file and this one in a single command.
+# Version-pinned, not hash-pinned: DSPy pulls in about 60 packages, and
+# hashes for every platform's wheels would make this file unreadable.
+dspy==3.4.0
+numpy==2.5.4; python_version >= "3.12"
+numpy==2.4.4; python_version < "3.12"

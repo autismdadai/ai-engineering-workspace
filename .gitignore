@@ -1,0 +1,41 @@
+# Local-only material: original zips, superseded versions, raw agent transcripts
+archive/
+
+# Handoff files for new chats stay on this computer
+/handoff-ai-workspace.md
+
+# Models and large binaries
+*.gguf
+*.safetensors
+*.zip
+*.plugin
+
+# Papers and books stay out (their copyright belongs to others)
+*.pdf
+
+# Built upload files (tools/package_for_claude_ai.py writes them here)
+dist/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Secrets (labs use placeholders and environment variables, never real keys)
+.env
+.env.*
+*.pem
+*.key
+
+# Claude Code per-machine settings; copy .mcp.json.example to .mcp.json and fill in your paths
+.claude/settings.local.json
+.mcp.json
+
+# Operating-system clutter
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# The lab's template is a teaching file with placeholders only
+!.env.example

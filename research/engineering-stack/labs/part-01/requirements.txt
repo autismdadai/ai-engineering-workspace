@@ -1,0 +1,7 @@
+# One small package, pinned to an exact version and to the SHA-256 hashes that
+# PyPI publishes for its two files (the wheel and the source archive).
+# Hashes copied from https://pypi.org/pypi/packaging/json on October 9, 2026.
+# Install with:  python -m pip install --require-hashes -r requirements.txt
+packaging==26.3 \
+    --hash=sha256:d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c \
+    --hash=sha256:94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79

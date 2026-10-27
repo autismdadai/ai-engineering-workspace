@@ -1,0 +1,237 @@
+﻿
+==== This computer  [2026-10-19 12:29:00]
+Windows: Microsoft Windows 11 Pro 10.0.26300
+PowerShell: 5.1.26100.9711
+Processor: Intel(R) Core(TM) i5-9500T CPU @ 2.20GHz, 6 cores, 6 threads
+Memory: 7.79 GB total, 0.66 GB free now
+Memory module: 8 GB in DIMM1, rated 2666 MT/s, running at 2666 MT/s
+Graphics: Intel(R) UHD Graphics 630, driver 31.0.101.2141
+Free disk on C: 129.6 GB
+
+==== R1 and R2: the lab on Windows  [2026-10-19 12:29:03]
+Lab zip SHA-256: 09ba187856170a93e9fec19f79dcfb93a8b31ce41cb1487b457dae9db547f835
+Unzipped to %USERPROFILE%\Downloads\ai-stack\engineering-stack-lab-part-11: demo.py, mutation_check.py, reader_local.py, README.md, runmath.py, run_lab.py
+> %USERPROFILE%\AppData\Local\Programs\Python\Python313\python.exe -m venv .venv
+(exit code 0, 14.2 s)
+> %USERPROFILE%\Downloads\ai-stack\engineering-stack-lab-part-11\.venv\Scripts\python.exe --version
+Python 3.13.16
+(exit code 0, 1 s)
+> %USERPROFILE%\Downloads\ai-stack\engineering-stack-lab-part-11\.venv\Scripts\python.exe run_lab.py
+PASS c01_feed_forward_width
+PASS c02_llama3_8b_weights
+PASS c03_bits_per_weight_from_block_layouts
+PASS c04_more_bits_layers
+PASS c05_file_sizes_match_llama_cpp
+PASS c06_gpt_oss_20b
+PASS c07_kv_cache
+PASS c08_what_fits
+PASS c09_decode_ceiling
+PASS c10_roofline
+PASS c11_speculative_decoding
+PASS c12_paged_memory
+PASS c13_stream_metrics
+PASS c14_reader_test_logic
+14 of 14 checks passed
+(exit code 0, 1 s)
+> %USERPROFILE%\Downloads\ai-stack\engineering-stack-lab-part-11\.venv\Scripts\python.exe mutation_check.py
+caught  feed-forward multiplier ignored
+caught  grouped-query attention ignored
+caught  Q4_K block without its scales
+caught  Q6_K block two bytes short
+caught  MXFP4 without its shared scale
+caught  wrong every-third-layer rule
+caught  first eighth of layers not upgraded
+caught  output matrix not upgraded
+caught  ffn_down not upgraded
+caught  norms quantized
+caught  partial blocks accepted
+caught  unembedding left out of the total
+caught  every expert counted as active
+caught  active experts read at 16 bits
+caught  keys stored without values
+caught  sliding window ignored
+caught  batch ignored
+caught  no spare memory kept
+caught  negative room allowed
+caught  ceiling upside down
+caught  ridge point upside down
+caught  one operation per weight
+caught  gamma instead of gamma + 1
+caught  target pass left out of the cost
+caught  no input checks
+caught  gamma 0 allowed
+caught  partly filled blocks not counted
+caught  reservation sized to the longest request
+caught  TPOT divided by every token
+caught  first gap measured from the request
+caught  nanoseconds read as seconds
+31 of 31 mutations caught
+(exit code 0, 20.2 s)
+> %USERPROFILE%\Downloads\ai-stack\engineering-stack-lab-part-11\.venv\Scripts\python.exe reader_local.py --self-test
+Model stand-in:1.7b, file 1.40 GB
+Measured: 12.5 tokens/s (median of the timed runs)
+Ceiling:  29.7 tokens/s (bandwidth / file size)
+Measured is 42% of the ceiling.
+Self-test passed: these numbers come from the stand-in, not a model.
+(exit code 0, 1 s)
+
+==== R3: Ollama and qwen3:1.7b  [2026-10-19 12:29:42]
+OLLAMA_NO_CLOUD for this user: 1
+> curl.exe -L --fail -sS -o "%USERPROFILE%\Downloads\ai-stack\part11-reader-tests\ollama-sha256sum.txt" "https://github.com/ollama/ollama/releases/download/v0.40.6/sha256sum.txt"
+(exit code 0, 1 s)
+Downloaded 1472 bytes to %USERPROFILE%\Downloads\ai-stack\part11-reader-tests\ollama-sha256sum.txt
+> curl.exe -L --fail -sS -o "%USERPROFILE%\Downloads\ai-stack\part11-reader-tests\OllamaSetup.exe" "https://github.com/ollama/ollama/releases/download/v0.40.6/OllamaSetup.exe"
+(exit code 0, 35.3 s)
+Downloaded 1584629376 bytes to %USERPROFILE%\Downloads\ai-stack\part11-reader-tests\OllamaSetup.exe
+OllamaSetup.exe SHA-256: 933794ee1d670137f5116c9de7fc7db092fa97c6b823aba848ddb8a7ea030828
+sha256sum.txt says:      933794ee1d670137f5116c9de7fc7db092fa97c6b823aba848ddb8a7ea030828
+release page says:       933794ee1d670137f5116c9de7fc7db092fa97c6b823aba848ddb8a7ea030828
+Checksum matches. Installing for this user only (no administrator rights).
+> %USERPROFILE%\Downloads\ai-stack\part11-reader-tests\OllamaSetup.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART
+
+==== R3, continued: the first runner waited on the Ollama app the installer starts; carrying on  [2026-10-19 18:58:22]
+OLLAMA_NO_CLOUD for this user: 1
+Ollama installed at %USERPROFILE%\AppData\Local\Programs\Ollama\ollama.exe
+Running: ollama (process 2852)
+Running: ollama app (process 21416)
+Ollama server version: 0.40.6
+> %USERPROFILE%\AppData\Local\Programs\Ollama\ollama.exe --version
+ollama version is 0.40.6
+(exit code 0, 1.8 s)
+server.log lines about cloud, compute and GPUs:
+  time=2026-10-19T12:32:21.248-06:00 level=INFO source=routes.go:2439 msg="server config" env="map[CUDA_VISIBLE_DEVICES: GGML_VK_VISIBLE_DEVICES: GPU_DEVICE_ORDINAL: HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: LLAMA_ARG_FIT: LLAMA_ARG_FIT_TARGET: NO_PROXY: OLLAMA_CONTEXT_LENGTH:0 OLLAMA_CREATE_REMOTE:false OLLAMA_DEBUG:INFO OLLAMA_DEBUG_LOG_REQUESTS:false OLLAMA_EDITOR: OLLAMA_FLASH_ATTENTION:false OLLAMA_GO_TEMPLATE:true OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://127.0.0.1:11434 OLLAMA_IGPU_ENABLE: OLLAMA_KEEP_ALIVE:5m0s OLLAMA_KV_CACHE_TYPE: OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:5m0s OLLAMA_MAX_LOADED_MODELS:0 OLLAMA_MAX_QUEUE:512 OLLAMA_MAX_TRANSFER_STREAMS:4 OLLAMA_MODELS:%USERPROFILE%\\.ollama\\models OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NO_CLOUD:true OLLAMA_NUM_PARALLEL:1 OLLAMA_ORIGINS:[http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://* vscode-webview://* vscode-file://*] OLLAMA_REMOTES:[ollama.com] OLLAMA_SCHED_SPREAD:false OLLAMA_VULKAN:true ROCR_VISIBLE_DEVICES:]"
+  time=2026-10-19T12:32:21.248-06:00 level=INFO source=routes.go:2441 msg="Ollama cloud disabled: true"
+  time=2026-10-19T12:32:32.516-06:00 level=INFO source=runner.go:405 msg="dropping integrated GPU; to enable, set OLLAMA_IGPU_ENABLE=1" id=0 library=Vulkan compute=0.0 name=Vulkan0 description="Intel(R) UHD Graphics 630" pci_id=""
+  time=2026-10-19T12:32:32.517-06:00 level=INFO source=types.go:50 msg="inference compute" id=cpu library=cpu compute="" name=cpu description=cpu libdirs=ollama driver="" pci_id="" type="" total="7.8 GiB" available="825.6 MiB"
+  time=2026-10-19T12:32:32.517-06:00 level=INFO source=routes.go:2551 msg="vram-based default context" total_vram="0 B" default_num_ctx=4096
+> %USERPROFILE%\AppData\Local\Programs\Ollama\ollama.exe pull qwen3:1.7b
+pulling ae370d884f10:  59% â–•â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ        â– 1.0 KB/1.7 KB                  [K
+pulling d18a5cc71b84:  85% â–•â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ   â– 9.6 KB/ 11 KB                  [K
+pulling 517ccaff02fe: 100% â–•â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–  487 B                         [K
+verifying sha256 digest [K
+writing manifest [K
+success [K[?25h[?2026l
+(exit code 0, 27.7 s)
+> %USERPROFILE%\AppData\Local\Programs\Ollama\ollama.exe list
+NAME          ID              SIZE      MODIFIED               
+qwen3:1.7b    8f68893c685c    1.4 GB    Less than a second ago
+(exit code 0, 0.2 s)
+Model qwen3:1.7b: 1359293444 bytes, digest 8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7
+Free memory now: 0.91 GB
+> %USERPROFILE%\Downloads\ai-stack\engineering-stack-lab-part-11\.venv\Scripts\python.exe reader_local.py --model qwen3:1.7b --bandwidth 41.6 --runs 5
+Model qwen3:1.7b, file 1.36 GB
+Measured: 8.4 tokens/s (median of the timed runs)
+Ceiling:  30.6 tokens/s (bandwidth / file size)
+Measured is 27% of the ceiling.
+(exit code 0, 51 s)
+> %USERPROFILE%\Downloads\ai-stack\engineering-stack-lab-part-11\.venv\Scripts\python.exe reader_local.py --model qwen3:1.7b --bandwidth 21.3 --runs 5
+Model qwen3:1.7b, file 1.36 GB
+Measured: 8.0 tokens/s (median of the timed runs)
+Ceiling:  15.7 tokens/s (bandwidth / file size)
+Measured is 51% of the ceiling.
+(exit code 0, 41.7 s)
+> %USERPROFILE%\AppData\Local\Programs\Ollama\ollama.exe ps
+NAME          ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL              
+qwen3:1.7b    8f68893c685c    1.9 GB    100% CPU     4096       llamacpp    4 minutes from now
+(exit code 0, 0.1 s)
+> %USERPROFILE%\AppData\Local\Programs\Ollama\ollama.exe stop qwen3:1.7b
+[?2026h[?25l[1Gâ ™ [K[?25h[?2026l[?2026h[?25l[1G[K[?25h[?2026l[?25l[2K[1G[?25h
+(exit code 0, 0.2 s)
+
+==== R4: llama.cpp and Qwen3-4B  [2026-10-19 19:00:27]
+> %USERPROFILE%\AppData\Local\Microsoft\WindowsApps\winget.exe --version
+v1.29.380
+(exit code 0, 0.5 s)
+> %USERPROFILE%\AppData\Local\Microsoft\WindowsApps\winget.exe install llama.cpp --accept-source-agreements --accept-package-agreements
+Found llama.cpp [ggml.llamacpp] Version b11706
+This application is licensed to you by its owner.
+Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+This package requires the following dependencies:
+  - Packages
+      Microsoft.VCRedist.2015+.x64
+Downloading https://github.com/ggml-org/llama.cpp/releases/download/b11706/llama-b11706-bin-win-vulkan-x64.zip
+Successfully verified installer hash
+Extracting archive...
+Successfully extracted archive
+Starting package install...
+Path environment variable modified; restart your shell to use the new value.
+Command line alias added: "llama-batched-bench"
+Command line alias added: "llama-bench"
+Command line alias added: "llama-cli"
+Command line alias added: "llama-gguf-split"
+Command line alias added: "llama-imatrix"
+Command line alias added: "llama-mtmd-cli"
+Command line alias added: "llama-perplexity"
+Command line alias added: "llama-quantize"
+Command line alias added: "llama-server"
+Command line alias added: "llama-tokenize"
+Command line alias added: "llama-tts"
+Successfully installed
+(exit code 0, 19.1 s)
+llama-bench: %USERPROFILE%\AppData\Local\Microsoft\WinGet\Packages\ggml.llamacpp_Microsoft.Winget.Source_8wekyb3d8bbwe\llama-bench.exe
+Hugging Face lists Qwen3-4B-Q4_K_M.gguf: 2497280256 bytes, SHA-256 7485fe6f11af29433bc51cab58009521f205840f5b4ae3a32fa7f92e8534fdf5
+> curl.exe -L --fail -sS -o "%USERPROFILE%\Downloads\Qwen3-4B-Q4_K_M.gguf" "https://huggingface.co/Qwen/Qwen3-4B-GGUF/resolve/main/Qwen3-4B-Q4_K_M.gguf"
+curl: (56) schannel: server closed abruptly (missing close_notify)
+(exit code 56, 233.8 s)
+Downloaded 1242463457 bytes to %USERPROFILE%\Downloads\Qwen3-4B-Q4_K_M.gguf
+Downloaded file SHA-256: 6459b86257be2b9f056b1911eb917a7601fe34e74644b29247d909b4c1e1167f
+R4 stopped: The model file does not match its published SHA-256; not using it.
+
+==== FINISHED  [2026-10-19 19:04:47]
+Ollama, its model, llama.cpp and the model file stay installed. Section 7.5 of Part 11 says how to remove them.
+
+==== R4, second try: resume the model download  [2026-10-19 19:10:33]
+> %USERPROFILE%\AppData\Local\Microsoft\WindowsApps\winget.exe --version
+v1.29.380
+(exit code 0, 0.3 s)
+llama-bench: %USERPROFILE%\AppData\Local\Microsoft\WinGet\Packages\ggml.llamacpp_Microsoft.Winget.Source_8wekyb3d8bbwe\llama-bench.exe
+Hugging Face lists Qwen3-4B-Q4_K_M.gguf: 2497280256 bytes, SHA-256 7485fe6f11af29433bc51cab58009521f205840f5b4ae3a32fa7f92e8534fdf5
+Download try 1: resuming at byte 1242463457 of 2497280256
+> curl.exe -L --fail -sS -C - -o "%USERPROFILE%\Downloads\Qwen3-4B-Q4_K_M.gguf" "https://huggingface.co/Qwen/Qwen3-4B-GGUF/resolve/main/Qwen3-4B-Q4_K_M.gguf"
+(exit code 0, 1621.8 s)
+File size now: 2497280256 bytes
+Downloaded file SHA-256: 7485fe6f11af29433bc51cab58009521f205840f5b4ae3a32fa7f92e8534fdf5
+Checksum matches.
+> %USERPROFILE%\AppData\Local\Microsoft\WinGet\Packages\ggml.llamacpp_Microsoft.Winget.Source_8wekyb3d8bbwe\llama-bench.exe --list-devices
+Available devices:
+  Vulkan0: Intel(R) UHD Graphics 630 (3986 MiB, 3588 MiB free)
+load_backend: loaded RPC backend from %USERPROFILE%\AppData\Local\Microsoft\WinGet\Packages\ggml.llamacpp_Microsoft.Winget.Source_8wekyb3d8bbwe\ggml-rpc.dll
+ggml_vulkan: Found 1 Vulkan devices:
+ggml_vulkan: 0 = Intel(R) UHD Graphics 630 (Intel Corporation) | uma: 1 | fp16: 1 | bf16: 0 | fp4: 0 | warp size: 32 | shared memory: 32768 | int dot: 0 | matrix cores: none
+load_backend: loaded Vulkan backend from %USERPROFILE%\AppData\Local\Microsoft\WinGet\Packages\ggml.llamacpp_Microsoft.Winget.Source_8wekyb3d8bbwe\ggml-vulkan.dll
+load_backend: loaded CPU backend from %USERPROFILE%\AppData\Local\Microsoft\WinGet\Packages\ggml.llamacpp_Microsoft.Winget.Source_8wekyb3d8bbwe\ggml-cpu-haswell.dll
+load_backend: loaded RPC backend from %USERPROFILE%\AppData\Local\Microsoft\WinGet\Packages\ggml.llamacpp_Microsoft.Winget.Source_8wekyb3d8bbwe\ggml-rpc.dll
+load_backend: loaded Vulkan backend from %USERPROFILE%\AppData\Local\Microsoft\WinGet\Packages\ggml.llamacpp_Microsoft.Winget.Source_8wekyb3d8bbwe\ggml-vulkan.dll
+load_backend: loaded CPU backend from %USERPROFILE%\AppData\Local\Microsoft\WinGet\Packages\ggml.llamacpp_Microsoft.Winget.Source_8wekyb3d8bbwe\ggml-cpu-haswell.dll
+(exit code 0, 0.7 s)
+Free memory now: 1.23 GB
+> %USERPROFILE%\AppData\Local\Microsoft\WinGet\Packages\ggml.llamacpp_Microsoft.Winget.Source_8wekyb3d8bbwe\llama-bench.exe -m "%USERPROFILE%\Downloads\Qwen3-4B-Q4_K_M.gguf"
+| model                          |       size |     params | backend    | ngl |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | --: | --------------: | -------------------: |
+| qwen3 4B Q4_K - Medium         |   2.32 GiB |     4.02 B | Vulkan     |  -1 |           pp512 |          8.61 Â± 0.48 |
+| qwen3 4B Q4_K - Medium         |   2.32 GiB |     4.02 B | Vulkan     |  -1 |           tg128 |          2.19 Â± 0.05 |
+
+build: f74e2fa6a (11706)
+load_backend: loaded RPC backend from %USERPROFILE%\AppData\Local\Microsoft\WinGet\Packages\ggml.llamacpp_Microsoft.Winget.Source_8wekyb3d8bbwe\ggml-rpc.dll
+ggml_vulkan: Found 1 Vulkan devices:
+ggml_vulkan: 0 = Intel(R) UHD Graphics 630 (Intel Corporation) | uma: 1 | fp16: 1 | bf16: 0 | fp4: 0 | warp size: 32 | shared memory: 32768 | int dot: 0 | matrix cores: none
+load_backend: loaded Vulkan backend from %USERPROFILE%\AppData\Local\Microsoft\WinGet\Packages\ggml.llamacpp_Microsoft.Winget.Source_8wekyb3d8bbwe\ggml-vulkan.dll
+load_backend: loaded CPU backend from %USERPROFILE%\AppData\Local\Microsoft\WinGet\Packages\ggml.llamacpp_Microsoft.Winget.Source_8wekyb3d8bbwe\ggml-cpu-haswell.dll
+(exit code 0, 670.1 s)
+Free memory now: 3 GB
+> %USERPROFILE%\AppData\Local\Microsoft\WinGet\Packages\ggml.llamacpp_Microsoft.Winget.Source_8wekyb3d8bbwe\llama-bench.exe -m "%USERPROFILE%\Downloads\Qwen3-4B-Q4_K_M.gguf" -dev none
+| model                          |       size |     params | backend    | ngl | dev          |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | --: | ------------ | --------------: | -------------------: |
+| qwen3 4B Q4_K - Medium         |   2.32 GiB |     4.02 B | Vulkan     |  -1 | none         |           pp512 |         34.90 Â± 0.82 |
+| qwen3 4B Q4_K - Medium         |   2.32 GiB |     4.02 B | Vulkan     |  -1 | none         |           tg128 |          3.93 Â± 0.07 |
+
+build: f74e2fa6a (11706)
+load_backend: loaded RPC backend from %USERPROFILE%\AppData\Local\Microsoft\WinGet\Packages\ggml.llamacpp_Microsoft.Winget.Source_8wekyb3d8bbwe\ggml-rpc.dll
+ggml_vulkan: Found 1 Vulkan devices:
+ggml_vulkan: 0 = Intel(R) UHD Graphics 630 (Intel Corporation) | uma: 1 | fp16: 1 | bf16: 0 | fp4: 0 | warp size: 32 | shared memory: 32768 | int dot: 0 | matrix cores: none
+load_backend: loaded Vulkan backend from %USERPROFILE%\AppData\Local\Microsoft\WinGet\Packages\ggml.llamacpp_Microsoft.Winget.Source_8wekyb3d8bbwe\ggml-vulkan.dll
+load_backend: loaded CPU backend from %USERPROFILE%\AppData\Local\Microsoft\WinGet\Packages\ggml.llamacpp_Microsoft.Winget.Source_8wekyb3d8bbwe\ggml-cpu-haswell.dll
+(exit code 0, 266.3 s)
+
+==== FINISHED  [2026-10-19 19:53:25]
+Ollama, its model, llama.cpp and the model file stay installed. Section 7.5 of Part 11 says how to remove them.

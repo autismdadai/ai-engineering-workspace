@@ -1,0 +1,10 @@
+# Optional cross-checks (crosscheck.py). Versions read from PyPI on 2026-10-13.
+# The core lab (run_lab.py, mutation_check.py) needs nothing beyond Python 3.11+.
+bm25s==0.3.13
+rank-bm25==0.2.2
+numpy==2.5.4 ; python_version >= "3.12"
+numpy==2.4.4 ; python_version < "3.12"
+scipy==1.18.1 ; python_version >= "3.12"
+scipy==1.17.1 ; python_version < "3.12"
+ir-measures==0.4.3
+pytrec-eval-terrier==0.5.10

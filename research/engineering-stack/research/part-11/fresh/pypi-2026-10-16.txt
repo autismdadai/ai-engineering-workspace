@@ -1,0 +1,25 @@
+vllm | 0.31.0 | 2026-10-05 | Apache-2.0 | <3.15,>=3.10
+sglang | 0.5.22 | 2026-10-16 | Apache License | >=3.11
+tensorrt-llm | 1.2.1 | 2026-04-20 | Apache License 2.0 | <4,>=3.10
+llama-cpp-python | 0.3.36 | 2026-10-01 | MIT | >=3.8
+ollama | 0.6.3 | 2026-09-29 | MIT | >=3.8
+torch | 2.14.1 | 2026-09-30 | Apache-2.0 AND Apache-2.0 WITH LLVM-exce | >=3.10
+transformers | 5.20.0 | 2026-10-15 | Apache 2.0 License | >=3.10.0
+gguf | 0.19.0 | 2026-05-06 | MIT License | >=3.10
+bitsandbytes | 0.50.2 | 2026-08-27 | MIT | >=3.10
+optimum | 2.3.0 | 2026-08-04 | Apache | >=3.9.0
+auto-gptq | 0.7.1 | 2024-03-01 | MIT License | >=3.8.0
+autoawq | 0.2.9 | 2025-05-11 | MIT | >=3.8.0
+exllamav2 | 0.3.2 | 2025-07-14 | MIT | 
+llmcompressor | 0.14.0 | 2026-09-22 | Apache 2.0 | >=3.10
+gptqmodel | 7.6.0 | 2026-10-12 | Apache-2.0 | >=3.10
+huggingface-hub | 2.2.0 | 2026-10-08 | Apache-2.0 | >=3.10.0
+accelerate | 1.15.0 | 2026-09-09 | Apache | >=3.10.0
+mlx | 0.32.4 | 2026-10-14 | MIT | >=3.10
+mlx-lm | 0.32.2 | 2026-10-16 | MIT | >=3.11
+safetensors | 0.8.0 | 2026-06-09 | Apache Software License | >=3.10
+openvino | 2026.4.1 | 2026-10-01 | Apache-2.0 | >=3.10
+optimum-intel | 2.2.0 | 2026-09-17 | Apache | 
+onnxruntime-genai | 0.18.0 | 2026-10-14 | MIT License | 
+lmdeploy | 0.18.0 | 2026-09-28 | ? | 
+nvidia-ml-py | 13.615.71 | 2026-09-25 | BSD | 

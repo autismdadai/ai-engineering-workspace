@@ -1,0 +1,13 @@
+vllm | 0.31.0 | 2026-10-05 | Apache-2.0 | <3.15,>=3.10
+sglang | 0.5.22 | 2026-10-16 | Apache License | >=3.11
+tensorrt-llm | 1.2.1 | 2026-04-20 | Apache License 2.0 | <4,>=3.10
+llama-cpp-python | 0.3.36 | 2026-10-01 | MIT | >=3.8
+ollama | 0.6.3 | 2026-09-29 | MIT | >=3.8
+torch | 2.14.1 | 2026-09-30 | Apache-2.0 AND Apache-2.0 WITH LLVM-exce | >=3.10
+transformers | 5.20.0 | 2026-10-15 | Apache 2.0 License | >=3.10.0
+gguf | 0.19.0 | 2026-05-06 | MIT License | >=3.10
+bitsandbytes | 0.50.2 | 2026-08-27 | MIT | >=3.10
+optimum | 2.3.0 | 2026-08-04 | Apache | >=3.9.0
+auto-gptq | 0.7.1 | 2024-03-01 | MIT License | >=3.8.0
+autoawq | 0.2.9 | 2025-05-11 | MIT | >=3.8.0
+exllamav2 | 0.3.2 | 2025-07-14 | MIT | 

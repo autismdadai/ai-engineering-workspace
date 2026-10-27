@@ -1,0 +1,12 @@
+# The ticket-router eval in promptfoo, with no model and no API key.
+# Run it from this folder (Part 02, Section 7.6):
+#   npx --yes promptfoo@0.124.1 eval -c promptfooconfig.yaml --no-cache --no-share --no-write
+description: Ticket router, v1 against v2
+prompts:
+  - "{{text}}"
+providers:
+  - id: file://bridge.py:route_v1
+    label: router-v1
+  - id: file://bridge.py:route_v2
+    label: router-v2
+tests: file://bridge.py:create_tests

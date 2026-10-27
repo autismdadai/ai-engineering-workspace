@@ -1,0 +1,5 @@
+# Optional cross-check only (Part 10, Section 7.4). The core lab needs nothing installed.
+# Presidio's pattern recognizers; no spaCy language model is downloaded.
+presidio-analyzer==2.2.364
+# Luhn reference implementation (LGPL-2.1-or-later).
+python-stdnum==2.2

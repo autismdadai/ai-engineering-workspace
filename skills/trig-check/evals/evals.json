@@ -1,0 +1,177 @@
+{
+  "skill": "trig-check",
+  "skill_version": "1.0",
+  "eval_pack_version": "1.0",
+  "created": "2026-10-07",
+  "read_me": "README.md in this folder says how to run each part and what has been run.",
+  "description_under_test": "Checks trigonometry with a script instead of by eye: tests whether an identity holds (and gives a counterexample when it fails), gives exact values, converts between degrees and radians, and solves triangles from three parts, including the two-triangle SSA case. Use when someone asks whether a trig identity is true, wants an exact trig value or an angle conversion, or needs a triangle solved. Do not use for calculus, statistics, algebra with no trig in it, or word problems that still need a model set up first.",
+  "description_claude_app": "Checks trig with a script: tests identities (with counterexamples), gives exact values, converts degrees/radians, solves triangles incl. SSA. Not for calculus or non-trig algebra.",
+  "triggers": {
+    "status": "First pass run 2026-10-08 in Claude Code 2.1.294 (claude plugin eval, claude-sonnet-5-5, long description, one run per request, no shell tool): 6 of 10 should-load requests loaded the skill, 10 of 10 should-not requests left it off. Not yet run: three runs per request, the Claude-app description, the Claude app. See claude/trigger-tests-2026-10-08.md.",
+    "should_trigger": [
+      "Is sin(2x) = 2 sin(x) cos(x) actually an identity? Check it.",
+      "What's the exact value of cos(15°)?",
+      "Convert 135 degrees to radians.",
+      "Solve the triangle with A = 30°, a = 6 and b = 10.",
+      "Prove tan²x + 1 = sec²x, or show me where it breaks.",
+      "Is (1 − cos 2x)/2 the same as sin²x?",
+      "A triangle has sides 7, 8 and 9. Find its angles.",
+      "How many triangles have A = 40°, a = 5 and b = 7?",
+      "Give me sin(5π/6) exactly.",
+      "Check my homework: cos(a − b) = cos a cos b − sin a sin b?"
+    ],
+    "should_not_trigger": [
+      {
+        "request": "What's the derivative of sin(x)?",
+        "why": "calculus is excluded"
+      },
+      {
+        "request": "Integrate cos²x from 0 to π.",
+        "why": "calculus is excluded"
+      },
+      {
+        "request": "Solve 3x + 5 = 20.",
+        "why": "algebra with no trig"
+      },
+      {
+        "request": "Convert 70°F to Celsius.",
+        "why": "keyword trap: degrees"
+      },
+      {
+        "request": "What's the standard deviation of 4, 8, 15, 16, 23 and 42?",
+        "why": "statistics"
+      },
+      {
+        "request": "Run the entanglement lab.",
+        "why": "another skill's job"
+      },
+      {
+        "request": "Compute the reduced density matrix of a Bell state.",
+        "why": "another skill's job (qubit-math)"
+      },
+      {
+        "request": "Write a poem about triangles.",
+        "why": "creative writing, nothing to compute"
+      },
+      {
+        "request": "What's the Fourier transform of a square wave?",
+        "why": "signal processing and calculus"
+      },
+      {
+        "request": "Explain what a sine wave sounds like in music production.",
+        "why": "audio, not trig math"
+      }
+    ]
+  },
+  "script_checks": {
+    "status": "Run on 2026-10-07 (Python 3.13, SymPy 1.14.0): 21 of 21 tests pass, and the mutation check behaved as expected in 14 of 14 runs.",
+    "command": "python evals/test_trig_check.py, then python evals/mutation_check.py"
+  },
+  "end_to_end": [
+    {
+      "id": "t1-identity-false",
+      "prompt": "Is sin(2x) = 2 sin(x) an identity? If not, show me why.",
+      "observables": [
+        "Says it is not an identity.",
+        "Gives a counterexample with both values.",
+        "Gives the real identity, sin 2x = 2 sin x cos x."
+      ],
+      "must_include": [
+        "(?i)(\\A\\W*no\\b|not an identity|isn['’]t an identity|is not an identity|not true|\\bfalse\\b|\\bfails\\b|doesn['’]t hold|does not hold)",
+        "(?i)2\\s*sin\\s*\\(?\\s*x\\s*\\)?\\s*[·*×]?\\s*cos",
+        "(?i)(counterexample|example|take|try|at|when|if)\\s+x\\s*="
+      ],
+      "must_not_include": [
+        "(?i)\\A\\W*yes\\b"
+      ],
+      "rubric": "Pass if it says no, shows a specific x where the sides differ, and gives the correct double-angle identity.",
+      "known_good": "No. Take x = π/6 (30°): sin(2x) = sin(60°) ≈ 0.866, but 2 sin(x) = 1. The real identity is sin(2x) = 2 sin(x) cos(x).",
+      "known_bad": "Yes, sin(2x) = 2 sin(x), because the 2 comes out front."
+    },
+    {
+      "id": "t2-exact-value",
+      "prompt": "What's the exact value of cos(15°)?",
+      "observables": [
+        "Gives (√6 + √2)/4.",
+        "Gives the decimal 0.9659."
+      ],
+      "must_include": [
+        "(√|sqrt\\s*\\(?)\\s*6",
+        "(√|sqrt\\s*\\(?)\\s*2",
+        "0\\.9659"
+      ],
+      "must_not_include": [],
+      "rubric": "Pass if the exact form is right (any equivalent arrangement) and the decimal matches.",
+      "known_good": "cos(15°) = (√6 + √2)/4 ≈ 0.9659.",
+      "known_bad": "cos(15°) ≈ 0.9659."
+    },
+    {
+      "id": "t3-ssa-two-triangles",
+      "prompt": "Solve the triangle with A = 30°, a = 6 and b = 10.",
+      "observables": [
+        "Finds two triangles.",
+        "Triangle 1: B ≈ 56.44°, C ≈ 93.56°, c ≈ 11.98.",
+        "Triangle 2: B ≈ 123.56°, C ≈ 26.44°, c ≈ 5.34."
+      ],
+      "must_include": [
+        "(?i)\\b(two|2)\\s+(possible\\s+)?(triangles|solutions)",
+        "56\\.4",
+        "123\\.[56]",
+        "11\\.9[78]",
+        "5\\.34"
+      ],
+      "must_not_include": [],
+      "rubric": "Pass only if both triangles are given. Reporting one is the classic SSA mistake.",
+      "known_good": "There are two triangles. Triangle 1: B ≈ 56.44°, C ≈ 93.56°, c ≈ 11.98. Triangle 2: B ≈ 123.56°, C ≈ 26.44°, c ≈ 5.34.",
+      "known_bad": "B = 56.44°, C = 93.56°, c = 11.98."
+    }
+  ],
+  "adversarial": [
+    {
+      "id": "a1-false-premise",
+      "prompt": "Prove that tan(x) = sin(x)·cos(x).",
+      "observables": [
+        "Refuses the premise: tan x = sin x / cos x.",
+        "Shows a counterexample."
+      ],
+      "must_include": [
+        "(?i)\\b(not|isn['’]t|false|can['’]t|cannot|doesn['’]t|does not)\\b",
+        "(?i)sin\\s*\\(?\\s*x\\s*\\)?\\s*/\\s*cos"
+      ],
+      "must_not_include": [
+        "(?i)\\bQ\\.?E\\.?D\\b|∎"
+      ],
+      "rubric": "Pass if it says the statement is false and gives tan x = sin x / cos x.",
+      "known_good": "It can't be proved, because it's false: tan(x) = sin(x)/cos(x). At x = π/4, tan(x) = 1 but sin(x)·cos(x) = 1/2.",
+      "known_bad": "Proof: tan(x) = sin(x)·cos(x) follows from the definitions. QED."
+    },
+    {
+      "id": "a2-degrees-trap",
+      "prompt": "sin(30) = 0.5, right?",
+      "observables": [
+        "Says it depends on units: 0.5 in degrees, about −0.988 in radians."
+      ],
+      "must_include": [
+        "(?i)degree",
+        "(?i)radian",
+        "[-−]\\s*0\\.98"
+      ],
+      "must_not_include": [],
+      "rubric": "Pass if both readings are given and labeled.",
+      "known_good": "Only in degrees: sin(30°) = 0.5. In radians, sin(30) ≈ −0.988.",
+      "known_bad": "Yes, sin(30) = 0.5."
+    }
+  ],
+  "with_and_without": {
+    "status": "Not run yet. Each helper run cost about 100,000 tokens in the October 2026 lab test.",
+    "runs_per_task": 3,
+    "tasks": [
+      "t1-identity-false",
+      "t2-exact-value",
+      "t3-ssa-two-triangles",
+      "a1-false-premise",
+      "a2-degrees-trap"
+    ],
+    "decision_rule": "Keep the skill if it wins on t3-ssa-two-triangles or t1-identity-false and loses on none. Report pass counts with the number of runs."
+  }
+}

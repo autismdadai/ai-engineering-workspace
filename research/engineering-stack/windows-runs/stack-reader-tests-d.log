@@ -1,0 +1,45 @@
+﻿
+==== Part 04 R4 again: timing one call, then a smaller test  [2026-10-20 09:02:02]
+Ollama server version: 0.40.6
+Free memory: 2.65 GB
+> "%USERPROFILE%\Downloads\ai-stack\ollama_timing_probe.py" "%USERPROFILE%\Downloads\ai-stack\engineering-stack-lab-part-04" qwen3:1.7b 200 16384
+qwen3:1.7b: 200 documents, 27240 characters, num_ctx 16384
+wall time 385.8 s; load 7.6 s
+prompt: 7533 tokens in 218.0 s (34.6 tokens per second)
+output: 321 tokens in 160.0 s (2.0 tokens per second)
+thinking field present: True; response length 4 characters
+code 2201 in the response: True
+response tail: '2201'
+(exit code 0, 386.2 s)
+> ps
+NAME          ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL              
+qwen3:1.7b    8f68893c685c    3.4 GB    100% CPU     16384      llamacpp    4 minutes from now
+(exit code 0, 0.2 s)
+> stop qwen3:1.7b
+[?2026h[?25l[1G[K[?25h[?2026l[?25l[2K[1G[?25h
+(exit code 0, 0.1 s)
+Free memory: 2.95 GB
+> "%USERPROFILE%\Downloads\ai-stack\ollama_timing_probe.py" "%USERPROFILE%\Downloads\ai-stack\engineering-stack-lab-part-04" qwen3:1.7b 50 4096
+qwen3:1.7b: 50 documents, 6880 characters, num_ctx 4096
+wall time 96.9 s; load 5.2 s
+prompt: 1882 tokens in 33.2 s (56.6 tokens per second)
+output: 309 tokens in 58.4 s (5.3 tokens per second)
+thinking field present: True; response length 4 characters
+code 2201 in the response: True
+response tail: '2201'
+(exit code 0, 97.2 s)
+Free memory: 1.5 GB
+> placement_test.py --ollama qwen3:1.7b --docs 50 --num-ctx 4096 --trials 10
+Local model qwen3:1.7b, 50 documents, num_ctx 4096, 10 trials per position (50 model calls)
+Could not reach Ollama at http://127.0.0.1:11434 (timed out). Is it running?
+(exit code 1, 1297.2 s)
+> ps
+NAME          ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL              
+qwen3:1.7b    8f68893c685c    1.9 GB    100% CPU     4096       llamacpp    4 minutes from now
+(exit code 0, 2.5 s)
+> stop qwen3:1.7b
+[?2026h[?25l[1G⠙ [K[?25h[?2026l[?2026h[?25l[1G[K[?25h[?2026l[?25l[2K[1G[?25h
+(exit code 0, 0.2 s)
+
+==== FINISHED  [2026-10-20 09:31:47]
+Free memory: 1.17 GB

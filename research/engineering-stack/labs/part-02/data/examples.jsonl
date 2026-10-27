@@ -1,0 +1,8 @@
+{"id": "e1", "text": "Please refund my last payment, I was charged by accident.", "label": "billing"}
+{"id": "e2", "text": "The mobile editor crashes when I rotate the screen.", "label": "technical"}
+{"id": "e3", "text": "I need to reset my password.", "label": "account"}
+{"id": "e4", "text": "Do you have a public roadmap?", "label": "other"}
+{"id": "e5", "text": "Where can I download my invoice?", "label": "billing"}
+{"id": "e6", "text": "Search results take a minute to appear.", "label": "technical"}
+{"id": "e7", "text": "How do I turn on two-factor sign in?", "label": "account"}
+{"id": "e8", "text": "Thanks for the quick help last week!", "label": "other"}

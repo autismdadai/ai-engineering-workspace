@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "ai-workspace": {
+      "source": {
+        "source": "directory",
+        "path": "."
+      }
+    }
+  },
+  "enabledPlugins": {
+    "planetary-council-system@ai-workspace": true
+  }
+}
