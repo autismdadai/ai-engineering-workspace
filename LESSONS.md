@@ -2,7 +2,7 @@
 
 Technical traps hit while building this workspace, and the rule each one led to. Any model working here follows them. Add a row when a failure happens, or happens again, and keep personal details out.
 
-Sources: the corrections logs of the October 20, 22 and 26 handoffs and the model pages (all in the owner's private workspace), the October 26 council run, and the October 26 Windows run (`research/engineering-stack/docs/records/engineering-stack-windows-run-2026-10-26.md`).
+Sources: the corrections logs of the October 20, 22 and 26 handoffs and the model pages (all in the owner's private workspace), the October 26 council runs, and the October 26 Windows run (`research/engineering-stack/docs/records/engineering-stack-windows-run-2026-10-26.md`).
 
 ## Windows, Python and the shell
 
@@ -18,6 +18,8 @@ Sources: the corrections logs of the October 20, 22 and 26 handoffs and the mode
 | A version-sorting script crashed on a very old SymPy release labelled `0.5.13-hg` | Skip version labels that don't parse | Oct 26 |
 | Two of Part 13's pinned lab versions (fastapi 0.156.1, starlette 1.9.0) were under 14 days old; the rule had only been applied to newest releases | Check each pinned file's upload date on PyPI too, before installing a pinned list | Oct 26 |
 | A lab server sent its 503 and closed without reading the request. On Windows the reply was lost in 13 of 20 tries (`WinError 10053`); Linux passed | Before closing on a refused or early reply, shut the write side and read what the client sent, with a time limit. Client helpers catch `ConnectionError`, not only `ConnectionResetError`. Run network labs on Windows as well as Linux | Oct 26 |
+| A PowerShell here-string commit message holding double quotes was mangled on its way to git, and the commit failed | Write the message to a file with the file-writing tool, then run `git commit -F <file>` | Oct 26 |
+| In Windows PowerShell 5.1, `Out-String -NoNewline` doesn't exist, and an unquoted `HEAD^{tree}` was read as a script block | Quote git revisions that contain braces (`'HEAD^{tree}'`); use only parameters that Windows PowerShell 5.1 has, not PowerShell 7-only ones | Oct 26 |
 
 ## Checks and tests
 
@@ -34,6 +36,8 @@ Sources: the corrections logs of the October 20, 22 and 26 handoffs and the mode
 | Part 13 and the ledger said FastAPI "needs Starlette 1.9.0"; FastAPI declares `starlette>=0.46.0` | Check a dependency claim against the project's own `pyproject.toml`, or PyPI's `requires_dist`. When that is empty (click 8.5.0), read `pyproject.toml` at the release tag | Oct 26 |
 | A basic-grep alternation (a backslash, then a pipe) matched every line; a browser JavaScript filter matched the `15: ` line-number prefix and pushed the real hit out of view | Filter on the line text before adding line numbers; sanity-check a search's hit count | Oct 26 |
 | Part 13's header tag count went stale: the package re-check added 2 [V] and 4 [T] without updating it | After an edit that adds or removes tags, recount with the header's own method, first confirming it reproduces an older header, and update the count | Oct 26 |
+| A count was reported before it was made ("about 140" third-party emails in a pip report); the real figure was 189 distinct, and 16 of the regex hits were code fragments | Count with a script before giving a number, and read a sample of a pattern's hits to see what it really matched | Oct 26 |
+| Two of four test A reports gave summary lines that miscounted their own verdicts | Recount from the verdicts themselves; never copy a report's summary line | Oct 26 |
 
 ## Git, GitHub and other models
 
@@ -42,6 +46,7 @@ Sources: the corrections logs of the October 20, 22 and 26 handoffs and the mode
 | A push was rejected because Codex had pushed from elsewhere | `git fetch`, read the remote commits, then rebase or fast-forward, then push. Never force-push | Oct 22 |
 | GitHub had a Codex commit while the local copy had other uncommitted Codex notes in the same file | Back up the local file, fast-forward, re-add the local notes, and check both sides byte for byte | Oct 22 |
 | A status line on one model's page went stale against another's | Current decisions live on one decisions page; the model pages keep dated logs | Oct 26 |
+| GitHub refused a push (GH007) because the commits carried a private email address, and the account blocks pushes that would publish one | Commit with the GitHub noreply address, set in the repository's own git config; rewrite only commits not yet pushed (`git commit --amend --no-edit --reset-author`) | Oct 26 |
 
 ## Plugin and claude.ai
 

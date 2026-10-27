@@ -9,8 +9,8 @@ source. Run it before a commit.
 1. Commit hashes named in the README exist in git.
 2. The plugin's skill and agent counts match its README; its version matches
    the root README.
-3. Each Codex entry in .agents/skills/ links to a canonical SKILL.md that exists,
-   and carries the same description.
+3. Each Codex entry in .agents/skills/ links to a canonical SKILL.md that exists
+   outside .agents/, and carries the same description.
 4. Every skill the packager uploads to claude.ai has a short description of
    200 characters or fewer (claude.ai drops longer ones).
 5. The plugin's shared/ files are identical in every skill that bundles them.
@@ -72,19 +72,23 @@ def check_plugin_counts():
 
 def check_codex_entries():
     entries = sorted((ROOT / ".agents" / "skills").glob("*/SKILL.md"))
-    broken, drifted = [], []
+    broken, inside, drifted = [], [], []
     for entry in entries:
         text = entry.read_text(encoding="utf-8")
         m = re.search(r"\[canonical skill\]\(([^)]+)\)", text)
         target = (entry.parent / m.group(1)).resolve() if m else None
         if not target or not target.is_file():
             broken.append(entry.parent.name)
+        elif ROOT / ".agents" in target.parents:  # a link back to itself or another entry would pass otherwise
+            inside.append(entry.parent.name)
         elif description(text) != description(target.read_text(encoding="utf-8")):
             drifted.append(entry.parent.name)
     if broken:
         report("FAIL", f".agents/skills: broken canonical links: {', '.join(broken)}")
-    else:
-        report("OK", f".agents/skills: {len(entries)} entries, every canonical link resolves")
+    if inside:
+        report("FAIL", f".agents/skills: canonical links that point back inside .agents/: {', '.join(inside)}")
+    if not broken and not inside:
+        report("OK", f".agents/skills: {len(entries)} entries, every canonical link leads to a skill outside .agents/")
     report("WARN" if drifted else "OK", ".agents/skills descriptions that differ from their canonical skill: "
            + (", ".join(drifted) or "none"))
 

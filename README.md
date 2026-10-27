@@ -24,7 +24,7 @@ Research, Agent Skills and a Claude Code plugin for building with AI models, mad
 | `skills/` | Seven Agent Skills: a prompt-suite generator, a quantum entanglement lab, a cross-model accuracy verifier, a server log triager, trig-check, qubit-math and a book chapter splitter. `build_skill.py` packages a skill; `_skill-builder-kit/` holds the skill-building prompt and validators |
 | `tools/` | `check_workspace.py` (checks the pages against the files), `package_for_claude_ai.py` (builds claude.ai upload files) and `local-model/` (a bridge to a small local model) |
 | `.agents/skills/`, `AGENTS.md` | Entries that let Codex find the same skills |
-| `CLAUDE.md`, `LESSONS.md` | The rules any AI model working here follows, and 40 traps already hit, each with the rule it led to |
+| `CLAUDE.md`, `LESSONS.md` | The rules any AI model working here follows, and 45 traps already hit, each with the rule it led to |
 
 ## Try it
 
@@ -51,7 +51,7 @@ GitHub shows a hidden-Unicode warning on `research/engineering-stack/labs/part-1
 - **Labs that test their own tests.** Each lab's `mutation_check.py` plants faults and expects the checks to catch every one.
 - **Reader tests.** The labs were also run on a Windows 11 PC, by script and by hand; the records are in `research/engineering-stack/docs/records/`.
 - **The council against a hidden answer key.** Test A planted 4 wrong facts among 8 claims; every agent caught all 4 from primary sources. Test B asked what this repository needed before going public; the council found 11 of 14 points on the hidden key, one plain agent found 8. Details: `research/council-runs/2026-10-26-test-a/SCORE.md` and `research/council-runs/2026-10-26-test-b-summary.md`.
-- **Mistakes kept.** `LESSONS.md` lists 40 traps in 7 groups, from Windows encoding errors to tests that passed for the wrong reason.
+- **Mistakes kept.** `LESSONS.md` lists 45 traps in 7 groups, from Windows encoding errors to tests that passed for the wrong reason.
 
 ## How it was made
 
